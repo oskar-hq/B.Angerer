@@ -14,5 +14,5 @@ Settings > Pages > Source: "Deploy from a branch", Branch auswählen, Ordner `/ 
 
 - `noindex` in den HTML-Dateien entfernen
 - Platzhalter in `impressum.html` und `datenschutz.html` füllen
-- Empfängeradresse `CONTACT_EMAIL` in `assets/js/main.js` ändern
+- Empfängeradresse `CONTACT_EMAIL` (Testphase) in `assets/js/main.js` ändern
 - Portrait und Referenzen prüfen

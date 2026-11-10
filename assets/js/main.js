@@ -3,7 +3,7 @@
   'use strict';
 
   // Empfänger der Anfragen. Für die Testphase laut Absprache; später auf Bettinas Adresse ändern.
-  var CONTACT_EMAIL = 'info@oskarjakobsen.dk';
+  var CONTACT_EMAIL = 'info@oskarjacobsen.de';
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var root = document.documentElement;
@@ -96,49 +96,70 @@
     }
   }
 
-  /* ---------- Anfrageformular ---------- */
+  /* ---------- Anfrage in Schritten ---------- */
+  var dialog = document.getElementById('wizard');
   var form = document.getElementById('enquiry-form');
-  if (!form) return;
-  var result = document.getElementById('form-result');
+  if (!dialog || !form) return;
+
+  var steps = Array.prototype.slice.call(form.querySelectorAll('.step'));
+  var questions = steps.length - 1; // letzter Schritt ist die Bestätigung
+  var bar = form.querySelector('.wizard-bar');
+  var count = form.querySelector('.wizard-count');
+  var foot = form.querySelector('.wizard-foot');
+  var backBtn = form.querySelector('[data-back]');
+  var nextBtn = form.querySelector('[data-next]');
   var resultText = document.getElementById('result-text');
   var copyBtn = document.getElementById('copy-btn');
+  var current = 0;
   document.getElementById('result-mail').textContent = CONTACT_EMAIL;
+
+  function show(i, back) {
+    current = i;
+    var done = i === questions;
+    steps.forEach(function (st, n) {
+      st.classList.toggle('is-active', n === i);
+      st.classList.toggle('from-back', !!back);
+    });
+    var pct = done ? 100 : Math.round((i / questions) * 100);
+    bar.firstElementChild.style.transform = 'scaleX(' + (done ? 1 : Math.max(i / questions, 0.04)) + ')';
+    bar.setAttribute('aria-valuenow', String(pct));
+    count.textContent = done ? 'Geschafft' : 'Frage ' + (i + 1) + ' von ' + questions;
+    backBtn.hidden = i === 0 || done;
+    foot.classList.toggle('is-done', done || i === 0);
+    nextBtn.firstChild.textContent = done ? 'Schließen ' : (i === questions - 1 ? 'Anfrage senden ' : 'Weiter ');
+    var focusEl = done ? steps[i].querySelector('h2')
+      : (steps[i].dataset.step === 'fields' ? steps[i].querySelector('input, textarea') : steps[i].querySelector('legend'));
+    if (focusEl) focusEl.focus({ preventScroll: true });
+    form.querySelector('.wizard-body').scrollTop = 0;
+  }
 
   function mark(el, bad) { el.classList.toggle('invalid', bad); return bad; }
 
-  function validate() {
+  function validateStep(i) {
+    var st = steps[i];
     var firstBad = null;
-    form.querySelectorAll('[data-required]').forEach(function (fs) {
-      var bad = !form.querySelector('input[name="' + fs.dataset.required + '"]:checked');
-      if (mark(fs, bad) && !firstBad) firstBad = fs.querySelector('input');
-    });
-    form.querySelectorAll('.field').forEach(function (f) {
+    if (st.dataset.step === 'radio') {
+      var bad = !st.querySelector('input:checked');
+      if (mark(st, bad)) firstBad = st.querySelector('input');
+      return firstBad;
+    }
+    st.querySelectorAll('.field').forEach(function (f) {
       var input = f.querySelector('input, textarea');
-      if (!input.required && !input.value) { mark(f, false); return; }
-      var bad = !input.value.trim() ||
-        (input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(input.value.trim()));
+      var v = input.value.trim();
+      var bad = input.required ? !v : false;
+      if (input.type === 'email' && v) bad = !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
       input.setAttribute('aria-invalid', String(bad));
       if (mark(f, bad) && !firstBad) firstBad = input;
     });
-    var checkWrap = form.querySelector('[data-check]');
-    var check = checkWrap.querySelector('input');
-    if (mark(checkWrap, !check.checked) && !firstBad) firstBad = check;
+    var checkWrap = st.querySelector('[data-check]');
+    if (checkWrap) {
+      var check = checkWrap.querySelector('input');
+      if (mark(checkWrap, !check.checked) && !firstBad) firstBad = check;
+    }
     return firstBad;
   }
 
-  form.addEventListener('input', function (e) {
-    var holder = e.target.closest('.invalid');
-    if (holder) holder.classList.remove('invalid');
-  });
-  form.addEventListener('change', function (e) {
-    var holder = e.target.closest('.invalid');
-    if (holder) holder.classList.remove('invalid');
-  });
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var bad = validate();
-    if (bad) { bad.focus(); return; }
+  function send() {
     var d = new FormData(form);
     var subject = 'Anfrage Erstgespräch: ' + d.get('firma') + ' [Umsatz ' + d.get('umsatz') + ']';
     var body = [
@@ -158,13 +179,59 @@
       'E-Mail: ' + d.get('email'),
       'Telefon: ' + (d.get('telefon') || 'nicht angegeben')
     ].join('\n');
-
     resultText.textContent = 'Betreff: ' + subject + '\n\n' + body;
-    result.classList.add('show');
-    result.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' });
+    show(questions);
     window.location.href = 'mailto:' + CONTACT_EMAIL +
       '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  }
+
+  function next() {
+    if (current === questions) { dialog.close(); return; }
+    var bad = validateStep(current);
+    if (bad) { bad.focus(); return; }
+    if (current === questions - 1) send(); else show(current + 1);
+  }
+
+  function openWizard() {
+    if (root.classList.contains('menu-open')) setMenu(false);
+    if (current === questions) { form.reset(); current = 0; }
+    if (typeof dialog.showModal === 'function') dialog.showModal(); else dialog.setAttribute('open', '');
+    root.classList.add('wizard-lock');
+    show(current);
+  }
+
+  document.addEventListener('click', function (e) {
+    var opener = e.target.closest('[data-open-wizard], a[href="#anfrage"]');
+    if (opener) { e.preventDefault(); openWizard(); return; }
+    if (e.target.closest('[data-close-wizard]')) dialog.close();
   });
+  dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+  dialog.addEventListener('close', function () { root.classList.remove('wizard-lock'); });
+
+  nextBtn.addEventListener('click', next);
+  backBtn.addEventListener('click', function () { if (current > 0) show(current - 1, true); });
+
+  // Auswahl per Klick oder Tipp geht direkt zur nächsten Frage (nicht bei Tastatur).
+  form.addEventListener('click', function (e) {
+    if (e.target.matches('.option input') && e.detail > 0) {
+      var at = current;
+      setTimeout(function () { if (current === at) next(); }, 280);
+    }
+  });
+  form.addEventListener('input', function (e) {
+    var holder = e.target.closest('.invalid');
+    if (holder) holder.classList.remove('invalid');
+  });
+  form.addEventListener('change', function (e) {
+    var holder = e.target.closest('.invalid');
+    if (holder) holder.classList.remove('invalid');
+  });
+  form.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA' && e.target.tagName !== 'BUTTON' && e.target.tagName !== 'A') {
+      e.preventDefault(); next();
+    }
+  });
+  form.addEventListener('submit', function (e) { e.preventDefault(); });
 
   copyBtn.addEventListener('click', function () {
     var text = resultText.textContent;
@@ -172,7 +239,7 @@
     if (navigator.clipboard) { navigator.clipboard.writeText(text).then(done, function () {}); }
     else {
       var r = document.createRange(); r.selectNodeContents(resultText);
-      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
       try { document.execCommand('copy'); done(); } catch (err) {}
     }
   });
