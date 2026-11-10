@@ -274,7 +274,7 @@ p, li, dd { text-wrap: pretty; }
 .service li { padding: var(--s-200) 0; border-bottom: 1px solid var(--line-blue); display: grid; gap: var(--s-50); }
 .service li strong { font-weight: 500; font-size: 16px; line-height: 24px; color: var(--on-blue); }
 .service li span { font-size: 14px; line-height: 20px; color: var(--on-blue-soft); }
-.service-refs { margin-top: var(--s-300); border: 0 !important; display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-200) var(--s-400); min-height: 32px; }
+.service-refs { margin-top: var(--s-300); border: 0 !important; display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-200) var(--s-400); min-height: 40px; }
 .service .service-refs li { padding: 0; border: 0; display: flex; align-items: center; }
 .service-refs .logo { height: calc(22px * var(--k, 1)); background: var(--gold-light); opacity: 1; }
 .service-refs .logo-text { font-family: var(--sans); font-size: 12px; line-height: 16px; letter-spacing: 0.16em; font-weight: 500; color: var(--gold-light); opacity: 1; }
