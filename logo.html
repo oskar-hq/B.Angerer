@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Logo Varianten | Angerer Consulting</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css?v=4">
+  <style>
+    .lv-grid { display: grid; gap: 24px; }
+    @media (min-width: 900px) { .lv-grid { grid-template-columns: 1fr 1fr; } }
+    .lv { border: 1px solid var(--line-light); background: var(--cream); }
+    .lv-stage { display: grid; grid-template-columns: 1fr 1fr; }
+    .lv-stage > div { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; padding: 40px 16px; min-height: 280px; }
+    .lv-dark { background: var(--blue); color: var(--champagne); }
+    .lv-light { background: var(--champagne); color: var(--blue); }
+    .lv-mark { width: 120px; height: 120px; }
+    .lv-word { text-align: center; }
+    .lv-word b { display: block; white-space: nowrap; font-family: var(--serif); font-weight: 500; font-size: 16px; line-height: 28px; letter-spacing: 0.2em; text-transform: uppercase; }
+    .lv-word i { display: block; font-style: normal; font-size: 12px; line-height: 16px; letter-spacing: 0.42em; text-transform: uppercase; color: var(--gold-light); font-weight: 500; }
+    .lv-light .lv-word i { color: var(--gold-deep); }
+    .lv-info { padding: 24px; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; }
+    .lv-info p { color: var(--ink-soft); font-size: 14px; line-height: 20px; margin-top: 4px; }
+    .lv-small { display: flex; gap: 12px; align-items: center; }
+    .lv-small span { display: block; background: var(--blue); color: var(--champagne); }
+    .lv-small svg { display: block; }
+    svg text { font-family: var(--serif); }
+  </style>
+</head>
+<body>
+  <main class="section on-light">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow caption-3">Logo</p>
+        <h1 class="heading-2">Sechs Varianten zum Abwägen.</h1>
+        <p class="body-lg">Jede Variante steht auf Blau und auf Champagner, daneben klein wie im Browser-Tab. Die blaue Strähne ist in allen das wiederkehrende Zeichen.</p>
+      </div>
+      <div class="lv-grid" id="grid"></div>
+      <p style="margin-top:48px"><a class="textlink" href="./">Zurück zur Startseite</a></p>
+    </div>
+  </main>
+
+  <script>
+    var STRAND = '#3AA7E8';
+    var variants = [
+      { n: 'A', name: 'Die Strähne als Stamm', note: 'Aktueller Stand. Feines B, dessen senkrechter Strich die Strähne ist. Sehr reduziert.',
+        svg: '<g stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"><path d="M47 26h19c14 0 21.500 7 21.500 17S80 60 66 60H47"/><path d="M66 60c16 0 24.500 7.500 24.500 18S82 96 66 96H45"/></g><path d="M62 13C36 20 23.500 47 29 75c2.500 12 7.500 23.500 14 34-3.800-13-5.200-25.500-4.300-37.500C40.500 49.500 48 28 62 13z" fill="' + STRAND + '"/>' },
+      { n: 'B', name: 'Serifen B mit fallender Strähne', note: 'Klassischer Buchstabe wie bei Uhren und Modehäusern, die Strähne legt sich wie eine Haarlocke darüber.',
+        svg: '<text x="63" y="99" text-anchor="middle" font-size="112" font-weight="500" fill="currentColor">B</text><path d="M84 12C54 12 30 32 27 62c-1.800 18 3 36 13 50-4.500-16-5.500-30-3.500-43C40 46 56 24 84 12z" fill="' + STRAND + '"/>' },
+      { n: 'C', name: 'Monogramm BA im Ring', note: 'Beide Initialen in einem feinen Goldring. Wirkt wie ein Siegel oder eine Gravur.',
+        svg: '<circle cx="60" cy="60" r="54" stroke="#D4B678" stroke-width="1.200" fill="none"/><text x="46" y="82" text-anchor="middle" font-size="66" font-weight="500" fill="currentColor">B</text><text x="77" y="82" text-anchor="middle" font-size="66" font-weight="500" fill="currentColor">A</text><path d="M96 26C70 22 42 34 30 58c-5 10-7 21-6 32 3-12 8-22 15-30 14-17 34-28 57-34z" fill="' + STRAND + '"/>' },
+      { n: 'D', name: 'A mit Strähne', note: 'Das A von Angerer. Der linke Schenkel ist die Strähne, der rechte ein feiner Strich.',
+        svg: '<g stroke="currentColor" stroke-width="2.400" stroke-linecap="round" fill="none"><path d="M61 16 93 102"/><path d="M82 102h22"/><path d="M44 72h37"/></g><path d="M63 12C50 34 36 60 22 104c-1 3 0 4 2 4h14c-3 0-4-2-3-5C42 74 52 42 63 12z" fill="' + STRAND + '"/>' },
+      { n: 'E', name: 'Nur die Strähne', note: 'Reines Zeichen ohne Buchstaben. Drei fallende Haarlinien, eine davon blau. Am mutigsten, braucht den Namen daneben.',
+        svg: '<g stroke="currentColor" stroke-width="1.600" stroke-linecap="round" fill="none"><path d="M92 14C62 16 40 38 38 68c-1 16 4 30 12 42"/><path d="M100 22C74 26 56 44 54 70c-1 13 3 25 9 36"/></g><path d="M80 10C46 12 20 36 18 68c-1 16 4 32 14 44-5-15-6-28-4-40C32 44 52 22 80 10z" fill="' + STRAND + '"/>' },
+      { n: 'F', name: 'Siegel mit Umschrift', note: 'Rundes Emblem mit Name und Ort. Gut für Stempel, Briefpapier und Profilbilder.',
+        svg: '<defs><path id="ring" d="M60 60m-45 0a45 45 0 1 1 90 0a45 45 0 1 1-90 0"/></defs><circle cx="60" cy="60" r="56" stroke="#D4B678" stroke-width="1" fill="none"/><circle cx="60" cy="60" r="35" stroke="#D4B678" stroke-width="0.700" fill="none"/><text font-size="9.400" font-weight="600" fill="currentColor"><textPath href="#ring" startOffset="0" textLength="278" lengthAdjust="spacing">BETTINA ANGERER · CONSULTING · BAYREUTH ·</textPath></text><text x="62" y="77" text-anchor="middle" font-size="52" font-weight="500" fill="currentColor">B</text><path d="M71 30C56 31 45 41 43.500 55c-1 9 1.500 18 6.500 25-2.200-8-2.700-15-1.700-21.500C50 47 58 36 71 30z" fill="' + STRAND + '"/>' }
+    ];
+    function mark(v, size) {
+      return '<svg viewBox="0 0 120 120" width="' + size + '" height="' + size + '" fill="none" aria-hidden="true">' + v.svg.replace(/id="ring"/, 'id="ring' + size + v.n + '"').replace(/#ring"/, '#ring' + size + v.n + '"') + '</svg>';
+    }
+    var word = '<div class="lv-word"><b>Bettina Angerer</b><i>Consulting</i></div>';
+    document.getElementById('grid').innerHTML = variants.map(function (v, i) {
+      return '<article class="lv">' +
+        '<div class="lv-stage"><div class="lv-dark">' + mark(v, 120 + i) + word + '</div><div class="lv-light">' + mark(v, 121 + i * 2) + word + '</div></div>' +
+        '<div class="lv-info"><div><h2 class="heading-5">Variante ' + v.n + ': ' + v.name + '</h2><p>' + v.note + '</p></div>' +
+        '<div class="lv-small"><span>' + mark(v, 48) + '</span><span>' + mark(v, 24) + '</span></div></div></article>';
+    }).join('');
+  </script>
+</body>
+</html>
