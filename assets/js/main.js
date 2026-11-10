@@ -23,18 +23,84 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
   }
 
-  /* ---------- Scroll reveals ---------- */
-  var reveals = document.querySelectorAll('.reveal');
+  /* ---------- Scroll reveals, gestaffelt ---------- */
+  var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
+      // Elemente, die gleichzeitig ins Bild kommen, erscheinen nacheinander.
+      var batch = entries.filter(function (en) { return en.isIntersecting; })
+        .sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top || a.boundingClientRect.left - b.boundingClientRect.left; });
+      batch.forEach(function (en, i) {
+        var el = en.target;
+        var delay = reduce ? 0 : Math.min(i * 110, 440);
+        el.style.setProperty('--d', delay + 'ms');
+        el.classList.add('is-in');
+        setTimeout(function () { el.classList.add('is-done'); el.style.removeProperty('--d'); }, delay + 1000);
+        io.unobserve(el);
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
     reveals.forEach(function (el) { io.observe(el); });
   } else {
-    reveals.forEach(function (el) { el.classList.add('is-in'); });
+    reveals.forEach(function (el) { el.classList.add('is-in', 'is-done'); });
   }
+
+  /* ---------- Zahlen zählen hoch ---------- */
+  var counters = document.querySelectorAll('[data-count]');
+  if (counters.length && !reduce && 'IntersectionObserver' in window) {
+    var easeOut = function (t) { return 1 - Math.pow(1 - t, 4); };
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        cio.unobserve(en.target);
+        var el = en.target, end = parseInt(el.dataset.count, 10), suffix = el.dataset.suffix || '';
+        var start = null, dur = 1800, wait = 900;
+        el.textContent = '0' + suffix;
+        var tick = function (ts) {
+          if (start === null) start = ts + wait;
+          var t = Math.max(0, Math.min(1, (ts - start) / dur));
+          el.textContent = Math.round(easeOut(t) * end) + suffix;
+          if (t < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(function (c) { cio.observe(c); });
+  }
+
+  /* ---------- Logoband läuft endlos ---------- */
+  var marquee = document.querySelector('.marquee');
+  if (marquee) {
+    if (reduce) { marquee.classList.add('is-static'); }
+    else {
+      var list = marquee.querySelector('.refs-list');
+      Array.prototype.slice.call(list.children).forEach(function (li) {
+        var c = li.cloneNode(true); c.setAttribute('aria-hidden', 'true'); list.appendChild(c);
+      });
+      marquee.classList.add('is-running');
+    }
+  }
+
+  /* ---------- Scroll: Header, Fortschritt, Parallaxe ---------- */
+  var header = document.querySelector('.header');
+  var progress = document.querySelector('.scroll-progress');
+  var strand = document.querySelector('.hero-strand-wrap');
+  var lastY = window.scrollY, scrollTick = false;
+  var onScroll = function () {
+    scrollTick = false;
+    var y = window.scrollY;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    if (progress) progress.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0) + ')';
+    if (header && !root.classList.contains('menu-open')) {
+      if (y > 480 && y > lastY + 4) header.classList.add('is-hidden');
+      else if (y < lastY - 4 || y <= 480) header.classList.remove('is-hidden');
+    }
+    if (strand && !reduce && y < window.innerHeight * 1.5) strand.style.transform = 'translate3d(0,' + (y * 0.18).toFixed(1) + 'px,0)';
+    lastY = y;
+  };
+  window.addEventListener('scroll', function () {
+    if (!scrollTick) { scrollTick = true; requestAnimationFrame(onScroll); }
+  }, { passive: true });
+  onScroll();
 
   /* ---------- Current nav item ---------- */
   var navLinks = document.querySelectorAll('.nav a');

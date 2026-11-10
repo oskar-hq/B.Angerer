@@ -16,7 +16,7 @@
   <link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/cormorant-garamond.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/styles.css?v=3">
   <script>document.documentElement.classList.remove('no-js');</script>
 </head>
 <body>
@@ -39,6 +39,7 @@
   <div class="strip">Präsent in Oberfranken. Nicht für jeden verfügbar.</div>
 
   <header class="header" id="top">
+    <span class="scroll-progress" aria-hidden="true"></span>
     <div class="wrap header-inner">
       <nav class="nav" aria-label="Hauptnavigation">
         <a href="#leistungen">Leistungen</a>
@@ -71,14 +72,14 @@
 
     <!-- Hero: die blaue Wand -->
     <section class="hero on-blue" aria-labelledby="hero-title">
-      <svg class="hero-strand" viewBox="0 0 1100 760" preserveAspectRatio="none" fill="none" aria-hidden="true">
+      <div class="hero-strand-wrap"><svg class="hero-strand" viewBox="0 0 1100 760" preserveAspectRatio="none" fill="none" aria-hidden="true">
         <g stroke="#D4B678" stroke-width="1" opacity="0.22">
           <path d="M-20 80C220 40 420 140 520 330s220 330 620 380"/>
           <path d="M-20 130C200 100 380 190 480 370s230 300 640 350"/>
           <path d="M-20 30C250 -10 470 90 570 290s210 350 560 400"/>
         </g>
         <path d="M-20 96C210 62 400 160 500 348s222 318 620 366c-380-62-560-190-640-360S180 92 -20 108z" fill="#3AA7E8" opacity="0.5"/>
-      </svg>
+      </svg></div>
       <div class="wrap hero-inner">
         <p class="caption-3">Angerer Consulting · Bayreuth</p>
         <h1 class="heading-1" id="hero-title">Dreißig Jahre Mittelstand.<br>Und das Team, das Ihre Kunden heute erreicht.</h1>
@@ -90,9 +91,9 @@
       </div>
       <div class="wrap">
         <dl class="stats">
-          <div class="stat"><dt>30+</dt><dd>Jahre im Mittelstand</dd></div>
-          <div class="stat"><dt>100+</dt><dd>begleitete Unternehmen</dd></div>
-          <div class="stat"><dt>8</dt><dd>Jahre BVMW</dd></div>
+          <div class="stat"><dt data-count="30" data-suffix="+">30+</dt><dd>Jahre im Mittelstand</dd></div>
+          <div class="stat"><dt data-count="100" data-suffix="+">100+</dt><dd>begleitete Unternehmen</dd></div>
+          <div class="stat"><dt data-count="8" data-suffix="">8</dt><dd>Jahre BVMW</dd></div>
         </dl>
       </div>
     </section>
@@ -101,9 +102,9 @@
     <section class="refs on-champagne" aria-label="Referenzen des Teams">
       <div class="wrap">
         <p class="refs-label caption-3">Das Team hat gearbeitet für</p>
-        <ul class="refs-list">
-          <li>Red Bull</li><li>DZ Bank</li><li>Netflix</li><li>Joyn</li><li>ZDF</li><li>ITV Studios</li><li>Miss Germany</li><li>Knabe Malz</li>
-        </ul>
+        <div class="marquee">
+          <ul class="refs-list" aria-label="Referenzen"><li><span class="logo" role="img" aria-label="Red Bull" style="-webkit-mask-image:url(assets/img/logos/redbull.svg);mask-image:url(assets/img/logos/redbull.svg);aspect-ratio:1.764;--k:1.3"></span></li><li><span class="logo-text">DZ Bank</span></li><li><span class="logo" role="img" aria-label="Netflix" style="-webkit-mask-image:url(assets/img/logos/netflix.svg);mask-image:url(assets/img/logos/netflix.svg);aspect-ratio:0.55;--k:1.15"></span></li><li><span class="logo" role="img" aria-label="Joyn" style="-webkit-mask-image:url(assets/img/logos/joyn.svg);mask-image:url(assets/img/logos/joyn.svg);aspect-ratio:2.375;--k:0.8"></span></li><li><span class="logo" role="img" aria-label="ZDF" style="-webkit-mask-image:url(assets/img/logos/zdf.svg);mask-image:url(assets/img/logos/zdf.svg);aspect-ratio:1.711;--k:0.95"></span></li><li><span class="logo" role="img" aria-label="ITV Studios" style="-webkit-mask-image:url(assets/img/logos/itv.svg);mask-image:url(assets/img/logos/itv.svg);aspect-ratio:1.391;--k:1.35"></span></li><li><span class="logo-text">Miss Germany</span></li><li><span class="logo-text">Knabe Malz</span></li><li><span class="logo" role="img" aria-label="HR" style="-webkit-mask-image:url(assets/img/logos/hr.svg);mask-image:url(assets/img/logos/hr.svg);aspect-ratio:1.222;--k:1.25"></span></li><li><span class="logo-text">BR</span></li><li><span class="logo" role="img" aria-label="WDR" style="-webkit-mask-image:url(assets/img/logos/wdr.svg);mask-image:url(assets/img/logos/wdr.svg);aspect-ratio:3.441;--k:0.6"></span></li><li><span class="logo" role="img" aria-label="NDR" style="-webkit-mask-image:url(assets/img/logos/ndr.svg);mask-image:url(assets/img/logos/ndr.svg);aspect-ratio:1.047;--k:1.0"></span></li></ul>
+        </div>
       </div>
     </section>
 
@@ -154,7 +155,7 @@
               <li><strong>Neue Vertriebswege testen</strong><span>Erst im kleinen Versuch prüfen, ob sich eine Zielgruppe lohnt. Dann entscheiden.</span></li>
               <li><strong>Betreuung großer Kunden</strong><span>Erfahrung aus der Arbeit mit Konzernen und Sendern.</span></li>
             </ul>
-            <p class="service-refs">Red Bull · DZ Bank · Netflix · Joyn</p>
+            <ul class="service-refs" aria-label="Referenzen"><li><span class="logo" role="img" aria-label="Red Bull" style="-webkit-mask-image:url(assets/img/logos/redbull.svg);mask-image:url(assets/img/logos/redbull.svg);aspect-ratio:1.764;--k:1.3"></span></li><li><span class="logo-text">DZ Bank</span></li><li><span class="logo" role="img" aria-label="Netflix" style="-webkit-mask-image:url(assets/img/logos/netflix.svg);mask-image:url(assets/img/logos/netflix.svg);aspect-ratio:0.55;--k:1.15"></span></li><li><span class="logo" role="img" aria-label="Joyn" style="-webkit-mask-image:url(assets/img/logos/joyn.svg);mask-image:url(assets/img/logos/joyn.svg);aspect-ratio:2.375;--k:0.8"></span></li></ul>
             <a class="textlink" href="#outreach">So funktioniert die Akquise <svg class="arrow" width="16" height="16" aria-hidden="true"><use href="#arrow"/></svg></a>
           </article>
 
@@ -169,7 +170,7 @@
               <li><strong>Influencer-Marketing</strong><span>Die richtigen Gesichter für Ihr Produkt, wenn es schneller gehen soll.</span></li>
               <li><strong>Produktdesign</strong><span>Verpackung und Auftritt, die im Regal und im Bild funktionieren.</span></li>
             </ul>
-            <p class="service-refs">Red Bull · Knabe Malz · Miss Germany · ITV Studios</p>
+            <ul class="service-refs" aria-label="Referenzen"><li><span class="logo" role="img" aria-label="Red Bull" style="-webkit-mask-image:url(assets/img/logos/redbull.svg);mask-image:url(assets/img/logos/redbull.svg);aspect-ratio:1.764;--k:1.3"></span></li><li><span class="logo-text">Knabe Malz</span></li><li><span class="logo-text">Miss Germany</span></li><li><span class="logo" role="img" aria-label="ITV Studios" style="-webkit-mask-image:url(assets/img/logos/itv.svg);mask-image:url(assets/img/logos/itv.svg);aspect-ratio:1.391;--k:1.35"></span></li></ul>
           </article>
 
           <article class="service reveal" id="personal">
@@ -181,7 +182,7 @@
               <li><strong>Freelance-Experten</strong><span>Geprüfte Spezialisten auf Zeit, wenn eine feste Stelle zu viel wäre.</span></li>
               <li><strong>Kooperationen</strong><span>Partner aus dem Netzwerk, die zu Ihrem Vorhaben passen.</span></li>
             </ul>
-            <p class="service-refs">ZDF · HR · BR · WDR · NDR</p>
+            <ul class="service-refs" aria-label="Referenzen"><li><span class="logo" role="img" aria-label="ZDF" style="-webkit-mask-image:url(assets/img/logos/zdf.svg);mask-image:url(assets/img/logos/zdf.svg);aspect-ratio:1.711;--k:0.95"></span></li><li><span class="logo" role="img" aria-label="HR" style="-webkit-mask-image:url(assets/img/logos/hr.svg);mask-image:url(assets/img/logos/hr.svg);aspect-ratio:1.222;--k:1.25"></span></li><li><span class="logo-text">BR</span></li><li><span class="logo" role="img" aria-label="WDR" style="-webkit-mask-image:url(assets/img/logos/wdr.svg);mask-image:url(assets/img/logos/wdr.svg);aspect-ratio:3.441;--k:0.6"></span></li><li><span class="logo" role="img" aria-label="NDR" style="-webkit-mask-image:url(assets/img/logos/ndr.svg);mask-image:url(assets/img/logos/ndr.svg);aspect-ratio:1.047;--k:1.0"></span></li></ul>
           </article>
 
           <article class="service reveal" id="finanzierung">
@@ -193,7 +194,7 @@
               <li><strong>Staatliche Förderung</strong><span>Fördergelder, die Ihnen zustehen, auch wirklich abrufen.</span></li>
               <li><strong>Projektbudgetierung</strong><span>Ein klarer Rahmen, bevor das erste Geld fließt.</span></li>
             </ul>
-            <p class="service-refs">Aus roten Zahlen werden schwarze</p>
+            <p class="service-note">Aus roten Zahlen werden schwarze</p>
           </article>
 
         </div>
@@ -543,6 +544,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/main.js?v=3" defer></script>
 </body>
 </html>
