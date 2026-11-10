@@ -1,0 +1,374 @@
+## Datenschutzerklärung
+
+1. Einleitung
+
+Mit den folgenden Informationen möchten wir Ihnen als „betroffener Person“ einen Überblick über die Verarbeitung Ihrer personenbezogenen Daten durch uns und Ihre Rechte aus den Datenschutzgesetzen geben. Eine Nutzung unserer Internetseiten ist grundsätzlich ohne Eingabe personenbezogener Daten möglich. Sofern Sie besondere Services unseres Unternehmens über unsere Internetseite in Anspruch nehmen möchten, könnte jedoch eine Verarbeitung personenbezogener Daten erforderlich werden. Ist die Verarbeitung personenbezogener Daten erforderlich und besteht für eine solche Verarbeitung keine gesetzliche Grundlage, holen wir generell eine Einwilligung von Ihnen ein.
+
+Die Verarbeitung von personenbezogenen Daten, beispielsweise Ihres Namens, der Anschrift oder E-Mail-Adresse, erfolgt stets im Einklang mit der Datenschutz-Grundverordnung (DS-GVO) und in Übereinstimmung mit den für die „Mustermandant“ geltenden landesspezifischen Datenschutzbestimmungen. Mittels dieser Datenschutzerklärung möchten wir Sie über Umfang und Zweck der von uns erhobenen, genutzten und verarbeiteten personenbezogenen Daten informieren.
+
+Wir haben als für die Verarbeitung Verantwortliche zahlreiche technische und organisatorische Maßnahmen umgesetzt, um einen möglichst lückenlosen Schutz der über diese Internetseite verarbeiteten personenbezogenen Daten sicherzustellen. Dennoch können internetbasierte Datenübertragungen grundsätzlich Sicherheitslücken aufweisen, sodass ein absoluter Schutz nicht gewährleistet werden kann. Aus diesem Grund steht es Ihnen frei, personenbezogene Daten auch auf alternativen Wegen, beispielsweise telefonisch oder per Post, an uns zu übermitteln.
+
+2. Verantwortlicher
+
+Verantwortlicher im Sinne der DS-GVO ist:
+
+Bettina Angerer
+Heinrich Fickenscher Str. 5A
+95448 Bayreuth
+Deutschland
+
+Vertreter des Verantwortlichen:
+Bettina Angerer
+
+3. Datenschutzbeauftragter
+
+Den Datenschutzbeauftragten erreichen Sie wie folgt:
+
+Valuniq Datenklar GmbH
+Wilhelm-Busch-Str. 4
+95447 Bayreuth
+E-Mail: datenschutz@bettina-angerer.de
+Web: www.valuniq-datenklar.de 
+
+Sie können sich jederzeit bei allen Fragen und Anregungen zum Datenschutz direkt an unseren Datenschutzbeauftragten wenden.
+
+4. Begriffsbestimmungen
+
+Die Datenschutzerklärung beruht auf den Begrifflichkeiten, die durch den Europäischen Richtlinien- und Verordnungsgeber beim Erlass der Datenschutz-Grundverordnung (DS-GVO) verwendet wurden. Unsere Datenschutzerklärung soll sowohl für die Öffentlichkeit als auch für unsere Kunden und Geschäftspartner einfach lesbar und verständlich sein. Um dies zu gewährleisten, möchten wir vorab die verwendeten Begrifflichkeiten erläutern.
+
+Wir verwenden in dieser Datenschutzerklärung unter anderem die folgenden Begriffe:
+
+1. Personenbezogene Daten
+
+Personenbezogene Daten sind alle Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person beziehen. Als identifizierbar wird eine natürliche Person angesehen, die direkt oder indirekt, insbesondere mittels Zuordnung zu einer Kennung wie einem Namen, zu einer Kennnummer, zu Standortdaten, zu einer Online-Kennung oder zu einem oder mehreren besonderen Merkmalen, die Ausdruck der physischen, physiologischen, genetischen, psychischen, wirtschaftlichen, kulturellen oder sozialen Identität dieser natürlichen Person sind, identifiziert werden kann.
+
+2. Betroffene Person
+
+Betroffene Person ist jede identifizierte oder identifizierbare natürliche Person, deren personenbezogene Daten von dem für die Verarbeitung Verantwortlichen (unser Unternehmen) verarbeitet werden.
+
+3. Verarbeitung
+
+Verarbeitung ist jeder mit oder ohne Hilfe automatisierter Verfahren ausgeführte Vorgang oder jede solche Vorgangsreihe im Zusammenhang mit personenbezogenen Daten wie das Erheben, das Erfassen, die Organisation, das Ordnen, die Speicherung, die Anpassung oder Veränderung, das Auslesen, das Abfragen, die Verwendung, die Offenlegung durch Übermittlung, Verbreitung oder eine andere Form der Bereitstellung, den Abgleich oder die Verknüpfung, die Einschränkung, das Löschen oder die Vernichtung.
+
+4. Einschränkung der Verarbeitung
+
+Einschränkung der Verarbeitung ist die Markierung gespeicherter personenbezogener Daten mit dem Ziel, ihre künftige Verarbeitung einzuschränken.
+
+5. Profiling
+
+Profiling ist jede Art der automatisierten Verarbeitung personenbezogener Daten, die darin besteht, dass diese personenbezogenen Daten verwendet werden, um bestimmte persönliche Aspekte, die sich auf eine natürliche Person beziehen, zu bewerten, insbesondere, um Aspekte bezüglich Arbeitsleistung, wirtschaftlicher Lage, Gesundheit, persönlicher Vorlieben, Interessen, Zuverlässigkeit, Verhalten, Aufenthaltsort oder Ortswechsel dieser natürlichen Person zu analysieren oder vorherzusagen.
+
+6. Pseudonymisierung
+
+Pseudonymisierung ist die Verarbeitung personenbezogener Daten in einer Weise, auf welche die personenbezogenen Daten ohne Hinzuziehung zusätzlicher Informationen nicht mehr einer spezifischen betroffenen Person zugeordnet werden können, sofern diese zusätzlichen Informationen gesondert aufbewahrt werden und technischen und organisatorischen Maßnahmen unterliegen, die gewährleisten, dass die personenbezogenen Daten nicht einer identifizierten oder identifizierbaren natürlichen Person zugewiesen werden.
+
+7. Auftragsverarbeiter
+
+Auftragsverarbeiter ist eine natürliche oder juristische Person, Behörde, Einrichtung oder andere Stelle, die personenbezogene Daten im Auftrag des Verantwortlichen verarbeitet.
+
+8. Empfänger
+
+Empfänger ist eine natürliche oder juristische Person, Behörde, Einrichtung oder andere Stelle, der personenbezogene Daten offengelegt werden, unabhängig davon, ob es sich bei ihr um einen Dritten handelt oder nicht. Behörden, die im Rahmen eines bestimmten Untersuchungsauftrags nach dem Unionsrecht oder dem Recht der Mitgliedstaaten möglicherweise personenbezogene Daten erhalten, gelten jedoch nicht als Empfänger.
+
+9. Dritter
+
+Dritter ist eine natürliche oder juristische Person, Behörde, Einrichtung oder andere Stelle außer der betroffenen Person, dem Verantwortlichen, dem Auftragsverarbeiter und den Personen, die unter der unmittelbaren Verantwortung des Verantwortlichen oder des Auftragsverarbeiters befugt sind, die personenbezogenen Daten zu verarbeiten.
+
+10. Einwilligung
+
+Einwilligung ist jede von der betroffenen Person freiwillig für den bestimmten Fall in informierter Weise und unmissverständlich abgegebene Willensbekundung in Form einer Erklärung oder einer sonstigen eindeutigen bestätigenden Handlung, mit der die betroffene Person zu verstehen gibt, dass Sie mit der Verarbeitung der Sie betreffenden personenbezogenen Daten einverstanden ist.
+
+5. Rechtsgrundlage der Verarbeitung
+
+Art. 6 Abs. 1 lit. a DS-GVO dient unserem Unternehmen als Rechtsgrundlage für Verarbeitungsvorgänge, bei denen wir eine Einwilligung für einen bestimmten Verarbeitungszweck einholen.
+
+Ist die Verarbeitung personenbezogener Daten zur Erfüllung eines Vertrags, dessen Vertragspartei Sie sind, erforderlich, wie dies beispielsweise bei Verarbeitungsvorgängen der Fall ist, die für eine Lieferung von Waren oder die Erbringung einer sonstigen Leistung oder Gegenleistung notwendig sind, so beruht die Verarbeitung auf Art. 6 Abs. 1 lit. b DS-GVO. Gleiches gilt für solche Verarbeitungsvorgänge die zur Durchführung vorvertraglicher Maßnahmen erforderlich sind, etwa in Fällen von Anfragen zu unseren Produkten oder Leistungen.
+
+Unterliegt unser Unternehmen einer rechtlichen Verpflichtung durch welche eine Verarbeitung von personenbezogenen Daten erforderlich wird, wie beispielsweise zur Erfüllung steuerlicher Pflichten, so basiert die Verarbeitung auf Art. 6 Abs. 1 lit. c DS-GVO.
+
+In seltenen Fällen könnte die Verarbeitung von personenbezogenen Daten erforderlich werden, um lebenswichtige Interessen der betroffenen Person oder einer anderen natürlichen Person zu schützen. Dies wäre beispielsweise der Fall, wenn ein Besucher in unserem Betrieb verletzt werden würde und daraufhin sein Name, sein Alter, seine Krankenkassendaten oder sonstige lebenswichtige Informationen an einen Arzt, ein Krankenhaus oder sonstige Dritte weitergegeben werden müssten. Dann würde die Verarbeitung auf Art. 6 Abs. 1 lit. d DS-GVO beruhen.
+
+Letztlich könnten Verarbeitungsvorgänge auf Art. 6 Abs. 1 lit. f DS-GVO beruhen. Auf dieser Rechtsgrundlage basieren Verarbeitungsvorgänge, die von keiner der vorgenannten Rechtsgrundlagen erfasst werden, wenn die Verarbeitung zur Wahrung eines berechtigten Interesses unseres Unternehmens oder eines Dritten erforderlich ist, sofern die Interessen, Grundrechte und Grundfreiheiten des Betroffenen nicht überwiegen. Solche Verarbeitungsvorgänge sind uns insbesondere deshalb gestattet, weil sie durch den Europäischen Gesetzgeber besonders erwähnt wurden. Er vertrat insoweit die Auffassung, dass ein berechtigtes Interesse anzunehmen sein könnte, wenn Sie ein Kunde unseres Unternehmens sind (Erwägungsgrund 47 Satz 2 DS-GVO).
+
+6. Technik
+
+6.1 SSL/TLS-Verschlüsselung
+
+Diese Seite nutzt zur Gewährleistung der Sicherheit der Datenverarbeitung und zum Schutz der Übertragung vertraulicher Inhalte, wie zum Beispiel Bestellungen, Login-Daten oder Kontaktanfragen, die Sie an uns als Betreiber senden, eine SSL-bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass in der Adresszeile des Browsers statt einem „http://“ ein „https://“ steht und an dem Schloss-Symbol in Ihrer Browserzeile.
+
+Wir setzen diese Technologie ein, um Ihre übermittelten Daten zu schützen.
+
+6.2 Datenerfassung beim Besuch der Internetseite
+
+Bei der lediglich informatorischen Nutzung unserer Website, also wenn Sie sich nicht registrieren oder uns anderweitig Informationen übermitteln, erheben wir nur solche Daten, die Ihr Browser an unseren Server übermittelt (in sog. „Server-Logfiles“). Unsere Internetseite erfasst mit jedem Aufruf einer Seite durch Sie oder ein automatisiertes System eine Reihe von allgemeinen Daten und Informationen. Diese allgemeinen Daten und Informationen werden in den Logfiles des Servers gespeichert. Erfasst werden können die
+
+1. verwendeten Browsertypen und Versionen,
+
+2. das vom zugreifenden System verwendete Betriebssystem,
+
+3. die Internetseite, von welcher ein zugreifendes System auf unsere Internetseite gelangt (sogenannte Referrer),
+
+4. die Unterwebseiten, welche über ein zugreifendes System auf unserer Internetseite angesteuert werden,
+
+5. das Datum und die Uhrzeit eines Zugriffs auf die Internetseite,
+
+6. eine gekürzte Internet-Protokoll-Adresse (anonymisierte IP-Adresse),
+
+7. der Internet-Service-Provider des zugreifenden Systems.
+
+Bei der Nutzung dieser allgemeinen Daten und Informationen ziehen wir keine Rückschlüsse auf Ihre Person. Diese Informationen werden vielmehr benötigt, um
+
+1. die Inhalte unserer Internetseite korrekt auszuliefern,
+
+2. die Inhalte unserer Internetseite sowie die Werbung für diese zu optimieren,
+
+3. die dauerhafte Funktionsfähigkeit unserer IT-Systeme und der Technik unserer Internetseite zu gewährleisten sowie
+
+4. um Strafverfolgungsbehörden im Falle eines Cyberangriffes die zur Strafverfolgung notwendigen Informationen bereitzustellen.
+
+Diese erhobenen Daten und Informationen werden durch uns daher einerseits statistisch und ferner mit dem Ziel ausgewertet, den Datenschutz und die Datensicherheit in unserem Unternehmen zu erhöhen, um letztlich ein optimales Schutzniveau für die von uns verarbeiteten personenbezogenen Daten sicherzustellen. Die anonymen Daten der Server-Logfiles werden getrennt von allen durch eine betroffene Person angegebenen personenbezogenen Daten gespeichert.
+
+Die Rechtsgrundlage für die Datenverarbeitung ist Art. 6 Abs. 1 S. 1 lit. f DS-GVO. Unser berechtigtes Interesse folgt aus oben aufgelisteten Zwecken zur Datenerhebung.
+
+7. Cookies
+
+7.1 Allgemeines zu Cookies
+
+Wir setzen auf unserer Internetseite Cookies ein. Hierbei handelt es sich um kleine Dateien, die Ihr Browser automatisch erstellt und die auf Ihrem IT-System (Laptop, Tablet, Smartphone o.ä.) gespeichert werden, wenn Sie unsere Seite besuchen.
+
+In dem Cookie werden Informationen abgelegt, die sich jeweils im Zusammenhang mit dem spezifisch eingesetzten Endgerät ergeben. Dies bedeutet jedoch nicht, dass wir dadurch unmittelbar Kenntnis von Ihrer Identität erhalten.
+
+Der Einsatz von Cookies dient einerseits dazu, die Nutzung unseres Angebots für Sie angenehmer zu gestalten. So setzen wir sogenannte Session-Cookies ein, um zu erkennen, dass Sie einzelne Seiten unserer Website bereits besucht haben. Diese werden nach Verlassen unserer Seite automatisch gelöscht.
+
+Darüber hinaus setzen wir ebenfalls zur Optimierung der Benutzerfreundlichkeit temporäre Cookies ein, die für einen bestimmten festgelegten Zeitraum auf Ihrem Endgerät gespeichert werden. Besuchen Sie unsere Seite erneut, um unsere Dienste in Anspruch zu nehmen, wird automatisch erkannt, dass Sie bereits bei uns waren und welche Eingaben und Einstellungen Sie getätigt haben, um diese nicht noch einmal eingeben zu müssen.
+
+Zum anderen setzten wir Cookies ein, um die Nutzung unserer Website statistisch zu erfassen und zum Zwecke der Optimierung unseres Angebotes für Sie auszuwerten. Diese Cookies ermöglichen es uns, bei einem erneuten Besuch unserer Seite automatisch zu erkennen, dass Sie bereits bei uns waren. Diese Cookies werden nach einer jeweils definierten Zeit automatisch gelöscht.
+
+8. Inhalte unserer Internetseite
+
+8.1 Kontaktaufnahme / Kontaktformular
+
+Im Rahmen der Kontaktaufnahme mit uns (z.B. per Kontaktformular oder E-Mail) werden personenbezogene Daten erhoben. Welche Daten im Falle eines Kontaktformulars erhoben werden, ist aus dem jeweiligen Kontaktformular ersichtlich. Diese Daten werden ausschließlich zum Zweck der Beantwortung Ihres Anliegens bzw. für die Kontaktaufnahme und die damit verbundene technische Administration gespeichert und verwendet. Rechtsgrundlage für die Verarbeitung der Daten ist unser berechtigtes Interesse an der Beantwortung Ihres Anliegens gemäß Art. 6 Abs. 1 lit. f DS-GVO. Zielt Ihre Kontaktierung auf den Abschluss eines Vertrages ab, so ist zusätzliche Rechtsgrundlage für die Verarbeitung Art. 6 Abs. 1 lit. b DS-GVO. Ihre Daten werden nach abschließender Bearbeitung Ihrer Anfrage gelöscht, dies ist der Fall, wenn sich aus den Umständen entnehmen lässt, dass der betroffene Sachverhalt abschließend geklärt ist und sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+
+8.2 Kommentarfunktion Blog
+
+Wir bieten den Nutzern auf einem Blog, der sich auf unserer Website befindet, die Möglichkeit, individuelle Kommentare zu einzelnen Blog-Beiträgen zu hinterlassen. Ein Blog ist ein auf einer Internetseite geführtes, in der Regel öffentlich einsehbares Portal, in welchem eine oder mehrere Personen, die Blogger oder Web-Blogger genannt werden, Artikel posten oder Gedanken in sogenannten Blogposts niederschreiben können. Die Blogposts können in der Regel von Dritten kommentiert werden.
+
+Hinterlassen Sie einen Kommentar in dem auf dieser Website veröffentlichten Blog, werden neben Ihren hinterlassenen Kommentaren auch Angaben zum Zeitpunkt der Kommentareingabe sowie der gewählte Nutzername (Pseudonym) gespeichert und veröffentlicht. Ferner wird die von Ihrem Internet-Service-Provider (ISP) vergebene IP-Adresse mitprotokolliert. Diese Speicherung der IP-Adresse erfolgt aus Sicherheitsgründen und für den Fall, dass Sie durch einen abgegebenen Kommentar die Rechte Dritter verletzt oder rechtswidrige Inhalte gepostet haben. Die Speicherung dieser personenbezogenen Daten erfolgt daher in unserem eigenen Interesse, damit wir uns im Falle einer Rechtsverletzung exkulpieren können. Dies stellt ein berechtigtes Interesse im Sinne von Art. 6 Abs. 1 lit. f DS-GVO dar.Es erfolgt keine Weitergabe dieser erhobenen personenbezogenen Daten an Dritte, sofern eine solche Weitergabe nicht gesetzlich vorgeschrieben ist oder unserer Rechtsverteidigung dient.
+
+9. Unsere Aktivitäten in sozialen Netzwerken
+
+Damit wir auch in sozialen Netzwerken mit Ihnen kommunizieren und über unsere Leistungen informieren können, sind wir dort mit eigenen Seiten vertreten. Wenn Sie eine unserer Social Media Seiten besuchen, sind wir hinsichtlich der dadurch ausgelösten Verarbeitungsvorgänge, welche personenbezogene Daten betreffen, mit dem Anbieter der jeweiligen Social-Media-Plattform gemeinsam verantwortlich im Sinne des Art. 26 DS-GVO.
+
+Wir sind dabei nicht der originäre Anbieter dieser Seiten, sondern nutzen diese lediglich im Rahmen der uns gebotenen Möglichkeiten der jeweiligen Anbieter.
+
+Daher weisen wir vorsorglich darauf hin, dass Ihre Daten möglicherweise auch außerhalb der Europäischen Union bzw. des Europäischen Wirtschaftsraumes verarbeitet werden. Eine Nutzung kann daher Datenschutzrisiken für Sie haben, da die Wahrung Ihrer Rechte z.B. auf Auskunft, Löschung, Widerspruch, etc. erschwert sein kann und die Verarbeitung in den sozialen Netzwerken häufig direkt zu Werbezwecken oder zur Analyse des Nutzerverhaltens durch die Anbieter erfolgt, ohne dass dies durch uns beeinflusst werden kann. Werden durch den Anbieter Nutzungsprofile angelegt, werden dabei häufig Cookies eingesetzt bzw. das Nutzungsverhalten direkt Ihrem eigenen Mitgliedprofil der sozialen Netzwerke zugeordnet (sofern Sie hier eingeloggt sind).
+
+Die beschriebenen Verarbeitungsvorgänge personenbezogener Daten erfolgen gemäß Art. 6 Abs. 1 lit. f DS-GVO auf Basis unseres berechtigten Interesses und des berechtigten Interesses des jeweiligen Anbieters, um mit Ihnen in einer zeitgemäßen Art und Weise kommunizieren bzw. Sie über unsere Leistungen informieren zu können. Müssen Sie bei den jeweiligen Anbietern eine Einwilligung zur Datenverarbeitung als Nutzer abgeben, bezieht sich die Rechtsgrundlage auf Art. 6 Abs. 1 lit. a DS-GVO i.V.m. Art. 7 DS-GVO.
+
+Da wir keine Zugriffe auf die Datenbestände der Anbieter haben, weisen wir darauf hin, dass Sie Ihre Rechte (z.B. auf Auskunft, Berichtigung, Löschung, etc.) am besten direkt bei dem jeweiligen Anbieter gelten machen. Weiterführende Informationen zur Verarbeitung Ihrer Daten in den sozialen Netzwerken und der Möglichkeit von Ihrem Widerspruchs- bzw. Widerrufsrecht (sog. Opt-Out) gebrauch zu machen, haben wir nachfolgend bei dem jeweiligen von uns eingesetzten Anbieter sozialer Netzwerke aufgeführt:
+
+9.1 Facebook
+
+(Mit-) Verantwortlicher für die Datenverarbeitung in Europa:
+
+Facebook Ireland Ltd., 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland
+
+Datenschutzerklärung (Datenrichtlinie):
+
+https://www.facebook.com/about/privacy
+
+Opt-Out und Werbeeinstellungen:
+
+https://www.facebook.com/ads/preferences/?entry_product=ad_settings_screen
+
+Facebook ist dem EU-U.S. Privacy Shield Abkommen beigetreten:
+
+https://www.privacyshield.gov/participant?id=a2zt0000000GnywAAC&status=Active
+
+https://de-de.facebook.com/about/privacy/
+
+9.2 Instagram
+
+(Mit-) Verantwortlicher für die Datenverarbeitung in Deutschland:
+
+Facebook Ireland Ltd., 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland
+
+Datenschutzerklärung (Datenrichtlinie):
+
+http://instagram.com/legal/privacy/
+
+Opt-Out und Werbeeinstellungen:
+
+https://www.instagram.com/accounts/privacy_and_security/
+
+Facebook ist dem EU-U.S. Privacy Shield Abkommen beigetreten:
+
+https://www.privacyshield.gov/participant?id=a2zt0000000GnywAAC&status=Active
+
+9.3 LinkedIn
+
+(Mit-) Verantwortlicher für die Datenverarbeitung in Europa:
+
+LinkedIn Ireland Unlimited Company Wilton Place, Dublin 2, Irland
+
+Datenschutzerklärung:
+
+https://www.linkedin.com/legal/privacy-policy
+
+Opt-Out und Werbeeinstellungen:
+
+https://www.linkedin.com/psettings/guest-controls/retargeting-opt-out
+
+LinkedIn ist dem EU-U.S. Privacy Shield Abkommen beigetreten:
+
+https://www.privacyshield.gov/participant?id=a2zt0000000L0UZAA0&status=Active
+
+9.4 Twitter
+
+(Mit-) Verantwortlicher für die Datenverarbeitung in Europa:
+
+Twitter International Company, One Cumberland Place, Fenian Street, Dublin 2, D02 AX07, Ireland
+
+Datenschutzerklärung:
+
+https://twitter.com/de/privacy
+
+Auskunft über Ihre Daten:
+
+https://twitter.com/settings/your_twitter_data
+
+Opt-Out und Werbeeinstellungen:
+
+ Mit dem Laden des Tweets akzeptieren Sie die Datenschutzerklärung von Twitter.
+Mehr erfahren
+ Inhalt laden
+ Twitter Tweets immer entsperren
+
+Twitter ist dem EU-U.S. Privacy Shield Abkommen beigetreten:
+
+https://www.privacyshield.gov/participant?id=a2zt0000000TORzAAO&status=Active
+
+9.5 XING
+
+(Mit-) Verantwortlicher für die Datenverarbeitung in Deutschland:
+
+XING AG, Dammtorstraße 29-32, 20354 Hamburg, Deutschland
+
+Datenschutzerklärung:
+
+https://privacy.xing.com/de/datenschutzerklaerung
+
+Auskunftsanfragen für XING Mitglieder:
+
+https://www.xing.com/settings/privacy/data/disclosure
+
+10. Webanalyse
+
+10.1 Google Analytics
+
+Auf unseren Webseiten nutzen wir Google Analytics, ein Webanalysedienst der Google Ireland Limited (https://www.google.de/intl/de/about/) (Gordon House, Barrow Street, Dublin 4, Irland; im Folgenden „Google“). In diesem Zusammenhang werden pseudonymisierte Nutzungsprofile erstellt und Cookies (siehe Punkt „Cookies“) verwendet. Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Website wie
+
+1. Browser-Typ/-Version,
+
+2. verwendetes Betriebssystem,
+
+3. Referrer-URL (die zuvor besuchte Seite),
+
+4. Hostname des zugreifenden Rechners (IP-Adresse),
+
+5. Uhrzeit der Serveranfrage,
+
+werden an einen Server von Google in den USA übertragen und dort gespeichert. Die Informationen werden verwendet, um die Nutzung der Website auszuwerten, um Reports über die Websiteaktivitäten zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen zu Zwecken der Marktforschung und bedarfsgerechten Gestaltung dieser Internetseiten zu erbringen. Auch werden diese Informationen gegebenenfalls an Dritte übertragen, sofern dies gesetzlich vorgeschrieben ist oder soweit Dritte diese Daten im Auftrag verarbeiten. Es wird in keinem Fall Ihre IP-Adresse mit anderen Daten von Google zusammengeführt. Die IP-Adressen werden anonymisiert, so dass eine Zuordnung nicht möglich ist (IP-Masking).
+
+Sie können die Installation der Cookies durch eine entsprechende Einstellung der Browser-Software verhindern; wir weisen jedoch darauf hin, dass in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website vollumfänglich genutzt werden können.
+
+Diese Verarbeitungsvorgänge erfolgen ausschließlich bei Erteilung der ausdrücklichen Einwilligung gemäß Art. 6 Abs. 1 lit. a DS-GVO.
+
+Sie können darüber hinaus die Erfassung der durch das Cookie erzeugten und auf Ihre Nutzung der Website bezogenen Daten (inkl. Ihrer IP-Adresse) sowie die Verarbeitung dieser Daten durch Google verhindern, indem Sie ein Browser-Add-on herunterladen und installieren (https://tools.google.com/dlpage/gaoptout?hl=de).
+
+Alternativ zum Browser-Add-on, insbesondere bei Browsern auf mobilen Endgeräten, können Sie die Erfassung durch Google Analytics zudem verhindern, indem Sie auf den folgenden Link klicken: Google Analytics deaktivieren. Es wird ein Opt-out-Cookie gesetzt, das die zukünftige Erfassung Ihrer Daten beim Besuch dieser Website verhindert. Der Opt-out-Cookie gilt nur in diesem Browser und nur für unsere Website und wird auf Ihrem Gerät abgelegt. Löschen Sie die Cookies in diesem Browser, müssen Sie das Opt-out-Cookie erneut setzen.
+
+Weitere Informationen zum Datenschutz im Zusammenhang mit Google Analytics finden Sie etwa in der Google Analytics-Hilfe (https://support.google.com/analytics/answer/6004245?hl=de).
+
+11. Plugins und andere Dienste
+
+11.1 Google WebFonts
+
+Unsere Website nutzt zur einheitlichen Darstellung von Schriftarten so genannte Web Fonts die von der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland bereitgestellt werden. Beim Aufruf einer Seite lädt Ihr Browser die benötigten Web Fonts in Ihren Browser-Cache, um Texte und Schriftarten korrekt anzuzeigen.
+
+Zu diesem Zweck muss der von Ihnen verwendete Browser Verbindung zu den Servern von Google aufnehmen. Hierdurch erlangt Google Kenntnis darüber, dass über Ihre IP-Adresse unsere Website aufgerufen wurde. Die Nutzung von Google Web Fonts erfolgt im Interesse einer einheitlichen und ansprechenden Darstellung unserer Internetseite.
+
+Diese Verarbeitungsvorgänge erfolgen ausschließlich bei Erteilung der ausdrücklichen Einwilligung gemäß Art. 6 Abs. 1 lit. a DS-GVO.
+
+Google Ireland Limited mit Sitz in Irland ist für das us-europäische Datenschutzübereinkommen „Privacy Shield“ zertifiziert, welches die Einhaltung des in der EU geltenden Datenschutzniveaus gewährleistet.
+
+Weitere Informationen zu Google Web Fonts finden Sie unter https://developers.google.com/fonts/faq und in der Datenschutzerklärung von Google: https://www.google.com/policies/privacy/
+
+12. Ihre Rechte als betroffene Person
+
+12.1 Recht auf Bestätigung
+
+Sie haben das Recht, von uns eine Bestätigung darüber zu verlangen, ob Sie betreffende personenbezogene Daten verarbeitet werden
+
+12.2 Recht auf Auskunft Art. 15 DS-GVO
+
+Sie haben das Recht, jederzeit von uns unentgeltliche Auskunft über die zu Ihrer Person gespeicherten personenbezogenen Daten sowie eine Kopie dieser Daten nach Maßgabe der gesetzlichen Bestimmungen zu erhalten.
+
+12.3 Recht auf Berichtigung Art. 16 DS-GVO
+
+Sie haben das Recht, die Berichtigung Sie betreffender unrichtiger personenbezogener Daten zu verlangen. Ferner steht Ihnen das Recht zu, unter Berücksichtigung der Zwecke der Verarbeitung, die Vervollständigung unvollständiger personenbezogener Daten zu verlangen.
+
+12.4 Löschung Art. 17 DS-GVO
+
+Sie haben das Recht, von uns zu verlangen, dass die Sie betreffenden personenbezogenen Daten unverzüglich gelöscht werden, sofern einer der gesetzlich vorgesehenen Gründe zutrifft und soweit die Verarbeitung bzw. Speicherung nicht erforderlich ist.
+
+12.5 Einschränkung der Verarbeitung Art. 18 DS-GVO
+
+Sie haben das Recht, von uns die Einschränkung der Verarbeitung zu verlangen, wenn eine der gesetzlichen Voraussetzungen gegeben ist.
+
+12.6 Datenübertragbarkeit Art. 20 DS-GVO
+
+Sie haben das Recht, die Sie betreffenden personenbezogenen Daten, welche uns durch Sie bereitgestellt wurden, in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten. Sie haben außerdem das Recht, diese Daten einem anderen Verantwortlichen ohne Behinderung durch uns, dem die personenbezogenen Daten bereitgestellt wurden, zu übermitteln, sofern die Verarbeitung auf der Einwilligung gemäß Art. 6 Abs. 1 lit. a DS-GVO oder Art. 9 Abs. 2 lit. a DS-GVO oder auf einem Vertrag gemäß Art. 6 Abs. 1 lit. b DS-GVO beruht und die Verarbeitung mithilfe automatisierter Verfahren erfolgt, sofern die Verarbeitung nicht für die Wahrnehmung einer Aufgabe erforderlich ist, die im öffentlichen Interesse liegt oder in Ausübung öffentlicher Gewalt erfolgt, welche uns übertragen wurde.
+
+Ferner haben Sie bei der Ausübung Ihres Rechts auf Datenübertragbarkeit gemäß Art. 20 Abs. 1 DS-GVO das Recht, zu erwirken, dass die personenbezogenen Daten direkt von einem Verantwortlichen an einen anderen Verantwortlichen übermittelt werden, soweit dies technisch machbar ist und sofern hiervon nicht die Rechte und Freiheiten anderer Personen beeinträchtigt werden.
+
+12.7 Widerspruch Art. 21 DS-GVO
+
+Sie haben das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung Sie betreffender personenbezogener Daten, die aufgrund von Art. 6 Abs. 1 lit. e (Datenverarbeitung im öffentlichen Interesse) oder f (Datenverarbeitung auf Grundlage einer Interessenabwägung) DS-GVO erfolgt, Widerspruch einzulegen.
+
+Dies gilt auch für ein auf diese Bestimmungen gestütztes Profiling im Sinne von Art. 4 Nr. 4 DS-GVO.
+
+Legen Sie Widerspruch ein, werden wir Ihre personenbezogenen Daten nicht mehr verarbeiten, es sei denn, wir können zwingende berechtigte Gründe für die Verarbeitung nachweisen, die Ihre Interessen, Rechte und Freiheiten überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.
+
+In Einzelfällen verarbeiten wir personenbezogene Daten, um Direktwerbung zu betreiben. Sie können jederzeit Widerspruch gegen die Verarbeitung der personenbezogenen Daten zum Zwecke derartiger Werbung einlegen. Dies gilt auch für das Profiling, soweit es mit solcher Direktwerbung in Verbindung steht. Widersprechen Sie gegenüber uns der Verarbeitung für Zwecke der Direktwerbung, so werden wir die personenbezogenen Daten nicht mehr für diese Zwecke verarbeiten.
+
+Zudem haben Sie das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, gegen die Sie betreffende Verarbeitung personenbezogener Daten, die bei uns zu wissenschaftlichen oder historischen Forschungszwecken oder zu statistischen Zwecken gemäß Art. 89 Abs. 1 DS-GVO erfolgen, Widerspruch einzulegen, es sei denn, eine solche Verarbeitung ist zur Erfüllung einer im öffentlichen Interesse liegenden Aufgabe erforderlich.
+
+Ihnen steht es frei, im Zusammenhang mit der Nutzung von Diensten der Informationsgesellschaft, ungeachtet der Richtlinie 2002/58/EG, Ihr Widerspruchsrecht mittels automatisierter Verfahren auszuüben, bei denen technische Spezifikationen verwendet werden.
+
+12.8 Widerruf einer datenschutzrechtlichen Einwilligung
+
+Sie haben das Recht, eine Einwilligung zur Verarbeitung personenbezogener Daten jederzeit mit Wirkung für die Zukunft zu widerrufen.
+
+12.9 Beschwerde bei einer Aufsichtsbehörde
+
+Sie haben das Recht, sich bei einer für Datenschutz zuständigen Aufsichtsbehörde über unsere Verarbeitung personenbezogener Daten zu beschweren.
+
+13. Routinemäßige Speicherung, Löschung und Sperrung von personenbezogenen Daten
+
+Wir verarbeiten und speichern Ihre personenbezogenen Daten nur für den Zeitraum, der zur Erreichung des Speicherungszwecks erforderlich ist oder sofern dies durch die Rechtsvorschriften, welchen unser Unternehmen unterliegt, vorgesehen wurde.
+
+Entfällt der Speicherungszweck oder läuft eine vorgeschriebene Speicherfrist ab, werden die personenbezogenen Daten routinemäßig und entsprechend den gesetzlichen Vorschriften gesperrt oder gelöscht.
+
+14. Dauer der Speicherung von personenbezogenen Daten
+
+Das Kriterium für die Dauer der Speicherung von personenbezogenen Daten ist die jeweilige gesetzliche Aufbewahrungsfrist. Nach Ablauf der Frist werden die entsprechenden Daten routinemäßig gelöscht, sofern sie nicht mehr zur Vertragserfüllung oder Vertragsanbahnung erforderlich sind.
+
+15. Aktualität und Änderung der Datenschutzerklärung
+
+Diese Datenschutzerklärung ist aktuell gültig und hat den Stand: Juli 2020.
+
+Durch die Weiterentwicklung unserer Internetseiten und Angebote oder aufgrund geänderter gesetzlicher beziehungsweise behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern. Die jeweils aktuelle Datenschutzerklärung kann jederzeit auf der Website unter „https://www.bettina-angerer.de/datenschutz/“ von Ihnen abgerufen und ausgedruckt werden.
+
+Diese Datenschutzerklärung wurde mit Unterstützung der Datenschutz-Software: Datenklar MANAGER erstellt.

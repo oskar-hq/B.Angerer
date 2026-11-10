@@ -1,0 +1,112 @@
+<dialog class="wizard" id="wizard" aria-labelledby="wizard-label">
+    <form id="enquiry-form" novalidate>
+      <header class="wizard-head">
+        <p class="caption-3" id="wizard-label">Erstgespräch anfragen</p>
+        <button class="wizard-close" type="button" data-close-wizard aria-label="Fenster schließen"><span></span><span></span></button>
+      </header>
+      <div class="wizard-meter">
+        <div class="wizard-bar" role="progressbar" aria-label="Fortschritt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+        <p class="wizard-count caption-3" aria-live="polite"></p>
+      </div>
+
+      <div class="wizard-body">
+        <fieldset class="step" data-step="radio" data-name="umsatz">
+          <legend class="heading-3" tabindex="-1">Wie hoch ist Ihr Jahresumsatz?</legend>
+          <div class="options">
+              <label class="option"><input type="radio" name="umsatz" value="bis 250.000 €"><span>bis 250.000 €</span></label>
+              <label class="option"><input type="radio" name="umsatz" value="250.000 bis 800.000 €"><span>250.000 bis 800.000 €</span></label>
+              <label class="option"><input type="radio" name="umsatz" value="800.000 bis 1,5 Mio. €"><span>800.000 bis 1,5 Mio. €</span></label>
+              <label class="option"><input type="radio" name="umsatz" value="über 1,5 Mio. €"><span>über 1,5 Mio. €</span></label>
+          </div>
+          <p class="error" role="alert">Bitte wählen Sie einen Umsatzbereich.</p>
+        </fieldset>
+
+        <fieldset class="step" data-step="radio" data-name="mitarbeiter">
+          <legend class="heading-3" tabindex="-1">Wie viele Mitarbeiter hat Ihr Unternehmen?</legend>
+          <div class="options">
+              <label class="option"><input type="radio" name="mitarbeiter" value="nur ich"><span>Nur ich</span></label>
+              <label class="option"><input type="radio" name="mitarbeiter" value="2 bis 10"><span>2 bis 10</span></label>
+              <label class="option"><input type="radio" name="mitarbeiter" value="11 bis 50"><span>11 bis 50</span></label>
+              <label class="option"><input type="radio" name="mitarbeiter" value="über 50"><span>über 50</span></label>
+          </div>
+          <p class="error" role="alert">Bitte wählen Sie die Größe Ihres Teams.</p>
+        </fieldset>
+
+        <fieldset class="step" data-step="radio" data-name="gebiet">
+          <legend class="heading-3" tabindex="-1">Wo sind Sie tätig?</legend>
+          <div class="options">
+              <label class="option"><input type="radio" name="gebiet" value="regional"><span>Regional</span></label>
+              <label class="option"><input type="radio" name="gebiet" value="national"><span>National</span></label>
+              <label class="option"><input type="radio" name="gebiet" value="DACH-Raum"><span>DACH-Raum</span></label>
+              <label class="option"><input type="radio" name="gebiet" value="international"><span>International</span></label>
+          </div>
+          <p class="error" role="alert">Bitte wählen Sie Ihren Tätigkeitsbereich.</p>
+        </fieldset>
+
+        <fieldset class="step" data-step="fields">
+          <legend class="heading-3" tabindex="-1">In welcher Branche arbeiten Sie?</legend>
+          <div class="field">
+            <label class="sr-only" for="f-branche">Branche</label>
+            <input id="f-branche" name="branche" type="text" required autocomplete="off" placeholder="z. B. Maschinenbau" enterkeyhint="next">
+            <p class="error" role="alert">Bitte nennen Sie Ihre Branche.</p>
+          </div>
+        </fieldset>
+
+        <fieldset class="step" data-step="fields">
+          <legend class="heading-3" tabindex="-1">Wo hakt es gerade?</legend>
+          <p class="step-hint">Ein Stichwort genügt, zum Beispiel Vertrieb.</p>
+          <div class="field">
+            <label class="sr-only" for="f-anliegen">Ihr Anliegen</label>
+            <textarea id="f-anliegen" name="anliegen" required></textarea>
+            <p class="error" role="alert">Bitte beschreiben Sie kurz Ihr Anliegen.</p>
+          </div>
+        </fieldset>
+
+        <fieldset class="step" data-step="fields">
+          <legend class="heading-3" tabindex="-1">Wie erreichen wir Sie?</legend>
+          <div class="fields">
+            <div class="field">
+              <label class="lbl" for="f-firma">Unternehmen</label>
+              <input id="f-firma" name="firma" type="text" required autocomplete="organization">
+              <p class="error" role="alert">Bitte nennen Sie Ihr Unternehmen.</p>
+            </div>
+            <div class="field">
+              <label class="lbl" for="f-name">Ihr Name</label>
+              <input id="f-name" name="name" type="text" required autocomplete="name">
+              <p class="error" role="alert">Bitte nennen Sie Ihren Namen.</p>
+            </div>
+            <div class="field">
+              <label class="lbl" for="f-email">E-Mail</label>
+              <input id="f-email" name="email" type="email" required autocomplete="email">
+              <p class="error" role="alert">Bitte geben Sie eine gültige E-Mail-Adresse an.</p>
+            </div>
+            <div class="field">
+              <label class="lbl" for="f-telefon">Telefon (optional)</label>
+              <input id="f-telefon" name="telefon" type="tel" autocomplete="tel">
+            </div>
+            <div data-check>
+              <label class="check">
+                <input type="checkbox" name="datenschutz" required>
+                <span>Ich habe die <a href="{R}datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage verwendet werden.</span>
+              </label>
+              <p class="error" role="alert">Bitte stimmen Sie der Datenschutzerklärung zu.</p>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="step step-done" data-step="done">
+          <svg class="done-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="23" stroke="currentColor"/><path d="M15 24.500 21.500 31 33 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h2 class="heading-3" tabindex="-1">Ihre Anfrage ist vorbereitet.</h2>
+          <p>Ihr E-Mail-Programm hat sich mit der fertigen Nachricht geöffnet. Bitte senden Sie sie dort ab.</p>
+          <p class="step-hint">Nichts geöffnet? Kopieren Sie den Text und schicken Sie ihn an <span id="result-mail"></span>.</p>
+          <pre id="result-text"></pre>
+          <button class="btn btn-ghost-dark btn-sm" type="button" id="copy-btn">Text kopieren</button>
+        </div>
+      </div>
+
+      <footer class="wizard-foot">
+        <button class="textlink" type="button" data-back>Zurück</button>
+        <button class="btn btn-dark" type="button" data-next>Weiter <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></button>
+      </footer>
+    </form>
+  </dialog>

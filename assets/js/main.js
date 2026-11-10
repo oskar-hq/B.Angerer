@@ -102,22 +102,6 @@
   }, { passive: true });
   onScroll();
 
-  /* ---------- Current nav item ---------- */
-  var navLinks = document.querySelectorAll('.nav a');
-  if ('IntersectionObserver' in window && navLinks.length) {
-    var map = {};
-    navLinks.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
-    var navIo = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        navLinks.forEach(function (a) { a.removeAttribute('aria-current'); });
-        var link = map[en.target.id];
-        if (link) link.setAttribute('aria-current', 'true');
-      });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    document.querySelectorAll('main section[id]').forEach(function (s) { navIo.observe(s); });
-  }
-
   /* ---------- Tagline: word by word ---------- */
   var tag = document.querySelector('[data-reveal-words]');
   if (tag) {
@@ -255,10 +239,20 @@
     if (current === questions) { dialog.close(); return; }
     var bad = validateStep(current);
     if (bad) { bad.focus(); return; }
-    if (current === questions - 1) send(); else show(current + 1);
+    track('Anfrage Schritt', { schritt: current + 1 });
+    if (current === questions - 1) { track('Anfrage gesendet'); send(); } else show(current + 1);
+  }
+
+  // Messpunkte: greifen nur, wenn später ein Analysewerkzeug eingebunden wird.
+  function track(name, props) {
+    try {
+      if (typeof window.plausible === 'function') window.plausible(name, { props: props || {} });
+      if (window._paq && window._paq.push) window._paq.push(['trackEvent', 'Anfrage', name, props && props.schritt ? String(props.schritt) : undefined]);
+    } catch (err) {}
   }
 
   function openWizard() {
+    track('Anfrage geöffnet');
     if (root.classList.contains('menu-open')) setMenu(false);
     if (current === questions) { form.reset(); current = 0; }
     if (typeof dialog.showModal === 'function') dialog.showModal(); else dialog.setAttribute('open', '');
@@ -267,12 +261,15 @@
   }
 
   document.addEventListener('click', function (e) {
-    var opener = e.target.closest('[data-open-wizard], a[href="#anfrage"]');
+    var opener = e.target.closest('[data-open-wizard]');
     if (opener) { e.preventDefault(); openWizard(); return; }
     if (e.target.closest('[data-close-wizard]')) dialog.close();
   });
   dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
-  dialog.addEventListener('close', function () { root.classList.remove('wizard-lock'); });
+  dialog.addEventListener('close', function () {
+    root.classList.remove('wizard-lock');
+    if (current < questions) track('Anfrage abgebrochen', { schritt: current + 1 });
+  });
 
   nextBtn.addEventListener('click', next);
   backBtn.addEventListener('click', function () { if (current > 0) show(current - 1, true); });
