@@ -147,7 +147,7 @@ p, li, dd { text-wrap: pretty; }
   gap: var(--s-200); min-height: 72px;
 }
 .brand { display: inline-flex; align-items: center; gap: var(--s-100); text-decoration: none; grid-column: 2; }
-.brand-mark { width: 40px; height: 40px; flex: none; }
+.brand-mark { width: 48px; height: 48px; flex: none; }
 .brand-text { display: flex; flex-direction: column; }
 .brand-name { font-family: var(--serif); font-size: 20px; line-height: 28px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; white-space: nowrap; }
 .brand-sub { font-size: 12px; line-height: 16px; letter-spacing: 0.42em; text-transform: uppercase; color: var(--gold-light); font-weight: 500; }
