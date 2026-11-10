@@ -12,7 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 SITE = "https://www.bettina-angerer.de"
-VERSION = "9"
+VERSION = "10"
 
 ORG = {
     "name": "Angerer Consulting",
@@ -35,7 +35,7 @@ LOGOS = {
     "Netflix": ("netflix.svg", 0.55, 1.15), "Joyn": ("joyn.svg", 2.375, 0.8),
     "ZDF": ("zdf.svg", 1.711, 0.95), "ITV Studios": ("itv.svg", 1.391, 1.35),
     "Miss Germany": ("missgermany.svg", 4.09, 0.8), "Knabe Malz": ("knabe.png", 2.665, 0.85),
-    "HR": ("hr.svg", 1.222, 1.25), "WDR": ("wdr.svg", 3.441, 0.6), "NDR": ("ndr.svg", 1.047, 1.0),
+    "HR": ("hr.svg", 1.222, 1.25), "BR": ("br.svg", 1.248, 0.95), "WDR": ("wdr.svg", 3.441, 0.6), "NDR": ("ndr.svg", 1.047, 1.0),
 }
 
 
