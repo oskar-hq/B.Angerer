@@ -12,7 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 SITE = "https://www.bettina-angerer.de"
-VERSION = "10"
+VERSION = "11"
 
 ORG = {
     "name": "Angerer Consulting",
@@ -451,7 +451,7 @@ home = f'''    <section class="hero on-blue" aria-labelledby="hero-title">
     <section class="section on-light" aria-labelledby="about-title">
       <div class="wrap about">
         <figure class="portrait reveal">
-          <img class="portrait-img" src="{{R}}assets/img/portrait.jpg" width="767" height="1022" alt="Bettina Angerer, Unternehmensberaterin aus Bayreuth" loading="lazy">
+          <img class="portrait-img" src="{{R}}assets/img/portrait.jpg" width="1076" height="1434" alt="Bettina Angerer, Unternehmensberaterin aus Bayreuth" loading="lazy">
         </figure>
         <div class="about-copy reveal">
           <p class="eyebrow caption-3">Über Bettina Angerer</p>
@@ -608,7 +608,7 @@ body = page_hero("Über Bettina Angerer", "Bettina Angerer. Dreißig Jahre Subst
     <section class="section on-light" aria-labelledby="bio-title">
       <div class="wrap about">
         <figure class="portrait reveal">
-          <img class="portrait-img" src="{{R}}assets/img/portrait.jpg" width="767" height="1022" alt="Bettina Angerer, Unternehmensberaterin aus Bayreuth">
+          <img class="portrait-img" src="{{R}}assets/img/portrait.jpg" width="1076" height="1434" alt="Bettina Angerer, Unternehmensberaterin aus Bayreuth">
         </figure>
         <div class="about-copy reveal">
           <p class="eyebrow caption-3">Der Weg</p>
