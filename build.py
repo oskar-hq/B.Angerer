@@ -222,8 +222,6 @@ def page(path, title, desc, body, current="", schema=None, crumbs=None):
   {SYMBOLS}
   <a class="skip" href="#inhalt">Zum Inhalt springen</a>
 
-  <div class="strip">Präsent in Oberfranken. Nicht für jeden verfügbar.</div>
-
   <header class="header" id="top">
     <span class="scroll-progress" aria-hidden="true"></span>
     <div class="wrap header-inner">
@@ -390,7 +388,7 @@ home = f'''    <section class="hero on-blue" aria-labelledby="hero-title">
         <path d="M-20 96C210 62 400 160 500 348s222 318 620 366c-380-62-560-190-640-360S180 92 -20 108z" fill="#3AA7E8" opacity="0.5"/>
       </svg></div>
       <div class="wrap hero-inner">
-        <h1 id="hero-title"><span class="hero-kicker caption-3">Bettina Angerer · Unternehmensberatung in Bayreuth</span><span class="hero-title heading-1">Dreißig Jahre Mittelstand.<br>Und das Team, das Ihre Kunden heute erreicht.</span></h1>
+        <h1 id="hero-title"><span class="hero-title heading-1">Dreißig Jahre Mittelstand.<br>Und das Team, das Ihre Kunden heute erreicht.</span></h1>
         <p class="hero-sub body-lg">Sie wissen, dass sich in Ihrem Unternehmen etwas bewegen muss, aber nicht, wo Sie anfangen sollen. Bettina Angerer bringt Sie mit den Menschen zusammen, die Vertrieb, Marketing, Personal und Finanzierung auf den Stand von heute bringen.</p>
         <div class="hero-actions">
           {cta("{R}")}
