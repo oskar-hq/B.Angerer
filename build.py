@@ -265,7 +265,7 @@ def page_hero(h1, lead, crumbs, extra=""):
 '''
 
 
-def final_cta(heading="Erzählen Sie mir, wo es hakt.", text="Sechs kurze Fragen, eine nach der anderen. Ich lese jede Anfrage persönlich und melde mich bei Ihnen."):
+def final_cta(heading="Lassen Sie uns sprechen.", text="Ich helfe beim Hinsehen. Und beim Handeln. Sechs kurze Fragen, und jede Anfrage lese ich persönlich."):
     return f'''    <section class="section final on-navy" aria-labelledby="anfrage-title">
       <div class="wrap final-inner">
         <h2 id="anfrage-title">{heading}</h2>
@@ -373,7 +373,7 @@ curve = '''<figure class="curve" data-curve>
 home = f'''    <section class="hero" aria-labelledby="hero-title">
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <p class="hero-kicker">{NAME}</p>
+          <p class="hero-kicker">Unternehmensberatung · Neue Medien · Strategie · Netzwerk</p>
           <h1 id="hero-title">Aus <span class="red">roten Zahlen</span> mache ich <span class="black u">schwarze</span>.</h1>
           <p class="lead">{hero_sub}</p>
           <div class="hero-actions">
@@ -392,9 +392,9 @@ home = f'''    <section class="hero" aria-labelledby="hero-title">
     <section class="section measure" aria-labelledby="mass-title">
       <div class="wrap measure-grid">
         <div>
-          <h2 id="mass-title">Gute Ideen sind nur dann etwas wert, wenn sie sich in den Zahlen zeigen.</h2>
-          <p class="lead">Das habe ich in leitenden Positionen in Marketing und Controlling gelernt, und daran messe ich meine Arbeit bis heute.</p>
-          <p>Ich verkaufe niemandem ein großes Projekt, bevor die Zahlen stimmen. Deshalb beginnt fast jede Zusammenarbeit mit einem Testballon: ein kleiner, messbarer Schritt, an dem Sie sehen, ob der Weg trägt.</p>
+          <h2 id="mass-title">Gute Ideen sind nur dann etwas wert, wenn sie sich am Ende in den Zahlen zeigen.</h2>
+          <p class="lead">Aus roten Zahlen mache ich schwarze Zahlen. Daran messe ich meine Arbeit.</p>
+          <p>Ich verkaufe niemandem ein großes Projekt, bevor die Zahlen stimmen. Deshalb beginnen wir mit einem Testballon: einem kleinen, messbaren Schritt.</p>
         </div>
         {curve}
       </div>
@@ -403,8 +403,8 @@ home = f'''    <section class="hero" aria-labelledby="hero-title">
     <section class="section on-navy" id="leistungen" aria-labelledby="leistungen-title">
       <div class="wrap">
         <div class="section-head">
-          <h2 id="leistungen-title">Wobei ich Sie unterstütze</h2>
-          <p class="lead">Der größte Teil meiner Arbeit dreht sich um Zahlen, Strukturen und Menschen. Vertrieb und Social Media gehören dazu, dort arbeite ich eng mit meinem Partner Marvin Angerer zusammen.</p>
+          <h2 id="leistungen-title">Klassische Unternehmensberatung trifft auf die Welt der Neuen Medien</h2>
+          <p class="lead">Bettina Angerer Consulting vereint, was sonst getrennt erbracht wird: aus einer Hand, unter einem Dach, mit einem Namen. Wenn es um Vertrieb oder Social Media geht, ist mein Partner Marvin Angerer gleich mit dabei.</p>
         </div>
         <ul class="svc-list">{svc_rows}
         </ul>
@@ -426,7 +426,7 @@ home = f'''    <section class="hero" aria-labelledby="hero-title">
         <div class="about-copy">
           <h2 id="about-title">Seit über dreißig Jahren im und für den Mittelstand</h2>
           <p class="lead">In dieser Zeit habe ich mit Hunderten Unternehmerinnen und Unternehmern gesprochen, über Nachfolge, Fachkräfte, Finanzierung und darüber, wie man Kunden heute überhaupt noch erreicht.</p>
-          <p>Daraus ist ein Netzwerk entstanden, das von der Kommune über Landtag und Bundestag bis nach Brüssel reicht. Heute nutze ich es für die Unternehmen, die ich berate.</p>
+          <p>Daraus ist ein Netzwerk entstanden, das von der Kommune über Landtag und Bundestag bis nach Brüssel reicht. Für die Unternehmen, die ich berate, bin ich mehr als eine Beraterin: Vertrauensperson, Türöffnerin und Strategin in einem.</p>
           {seal_block()}
           <a class="textlink" href="{{R}}ueber-mich/">Mehr über mich {ARROW}</a>
         </div>
@@ -483,12 +483,12 @@ for n, s in enumerate(SERVICES):
     </section>
 '''
 crumbs = [("leistungen/", "Leistungen")]
-body = page_hero("Wobei ich Sie unterstütze",
-                 "Sie müssen nicht alles auf einmal angehen. Wir beginnen dort, wo es bei Ihnen gerade am meisten kostet, und arbeiten uns von dort aus weiter.", crumbs)
+body = page_hero("Klassische Unternehmensberatung trifft auf die Welt der Neuen Medien",
+                 "Bettina Angerer Consulting vereint, was sonst getrennt erbracht wird. Jede Säule steht für sich. Zusammen ergeben sie ein Angebot aus einer Hand, unter einem Dach, mit einem Namen.", crumbs)
 body += f'''    <nav class="jump" aria-label="Leistungen im Überblick">
       <div class="wrap jump-inner">{"".join(f'<a href="#{s["slug"]}">{s["name"]}</a>' for s in SERVICES)}</div>
     </nav>
-''' + rows + final_cta("Welches Feld passt zu Ihnen?", "Sie müssen das nicht allein entscheiden. Beschreiben Sie in einem Satz, wo es hakt, und ich ordne es mit Ihnen ein.")
+''' + rows + final_cta()
 urls.append(page("leistungen/index.html", f"Leistungen | {NAME}",
                  "Strategie und Sanierung, Netzwerk und Politik, Coaching für Unternehmer, Vertrieb sowie Marketing und Social Media: alle Leistungen von Bettina Angerer Consulting im Überblick.",
                  body, current="leistungen/", crumbs=crumbs))
@@ -503,8 +503,8 @@ for s in SERVICES:
     <section class="section on-paper" aria-labelledby="wer-title">
       <div class="wrap who">
         <div>
-          <h2 id="wer-title">Wer mit am Tisch sitzt</h2>
-          <p class="lead">Ihre erste Ansprechpartnerin bin ich. In diesem Feld ist mein Partner Marvin Angerer von Anfang an dabei.</p>
+          <h2 id="wer-title">Zwei Generationen im Tandem</h2>
+          <p class="lead">Ich dolmetsche in die Welt der Entscheider. Die nächste Generation dolmetscht in die Welt der Neuen Medien. Gemeinsam übersetzen wir dort, wo Wachstum entsteht.</p>
         </div>
         {marvin_card()}
       </div>
@@ -523,8 +523,8 @@ for s in SERVICES:
     <section class="section on-paper" aria-labelledby="was-title">
       <div class="wrap detail-grid">
         <div class="detail-side">
-          <h2 id="was-title">Was ich in diesem Feld für Sie tue</h2>
-          <p class="lead">Jede Leistung können Sie einzeln beauftragen. Meist beginnen wir mit einer und bauen aus, sobald die ersten Ergebnisse da sind.</p>
+          <h2 id="was-title">Was ich für Sie tue</h2>
+          <p class="lead">Wir liefern Ergebnisse, keine Berichte. Und ich verkaufe niemandem ein Projekt, das er nicht braucht.</p>
           {cta(cls="btn")}
         </div>
         <ul class="item-list">{lis}</ul>
@@ -566,7 +566,7 @@ video = (f'''
             <figcaption>Bettina Angerer stellt sich vor</figcaption>
           </figure>''' if VIDEO else "")
 body = page_hero("Ich mache aus roten Zahlen schwarze.",
-                 "Unternehmensberaterin, Netzwerkerin und Coach für Inhaberinnen und Inhaber im Mittelstand. Daran messe ich meine Arbeit.", crumbs) + f'''
+                 "Für die Unternehmen, die ich berate, bin ich mehr als eine Beraterin: Vertrauensperson, Türöffnerin und Strategin in einem.", crumbs) + f'''
     <section class="section" aria-labelledby="bio-title">
       <div class="wrap bio">
         <figure class="bio-portrait">
@@ -584,34 +584,52 @@ body = page_hero("Ich mache aus roten Zahlen schwarze.",
     <section class="section on-paper" aria-labelledby="partner-title">
       <div class="wrap who">
         <div>
-          <h2 id="partner-title">Wir arbeiten zu zweit</h2>
-          <p class="lead">Ich bin Ihre erste Ansprechpartnerin. Wenn es um Vertrieb, Social Media oder Content geht, ist Marvin Angerer von Anfang an dabei.</p>
+          <h2 id="partner-title">Zwei Generationen. Eine Mission.</h2>
+          <p class="lead">Eine wirklich tragfähige Brücke braucht beide Ufer gleichzeitig: das Erfahrene und das Junge. Genau deshalb arbeite ich im Tandem.</p>
         </div>
         {marvin_card("h3")}
       </div>
     </section>
 
-    <section class="section" id="prinzip" aria-labelledby="prinzip-title">
+    <section class="section" aria-labelledby="werte-title">
       <div class="wrap">
         <div class="section-head">
-          <h2 id="prinzip-title">Ich übersetze in beide Richtungen</h2>
-          <p class="lead">Die Chefetage spricht eine andere Sprache als die Generation, die heute Ihre Kunden stellt. Ich vermittle in die Welt der Entscheider, Marvin Angerer in die Welt der neuen Medien.</p>
+          <h2 id="werte-title">Ehrbar. Verbindlich. Wirksam.</h2>
         </div>
         <div class="bridge">
           <article class="world">
-            <h3>Die Welt der Entscheider</h3>
-            <p>Strategie und Zahlen, Verhandlungen mit Banken und Partnern, Politik und Netzwerk, die Haltung des Ehrbaren Kaufmanns.</p>
+            <h3>Vision</h3>
+            <p>Jedes Unternehmen, das uns anvertraut wird, soll stärker, sichtbarer und zukunftssicherer aus der Zusammenarbeit hervorgehen, mit Zahlen, die stimmen, und einer Stimme, die gehört wird.</p>
+          </article>
+          <article class="world">
+            <h3>Mission</h3>
+            <p>Wir verbinden wirtschaftliche Substanz mit moderner Kommunikation. Wir öffnen Türen, die andere nicht kennen. Wir liefern Ergebnisse, keine Berichte. Und wir tun das mit der Haltung des Ehrbaren Kaufmanns: fair, verbindlich, transparent.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section on-paper" id="prinzip" aria-labelledby="prinzip-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="prinzip-title">Die Brücke zwischen zwei Welten</h2>
+          <p class="lead">Die Welt eines erfahrenen Unternehmers ist nicht die Welt von TikTok. Ich dolmetsche in die Welt der Entscheider, die nächste Generation dolmetscht in die Welt der Neuen Medien. Gemeinsam übersetzen wir dort, wo Wachstum entsteht.</p>
+        </div>
+        <div class="bridge">
+          <article class="world">
+            <h3>Die erfahrene Welt</h3>
+            <p>Chefetage und Strategie, Finanzen und Verhandlung, Politik und Netzwerk, der Ehrbare Kaufmann. Über dreißig Jahre Substanz.</p>
           </article>
           <article class="world dark">
-            <h3>Die Welt Ihrer Kunden</h3>
-            <p>LinkedIn, Instagram, YouTube und TikTok, Creator und Community, ein anderes Tempo und eine andere Sprache.</p>
+            <h3>Die medien-native Welt</h3>
+            <p>TikTok, Reels und YouTube, Creator, Content und Community, Trend, Tempo und Authentizität. Die Generation, die Ihre Zielgruppe ist.</p>
           </article>
         </div>
         <p class="bridge-saying">Beide Welten brauchen <span class="u">einander.</span></p>
       </div>
     </section>
 
-''' + final_cta("Lernen wir uns kennen.", "Sechs kurze Fragen, dann rufe ich Sie persönlich an.")
+''' + final_cta()
 urls.append(page("ueber-mich/index.html", f"Über mich: Bettina Angerer | {NAME}",
                  "Bettina Angerer: über dreißig Jahre im und für den Mittelstand, zuerst in Marketing und Controlling, heute mit Bettina Angerer Consulting im gesamten DACH-Raum.",
                  body, current="ueber-mich/", schema=[PERSON_SCHEMA], crumbs=crumbs))
@@ -619,12 +637,12 @@ urls.append(page("ueber-mich/index.html", f"Über mich: Bettina Angerer | {NAME}
 # ================================================================ Kontakt
 crumbs = [("kontakt/", "Kontakt")]
 body = page_hero("So erreichen Sie mich",
-                 "Jede Zusammenarbeit beginnt mit sechs kurzen Fragen. Ich lese Ihre Antworten selbst und melde mich dann persönlich bei Ihnen.", crumbs) + f'''
+                 "Lassen Sie uns sprechen. Jede Zusammenarbeit beginnt mit sechs kurzen Fragen, und jede Anfrage lese ich persönlich.", crumbs) + f'''
     <section class="section" aria-labelledby="kontakt-title">
       <div class="wrap contact">
         <div class="contact-card">
           <h2 id="kontakt-title">Anfrage in sechs Fragen</h2>
-          <p>Umsatz, Unternehmensgröße, Tätigkeitsbereich, Branche und ein Satz zu Ihrem Anliegen. Ich lese jede Anfrage selbst und rufe Sie an.</p>
+          <p>Jede Anfrage lese ich persönlich, und wenn ich nicht helfen kann, sage ich das offen und nenne Ihnen jemanden aus meinem Netzwerk, der besser passt.</p>
           {cta()}
         </div>
         <div class="contact-card">
