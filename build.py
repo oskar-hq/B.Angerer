@@ -39,8 +39,6 @@ ORG = {
     "street": "Heinrich-Fickenscher-Str. 5A",
     "zip": "95448",
     "city": "Bayreuth",
-    "phone": "+49 172 8640338",
-    "phone_display": "+49 (0) 172 / 86 40 338",
     "email": "info@bettina-angerer.de",
     "vat": "DE298988354",
 }
@@ -87,7 +85,6 @@ def client_logos(label="Marvin Angerer und sein Team haben gearbeitet für"):
 
 ARROW = '<svg class="arrow" width="16" height="16" aria-hidden="true"><use href="#arrow"/></svg>'
 STRAND = '<svg class="strand-divider" aria-hidden="true" preserveAspectRatio="none"><use href="#strand"/></svg>'
-TEL = ORG["phone"].replace(" ", "")
 
 
 def cta(label="Erstgespräch anfragen", cls="btn"):
@@ -204,7 +201,6 @@ def page(path, title, desc, body, current="", schema=None, crumbs=None, extra_he
   <div class="mobile-menu" id="mobile-menu">
     {mnav}
     <a class="btn" href="{R}kontakt/" data-open-wizard>Erstgespräch anfragen {ARROW}</a>
-    <a class="mobile-tel" href="tel:{TEL}">{ORG["phone_display"]}</a>
   </div>
 
   <main id="inhalt">
@@ -229,7 +225,6 @@ def page(path, title, desc, body, current="", schema=None, crumbs=None, extra_he
           <h2 class="footer-h">Kontakt</h2>
           <address>
             {ORG["street"]}<br>{ORG["zip"]} {ORG["city"]}<br>
-            <a href="tel:{TEL}">{ORG["phone_display"]}</a><br>
             <a href="mailto:{ORG["email"]}">{ORG["email"]}</a>
           </address>
         </div>
@@ -277,7 +272,6 @@ def final_cta(heading="Erzählen Sie mir, wo es hakt.", text="Sechs kurze Fragen
         <p class="lead">{text}</p>
         <div class="final-actions">
           {cta()}
-          <a class="textlink on-dark" href="tel:{TEL}">Oder rufen Sie mich an: {ORG["phone_display"]}</a>
         </div>
       </div>
     </section>
@@ -332,7 +326,7 @@ ORG_SCHEMA = {
     "@context": "https://schema.org", "@type": "ProfessionalService", "@id": f"{SITE}/#organisation",
     "name": NAME, "description": CLAIM,
     "url": f"{SITE}/", "image": f"{SITE}/assets/img/portrait.jpg", "logo": f"{SITE}/assets/img/logo-mark.svg",
-    "telephone": ORG["phone"], "email": ORG["email"],
+    "email": ORG["email"],
     "address": {"@type": "PostalAddress", "streetAddress": ORG["street"], "postalCode": ORG["zip"],
                 "addressLocality": ORG["city"], "addressCountry": "DE"},
     "areaServed": [{"@type": "Country", "name": n} for n in ("Deutschland", "Österreich", "Schweiz")],
@@ -384,7 +378,7 @@ home = f'''    <section class="hero" aria-labelledby="hero-title">
           <p class="lead">{hero_sub}</p>
           <div class="hero-actions">
             {cta()}
-            <a class="textlink" href="tel:{TEL}">{ORG["phone_display"]}</a>
+            <span class="hero-note">Sechs kurze Fragen. Ich lese jede Anfrage selbst.</span>
           </div>
           <dl class="stats">{stats}</dl>
         </div>
@@ -625,7 +619,7 @@ urls.append(page("ueber-mich/index.html", f"Über mich: Bettina Angerer | {NAME}
 # ================================================================ Kontakt
 crumbs = [("kontakt/", "Kontakt")]
 body = page_hero("So erreichen Sie mich",
-                 "Am schnellsten geht es über die Anfrage in sechs kurzen Fragen. Sie können mich aber auch direkt anrufen oder mir schreiben.", crumbs) + f'''
+                 "Jede Zusammenarbeit beginnt mit sechs kurzen Fragen. Ich lese Ihre Antworten selbst und melde mich dann persönlich bei Ihnen.", crumbs) + f'''
     <section class="section" aria-labelledby="kontakt-title">
       <div class="wrap contact">
         <div class="contact-card">
@@ -639,7 +633,6 @@ body = page_hero("So erreichen Sie mich",
             Bettina Angerer<br>{ORG["street"]}<br>{ORG["zip"]} {ORG["city"]}
           </address>
           <ul class="contact-list">
-            <li><span>Telefon</span><a href="tel:{TEL}">{ORG["phone_display"]}</a></li>
             <li><span>E-Mail</span><a href="mailto:{ORG["email"]}">{ORG["email"]}</a></li>
           </ul>
         </div>
@@ -675,7 +668,7 @@ legal_page("impressum", "Impressum", f'''        <h1>Impressum</h1>
         <h2>Angaben gemäß § 5 DDG</h2>
         <p>{NAME}<br><span class="placeholder">{{{{Rechtsform und vertretungsberechtigte Personen}}}}</span><br>{ORG["street"]}<br>{ORG["zip"]} {ORG["city"]}</p>
         <h2>Kontakt</h2>
-        <p>Telefon: <a href="tel:{TEL}">{ORG["phone_display"]}</a><br>E-Mail: <a href="mailto:{ORG["email"]}">{ORG["email"]}</a></p>
+        <p>E-Mail: <a href="mailto:{ORG["email"]}">{ORG["email"]}</a></p>
         <h2>Umsatzsteuer-ID</h2>
         <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>{ORG["vat"]}</p>
         <h2>Redaktionell verantwortlich</h2>
