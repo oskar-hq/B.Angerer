@@ -16,42 +16,21 @@ ROOT = Path(__file__).parent
 SITE = "https://www.bettina-angerer.de"
 VERSION = "20"
 
-# ================================================================ SCHALTER
-# Team von Marvin Angerer als eigenes Versprechen zeigen (Hero, Leistungen).
-# Erst auf True stellen, wenn Bettina und Marvin das freigegeben haben.
-SHOW_TEAM = False
-
-# Kundenlogos zeigen. Erst nach Freigabe auf True stellen und unten bei
-# CLIENT_LOGOS eintragen, welche Logos gezeigt werden dürfen.
-SHOW_CLIENT_LOGOS = False
-CLIENT_LOGOS = []  # z. B. ["Red Bull", "DZ Bank"]; Dateien liegen in assets/img/logos/
-
-# Siegel „Zertifizierte Beratung“ des BVMW. Gültig mindestens bis Ende 2027.
-# Auf False stellen, wenn es nicht verlängert wird: dann verschwindet es überall.
-SHOW_BVMW_SEAL = True
-
-# Kennzahlen im Hero. Die Netzwerkzahl ersetzen, sobald Bettina sie nennt.
-STATS = [
-    ("30+", "Jahre im und für den Mittelstand"),
-    ("Hunderte", "Unternehmerinnen und Unternehmer in meinem Netzwerk"),
-]
-
-# Fallbeispiele. Solange die Liste leer ist, erscheint der Abschnitt nicht.
-# Jedes Beispiel: {"titel", "branche", "ausgang", "vorgehen", "ergebnis", "zahl" (optional)}
-CASES = []
-
-# Kurzes Video von Bettina im Über-mich-Teil, z. B. "assets/video/bettina.mp4"
-# (selbst gehostet, kein YouTube). None = kein Video.
-VIDEO = None
+# ================================================================ INHALTE
+# Texte, Kennzahlen und Schalter stehen in content/inhalte.json.
+# Diese Datei kann Bettina über das Redaktionssystem (Pages CMS, siehe README) selbst bearbeiten.
+C = json.loads((ROOT / "content/inhalte.json").read_text())
+S = C["schalter"]
+SHOW_TEAM = S["team_zeigen"]                      # Team von Marvin als eigenes Versprechen
+SHOW_CLIENT_LOGOS = S["kundenlogos_zeigen"]       # erst nach Freigabe
+CLIENT_LOGOS = S["kundenlogos"]                   # Namen wie in LOGOS unten
+SHOW_BVMW_SEAL = S["bvmw_siegel_zeigen"]          # gültig mindestens bis Ende 2027
+STATS = [(k["zahl"], k["text"]) for k in C["kennzahlen"]]
+CASES = [{"titel": f["titel"], "branche": f["branche"], "ausgang": f["ausgangslage"], "vorgehen": f["vorgehen"],
+          "ergebnis": f["ergebnis"], "zahl": f.get("zahl", "")} for f in C["fallbeispiele"]]
+VIDEO = C["video"] or None                        # selbst gehostete MP4, z. B. assets/video/bettina.mp4
 VIDEO_POSTER = "assets/img/portrait.jpg"
-
-# Marvin Angerer. Text und Foto kommen von Bettina und Marvin; bis dahin ein neutraler Satz.
-MARVIN = {
-    "photo": None,  # z. B. "assets/img/marvin.jpg" (Hochformat 3:4)
-    "text": [
-        "Marvin Angerer ist mein Partner bei Bettina Angerer Consulting. Sein Schwerpunkt sind Vertrieb, Social Media und Content: Er sorgt dafür, dass Ihr Unternehmen die Menschen erreicht, die heute Ihre Kunden sind.",
-    ],
-}
+MARVIN = {"photo": C["marvin"]["foto"] or None, "text": C["marvin"]["text"]}
 
 ORG = {
     "name": "Bettina Angerer Consulting",
@@ -127,142 +106,19 @@ def seal_block(cls="cert"):
 
 # ---------------------------------------------------------------- Leistungen
 # Reihenfolge = Gewichtung. Strategie zuerst, Social Media ist ein Teil, nicht das Ganze.
-SERVICES = [
-    {
-        "slug": "strategie", "name": "Strategie und Sanierung",
-        "lead": "Ich finde die Stellen, an denen in Ihrem Unternehmen Geld verloren geht oder liegen bleibt.",
-        "intro": "Wenn die Zahlen nicht stimmen, liegt das selten an einer einzigen Ursache. Ich schaue mir jede Abteilung an, vom Einkauf über Personal und Vertrieb bis zur Buchhaltung, und sage Ihnen offen, was ich sehe. Daraus entsteht ein Plan, der sich in Ihren Zahlen zeigt.",
-        "pains": [
-            ("Der Umsatz stimmt, der Gewinn nicht", "Es wird viel gearbeitet und verkauft, aber am Jahresende bleibt zu wenig übrig."),
-            ("Kosten laufen weiter, der Nutzen nicht", "Verträge, Abläufe und Ausgaben, die irgendwann sinnvoll waren, laufen einfach weiter."),
-            ("Die Nachfolge ist offen", "Der Generationswechsel steht an, aber es gibt noch keinen Plan, wie das Unternehmen übergeben wird."),
-            ("Für Neues fehlt das Geld", "Investitionen scheitern am Etat, und Förderprogramme bleiben ungenutzt, weil niemand Zeit für den Antrag hat."),
-        ],
-        "items": [
-            ("Unternehmensanalyse", "Zahlen, Strukturen und Abläufe, klar und ehrlich bewertet.",
-             "Ich gehe mit Ihnen durch jede Abteilung und lasse mir zeigen, wie dort gearbeitet wird. Am Ende steht eine schriftliche Einschätzung: wo Ihr Unternehmen Geld verliert, wo es Geld liegen lässt und was Sie zuerst angehen sollten."),
-            ("Restrukturierung und Turnaround", "Begleitung, bis die Zahlen wieder schwarz sind.",
-             "Wenn es eng wird, braucht es Entscheidungen, die im Alltag gern aufgeschoben werden. Ich bereite sie mit Ihnen vor, spreche mit Banken und Partnern und bleibe dabei, bis die Maßnahmen greifen."),
-            ("Prozessoptimierung", "Einkauf, Personal, Vertrieb, Marketing und Finanzen.",
-             "Viele Abläufe sind über Jahre gewachsen und kosten mehr Zeit, als sie müssten. Wir räumen sie gemeinsam auf, Abteilung für Abteilung, ohne den laufenden Betrieb zu stören."),
-            ("Unternehmensnachfolge", "Die Übergabe planen, bevor sie drängt.",
-             "Ob Familie, Führungskräfte oder ein externer Käufer: Eine Nachfolge braucht Jahre Vorlauf. Ich helfe Ihnen, das Unternehmen übergabefähig zu machen, und begleite die Gespräche zwischen den Generationen."),
-            ("Finanzierung und Förderung", "Fördermittel abrufen und Vorhaben sauber budgetieren.",
-             "Für Digitalisierung, Weiterbildung und Beratung gibt es Förderprogramme. Ich prüfe, welche für Sie in Frage kommen, und lege für jedes Vorhaben Budget, Meilensteine und Kennzahlen fest. So wissen Sie jederzeit, was es kostet und was es bringt."),
-        ],
-        "title": f"Strategie, Sanierung und Nachfolge | {NAME}",
-        "desc": "Unternehmensanalyse, Restrukturierung, Prozessoptimierung, Nachfolge und Förderung: Bettina Angerer bringt mittelständische Unternehmen zurück in die schwarzen Zahlen.",
-    },
-    {
-        "slug": "netzwerk", "name": "Netzwerk und Politik",
-        "lead": "Ich bringe Sie mit den Menschen zusammen, die Ihr Vorhaben voranbringen.",
-        "intro": "In mehr als dreißig Jahren ist ein Netzwerk gewachsen, das von Unternehmerinnen und Unternehmern über Verbände bis in die Politik reicht, von der Kommune über Landtag und Bundestag bis nach Brüssel. Wo Ihr Unternehmen jemanden braucht, den ich nicht ersetzen kann, stelle ich den Kontakt her.",
-        "pains": [
-            ("Der passende Partner fehlt", "Sie suchen einen Lieferanten, einen Kooperationspartner oder einen Spezialisten, kennen aber niemanden, dem Sie vertrauen."),
-            ("Ein Vorhaben steckt fest", "Genehmigungen, Förderzusagen oder Gespräche mit Behörden kommen nicht voran, weil der richtige Ansprechpartner fehlt."),
-        ],
-        "items": [
-            ("Unternehmen verbinden", "Kooperationen, Kunden und Partner aus meinem Netzwerk.",
-             "Ich kenne viele Unternehmen persönlich und weiß, wer was kann. Wenn zwei zueinander passen, bringe ich sie an einen Tisch. Das gilt für Kooperationen ebenso wie für neue Kunden oder Lieferanten."),
-            ("Kontakte in die Politik", "Von der Kommune bis zur EU.",
-             "Ich weiß, wer in Rathaus, Landtag, Bundestag und in Brüssel für welches Thema zuständig ist. Ich helfe Ihnen, Ihr Anliegen dort vorzubringen, wo darüber entschieden wird."),
-            ("Internationale Kontakte", "Mittelstandsnetzwerke in vielen Ländern.",
-             "Über die Mittelstandsarbeit der letzten Jahre habe ich Kontakte in zahlreiche Länder. Wenn Sie einen neuen Markt prüfen, finde ich Ansprechpartner, die ihn kennen."),
-            ("Spezialisten auf Empfehlung", "Wo ich nicht selbst helfe, nenne ich jemanden, der es kann.",
-             "Steuerfragen, Recht, Technik: Manche Aufgaben gehören in andere Hände. Ich empfehle Ihnen nur Menschen, mit denen ich selbst gute Erfahrungen gemacht habe."),
-        ],
-        "title": f"Netzwerk und politische Kontakte für den Mittelstand | {NAME}",
-        "desc": "Bettina Angerer verbindet Unternehmen miteinander und öffnet Türen von der Kommune über Landtag und Bundestag bis nach Brüssel.",
-    },
-    {
-        "slug": "coaching", "name": "Coaching für Unternehmer",
-        "lead": "Ich bilde Unternehmerinnen und Unternehmer darin aus, ihr Haus strategisch zu führen.",
-        "intro": "Viele Inhaber sind hervorragend in ihrem Fach und stecken trotzdem jeden Tag im operativen Geschäft fest. Im Coaching arbeiten wir daran, dass Sie Ihr Unternehmen von oben sehen: mit klaren Zahlen, klaren Prioritäten und Entscheidungen, die Sie auch vor Ihrem Team vertreten können.",
-        "pains": [
-            ("Keine Zeit für Strategie", "Das Tagesgeschäft frisst die Woche. Für die Frage, wohin das Unternehmen in fünf Jahren soll, bleibt nichts übrig."),
-            ("Allein mit den großen Entscheidungen", "Mit dem Team können Sie nicht über alles sprechen, mit der Familie wollen Sie es nicht. Es fehlt ein Gegenüber, das offen widerspricht."),
-        ],
-        "items": [
-            ("Strategische Unternehmensführung", "Ein Programm, das Sie Schritt für Schritt aufbauen.",
-             "Wir arbeiten an Ihren eigenen Zahlen und Fragen: Wie lese ich meine Auswertungen richtig, woran erkenne ich früh, dass etwas schiefläuft, und wie setze ich Prioritäten, die das Team mitträgt?"),
-            ("Sparring auf Augenhöhe", "Vertraulich, direkt und regelmäßig.",
-             "In festen Abständen sprechen wir über das, was Sie gerade beschäftigt. Ich sage Ihnen, was ich sehe, auch wenn es unbequem ist. Was Sie daraus machen, entscheiden Sie."),
-            ("Führung im Generationswechsel", "Wenn erfahrene Führung auf ein junges Team trifft.",
-             "Ältere und jüngere Mitarbeiter haben oft unterschiedliche Vorstellungen von Arbeit. Ich vermittle zwischen beiden Seiten, damit das Wissen der einen und der Schwung der anderen dem Unternehmen zugutekommen."),
-            ("Weiterbildung für Ihr Team", "Workshops vor Ort, an echten Aufgaben.",
-             "Praktiker aus meinem Netzwerk schulen Ihre Mitarbeiter direkt bei Ihnen im Haus. So bleibt das Wissen im Unternehmen und wird sofort angewendet."),
-        ],
-        "title": f"Coaching und Ausbildung in strategischer Unternehmensführung | {NAME}",
-        "desc": "Coaching, Sparring und Ausbildung für Inhaberinnen und Inhaber, die ihr Unternehmen strategisch führen wollen. Bettina Angerer Consulting.",
-    },
-    {
-        "slug": "vertrieb", "name": "Vertrieb", "partner": True,
-        "lead": "Neue Kunden gewinnen, ohne Ihre Mannschaft von den bestehenden abzuziehen.",
-        "intro": "Viele Mittelständler leben von Empfehlungen und Stammkunden. Das trägt lange, wächst aber nicht von allein. Gemeinsam mit meinem Partner Marvin Angerer baue ich Ihnen einen zweiten Weg zu neuen Kunden auf: planbar, messbar und so, dass Ihr Team dabei entlastet wird.",
-        "pains": [
-            ("Empfehlungen reichen nicht mehr", "Der Auftragseingang hängt an wenigen Kontakten. Fällt einer weg, fehlt Umsatz."),
-            ("Kaltakquise bleibt liegen", "Niemand im Team hat Zeit, täglich fremde Menschen anzuschreiben und nachzufassen."),
-            ("Neue Märkte sind ein Risiko", "Sie vermuten Potenzial in einer neuen Zielgruppe, wollen dafür aber nicht gleich Personal umschichten."),
-        ],
-        "items": [
-            ("Akquise über LinkedIn und Instagram", "Ihre Zielkunden finden und persönlich ansprechen.",
-             "Ein System sucht nach Menschen, die zu Ihrer Zielgruppe passen, und prüft vorab deren Unternehmen. Jede Nachricht geht einzeln und persönlich raus, wer nicht antwortet, wird zur richtigen Zeit erinnert. Der tägliche Aufwand liegt bei rund zehn Minuten, und Sie sehen schwarz auf weiß, welche Ansprache funktioniert."),
-            ("Testballon für neue Zielgruppen", "Erst im kleinen Versuch prüfen, ob sich ein Weg lohnt.",
-             "Bevor Sie Mitarbeiter und Budget auf einen neuen Markt ansetzen, testen wir ihn: eine klar umrissene Zielgruppe, eine begrenzte Laufzeit, messbare Antworten. Danach entscheiden Sie anhand von Zahlen."),
-            ("Vertriebsstrategie", "Ein klarer Plan, wer wen wann anspricht.",
-             "Wir ordnen Ihre Vertriebsrichtungen: Fachkunden, Endkunden, Großkunden. Für jede legen wir fest, welche Ansprache passt, welche Kanäle sich lohnen und woran Sie Erfolg erkennen."),
-        ] + ([
-            ("Betreuung großer Kunden", "Erfahrung aus der Arbeit mit Konzernen und Sendern.",
-             "Große Kunden haben eigene Abläufe, Einkaufsregeln und Erwartungen. Marvin Angerer und sein Team kennen diese Welt aus der täglichen Arbeit und begleiten Sie von der ersten Anfrage bis zur laufenden Zusammenarbeit."),
-        ] if SHOW_TEAM else []),
-        "title": f"Vertrieb und Neukundengewinnung | {NAME}",
-        "desc": "Neue Kunden gewinnen mit Akquise über LinkedIn und Instagram, Testläufen für neue Zielgruppen und einer klaren Vertriebsstrategie.",
-    },
-    {
-        "slug": "marketing", "name": "Marketing und Social Media", "partner": True,
-        "lead": "Inhalte, die Ihre Kunden dort erreichen, wo sie heute sind.",
-        "intro": "Klassische Werbung verliert an Wirkung, weil sich Ihr Publikum verändert hat. Was heute trägt, sind Inhalte, die Menschen freiwillig ansehen: geplant, verlässlich produziert und messbar. Hier arbeite ich eng mit meinem Partner Marvin Angerer zusammen, der diese Welt aus dem Alltag kennt.",
-        "pains": [
-            ("Anzeigen verpuffen", "Was vor fünf Jahren noch getragen hat, bringt heute kaum Rückmeldung."),
-            ("Kein Gesicht nach außen", "Ihre Kunden wollen sehen, wer hinter dem Unternehmen steht. Im Netz finden sie wenig."),
-            ("Social Media bleibt liegen", "Das Thema steht auf jeder Liste, aber niemand im Haus hat Zeit oder Erfahrung dafür."),
-            ("Die Generationen verstehen sich nicht", "Die Chefetage und die Zielgruppe sprechen unterschiedliche Sprachen. Das kostet Reichweite und Vertrauen."),
-        ],
-        "items": [
-            ("Content-Strategie", "Was Sie zeigen, wem und wo.",
-             "Wir klären, welche Themen Ihr Unternehmen glaubwürdig besetzen kann, auf welchen Plattformen Ihre Kunden unterwegs sind und in welchem Rhythmus Inhalte erscheinen. Das Ergebnis ist ein Redaktionsplan, den Sie verstehen und freigeben."),
-            ("Content-Produktion", "Dreh, Schnitt, Grafik und Text aus einer Hand.",
-             "Sie stellen Ihr Wissen und Ihre Menschen vor die Kamera, um alles Weitere kümmern wir uns und liefern fertige Beiträge, die zur jeweiligen Plattform passen."),
-            ("Personal Branding", "Ihr Auftritt als Unternehmerin oder Unternehmer.",
-             "Menschen kaufen von Menschen. Wir entwickeln Ihren persönlichen Auftritt: Positionierung, Bildsprache und Profile. So werden Sie sichtbar, ohne sich zu verbiegen."),
-            ("Zusammenarbeit mit Creatorn", "Die richtigen Gesichter für Ihr Produkt.",
-             "Wenn es schneller gehen soll, erreichen Sie über Creator Menschen, die Ihrer Marke sonst nicht begegnen würden. Wir wählen passende Partner aus, verhandeln und begleiten die Zusammenarbeit."),
-        ] + ([
-            ("Produktdesign", "Verpackung und Auftritt, die im Regal und im Bild funktionieren.",
-             "Vom Getränkekühlschrank bis zur Verpackung: Marvin Angerer und sein Team gestalten Produkte so, dass sie im Handel auffallen und auf Fotos und Videos gut aussehen."),
-        ] if SHOW_TEAM else []),
-        "title": f"Marketing und Social Media für den Mittelstand | {NAME}",
-        "desc": "Content-Strategie, Content-Produktion, Personal Branding und Creator-Kooperationen für mittelständische Unternehmen, gemeinsam mit Marvin Angerer.",
-    },
-]
+SERVICES = [{
+    "slug": l["slug"], "name": l["name"], "partner": l["mit_marvin"], "lead": l["kurz"], "intro": l["einleitung"],
+    "pains": [(p["titel"], p["text"]) for p in l["probleme"]],
+    "items": [(i["titel"], i["kurz"], i["text"]) for i in l["leistungen"] if SHOW_TEAM or not i.get("nur_mit_team")],
+    "title": f'{l["seitentitel"]} | {NAME}', "desc": l["google_beschreibung"],
+} for l in C["leistungen"]]
 
-FAQ = [
-    ("Arbeiten Sie nur in Bayern?", "Nein. Mein Sitz ist in Bayreuth, ich arbeite aber für Unternehmen in ganz Deutschland, in Österreich und in der Schweiz. Gespräche führe ich vor Ort oder per Video, je nachdem, was die Aufgabe verlangt."),
-    ("Was passiert nach meiner Anfrage?", "Ich lese jede Anfrage selbst und rufe Sie für ein Erstgespräch an. Wenn ich nicht die Richtige für Ihr Anliegen bin, sage ich Ihnen das offen und nenne Ihnen jemanden aus meinem Netzwerk, der besser passt."),
-    ("Was ist ein Testballon?", "Ein kleiner, zeitlich begrenzter erster Schritt, dessen Ergebnis sich messen lässt. Zum Beispiel sprechen wir eine neue Zielgruppe an und zählen, wie viele antworten, oder wir prüfen eine Abteilung, bevor wir das ganze Unternehmen umbauen. Erst wenn die Zahlen stimmen, wird daraus ein größeres Projekt."),
-    ("Welche Rolle hat Marvin Angerer?", "Marvin Angerer ist mein Partner bei Bettina Angerer Consulting. Sein Schwerpunkt sind Vertrieb, Social Media und Content. Ihre erste Ansprechpartnerin bin ich. Wenn es um seine Themen geht, ist er von Anfang an mit dabei."),
-    ("Muss ich mich mit Social Media auskennen?", "Nein. Sie sagen, was Sie erreichen wollen, wir übersetzen das in Maßnahmen und erklären jeden Schritt in klarer Sprache."),
-]
+FAQ = [(f["frage"], f["antwort"]) for f in C["faq"]]
 
 NAV = [("leistungen/", "Leistungen"), ("ueber-mich/", "Über mich"), ("kontakt/", "Kontakt")]
 
 # Ablauf: gilt auf Start- und Leistungsseiten gleich.
-PROCESS = [
-    ("Anfrage", "Sie beantworten sechs kurze Fragen. Das Wichtigste ist ein Satz dazu, wo es bei Ihnen hakt."),
-    ("Mein Anruf", "Ich rufe Sie persönlich an. Wenn es um Vertrieb oder Social Media geht, ist mein Partner Marvin Angerer gleich mit dabei."),
-    ("Testballon", "Wir beginnen mit einem kleinen, messbaren Schritt. So sehen Sie früh, ob der Weg trägt."),
-    ("Ihre Entscheidung", "Erst wenn die Zahlen stimmen, sprechen wir über ein größeres Projekt. Ob es weitergeht, entscheiden Sie."),
-]
+PROCESS = [(p["titel"], p["text"]) for p in C["ablauf"]]
 
 
 def process_html():
@@ -320,8 +176,8 @@ def page(path, title, desc, body, current="", schema=None, crumbs=None, extra_he
   <link rel="stylesheet" href="{R}assets/css/styles.css?v={VERSION}">
   <script>
     document.documentElement.classList.remove('no-js');
-    // Testumgebung nicht in Suchmaschinen aufnehmen. Auf www.bettina-angerer.de greift das nicht, dort ist die Seite indexierbar.
-    if (/github\\.io$|localhost|127\\.0\\.0\\.1/.test(location.hostname)) {{
+    // Test- und Vorschauumgebungen (GitHub, Vercel-Vorschau) nicht in Suchmaschinen aufnehmen. Auf www.bettina-angerer.de greift das nicht, dort ist die Seite indexierbar.
+    if (/github\\.io$|vercel\\.app$|localhost|127\\.0\\.0\\.1/.test(location.hostname)) {{
       var m = document.createElement('meta'); m.name = 'robots'; m.content = 'noindex, nofollow'; document.head.appendChild(m);
     }}
   </script>
@@ -504,10 +360,7 @@ svc_rows = "".join(f'''
           </li>''' for s in SERVICES)
 faq_html = "".join(f"<details><summary>{q}</summary><p>{a}</p></details>" for q, a in FAQ)
 
-if SHOW_TEAM:
-    hero_sub = "Ich berate Inhaberinnen und Inhaber mittelständischer Unternehmen in Deutschland, Österreich und der Schweiz. Ich finde die Stellen, an denen Geld verloren geht, und bringe Sie mit den Menschen zusammen, die Sie weiterbringen. Für Vertrieb und Social Media arbeite ich mit meinem Partner Marvin Angerer und seinem Team, das Ihre Kunden dort erreicht, wo sie heute sind."
-else:
-    hero_sub = "Ich berate Inhaberinnen und Inhaber mittelständischer Unternehmen in Deutschland, Österreich und der Schweiz. Ich schaue mir jede Abteilung an, vom Vertrieb bis zur Buchhaltung, finde die Stellen, an denen Geld verloren geht, und bringe Sie mit den Menschen zusammen, die Sie weiterbringen."
+hero_sub = C["startseite"]["einleitung_mit_team" if SHOW_TEAM else "einleitung"]
 
 # Die Kurve ist schematisch: keine echten Werte, nur das Bild von Rot nach Schwarz.
 curve = '''<figure class="curve" data-curve>
@@ -712,6 +565,7 @@ for s in SERVICES:
 
 # ================================================================ Über mich
 crumbs = [("ueber-mich/", "Über mich")]
+bio_paras = "\n          ".join(f'<p{" class=\"lead\"" if i == 0 else ""}>{p}</p>' for i, p in enumerate(C["ueber_mich"]["absaetze"]))
 video = (f'''
           <figure class="video">
             <video controls preload="none" playsinline poster="{{R}}{VIDEO_POSTER}" src="{{R}}{VIDEO}"></video>
@@ -726,11 +580,8 @@ body = page_hero("Ich mache aus roten Zahlen schwarze.",
         </figure>
         <div class="bio-copy">
           <h2 id="bio-title" class="sr-only">Mein Weg</h2>
-          <p class="lead">Seit über dreißig Jahren arbeite ich im und für den Mittelstand. Angefangen habe ich in leitenden Positionen in Marketing und Controlling. Dort habe ich gelernt, dass gute Ideen nur dann etwas wert sind, wenn sie sich am Ende in den Zahlen zeigen. Daran messe ich meine Arbeit bis heute.</p>
-          <p>Acht Jahre lang habe ich die Mittelstandsarbeit des BVMW in Nordbayern geleitet. In dieser Zeit habe ich mit Hunderten Unternehmerinnen und Unternehmern gesprochen, über Nachfolge, Fachkräfte, Finanzierung und über die Frage, wie man Kunden heute überhaupt noch erreicht. Aus dieser Zeit ist ein Netzwerk entstanden, das von der Kommune über Landtag und Bundestag bis nach Brüssel reicht. Mit der Region bleibe ich zudem über meine Ehrenämter verbunden.</p>
-          <p>Seit Januar 2026 arbeite ich mit Bettina Angerer Consulting für Unternehmen im gesamten DACH-Raum, zusammen mit meinem Partner Marvin Angerer. Ich schaue mir jede Abteilung an, vom Vertrieb bis zur Buchhaltung, und suche die Stellen, an denen Geld verloren geht oder liegen bleibt. Wo ein Unternehmen jemanden braucht, den ich nicht ersetzen kann, bringe ich die richtigen Leute aus meinem Netzwerk zusammen. Unternehmerinnen und Unternehmer, die ihr Haus strategisch führen wollen, coache ich und bilde sie aus.</p>
-          <p>Ich halte mich an das Leitbild des Ehrbaren Kaufmanns. Für mich heißt das: Ich sage offen, was ich sehe, auch wenn es unbequem ist. Und ich verkaufe niemandem ein Projekt, das er nicht braucht.</p>
-          <p class="strand-note">Die blaue Haarsträhne fällt beim ersten Treffen fast allen auf. Oft fängt das Gespräch genau damit an, und das ist mir recht.</p>{video}
+          {bio_paras}
+          <p class="strand-note">{C["ueber_mich"]["straehne"]}</p>{video}
           {seal_block()}
         </div>
       </div>
@@ -893,7 +744,7 @@ legal_page("datenschutz", "Datenschutz", f'''        <h1>Datenschutzerklärung</
         <p>Derzeit wird kein Werkzeug zur Webanalyse eingesetzt. <span class="placeholder">{{{{Falls ein Analysewerkzeug eingeführt wird: Anbieter, Zweck, Rechtsgrundlage, Speicherdauer und Widerspruchsmöglichkeit hier ergänzen}}}}</span></p>
         <h2>Kontaktaufnahme und Anfrageformular</h2>
         <p>{esc(ds[i_contact + 1])}</p>
-        <p>Wenn Sie das Anfrageformular nutzen, werden Ihre Angaben (Jahresumsatz, Unternehmensgröße, Tätigkeitsbereich, Branche, Anliegen, Unternehmen, Name, E-Mail-Adresse und optional Telefonnummer) verschlüsselt an unseren Webserver übertragen und von dort per E-Mail an {ORG["email"]} weitergeleitet. Die Daten werden auf dem Webserver nicht gespeichert und ausschließlich zur Bearbeitung Ihrer Anfrage verwendet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DS-GVO (Anbahnung eines Vertrags) sowie Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DS-GVO.</p>
+        <p>Wenn Sie das Anfrageformular nutzen, werden Ihre Angaben (Jahresumsatz, Unternehmensgröße, Tätigkeitsbereich, Branche, Anliegen, Unternehmen, Name, E-Mail-Adresse und optional Telefonnummer) verschlüsselt an eine Funktion unseres Hosting-Anbieters übertragen und von dort über unser E-Mail-Postfach an {ORG["email"]} weitergeleitet. Die Daten werden dabei nicht gespeichert und ausschließlich zur Bearbeitung Ihrer Anfrage verwendet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DS-GVO (Anbahnung eines Vertrags) sowie Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DS-GVO.</p>
         <p>Ist der Versand über den Server nicht möglich, bereitet das Formular stattdessen eine E-Mail in Ihrem eigenen E-Mail-Programm vor, die Sie selbst absenden.</p>
         {ds_block(i_rights, i_stand - 1)}
         <h2>Aktualität und Änderung der Datenschutzerklärung</h2>

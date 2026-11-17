@@ -1,0 +1,179 @@
+# Pages CMS (https://pagescms.org): Bettina meldet sich dort mit GitHub an und bearbeitet die Texte
+# in Formularen. Beim Speichern baut die GitHub-Action die Seiten neu, Vercel veröffentlicht sie.
+media:
+  input: assets/img
+  output: assets/img
+content:
+  - name: inhalte
+    label: "Texte der Website"
+    type: file
+    path: content/inhalte.json
+    format: json
+    fields:
+      - name: schalter
+        label: "Ein- und ausblenden"
+        type: object
+        fields:
+          - name: team_zeigen
+            label: "Team von Marvin auf der Seite zeigen"
+            type: boolean
+            description: "Erst nach Freigabe einschalten"
+          - name: kundenlogos_zeigen
+            label: "Kundenlogos zeigen"
+            type: boolean
+            description: "Erst nach Freigabe einschalten"
+          - name: kundenlogos
+            label: "Welche Logos"
+            type: string
+            list: true
+            description: "Namen wie Red Bull, DZ Bank, Netflix, Joyn, ZDF, ITV Studios, Miss Germany, Knabe Malz, HR, BR, WDR, NDR"
+          - name: bvmw_siegel_zeigen
+            label: "BVMW-Siegel zeigen"
+            type: boolean
+            description: "Gültig mindestens bis Ende 2027"
+      - name: kennzahlen
+        label: "Kennzahlen oben auf der Startseite"
+        type: object
+        list: true
+        fields:
+          - name: zahl
+            label: "Zahl"
+            type: string
+          - name: text
+            label: "Text darunter"
+            type: string
+      - name: startseite
+        label: "Startseite"
+        type: object
+        fields:
+          - name: einleitung
+            label: "Einleitung unter der Überschrift"
+            type: text
+          - name: einleitung_mit_team
+            label: "Einleitung, wenn das Team gezeigt wird"
+            type: text
+      - name: ueber_mich
+        label: "Über mich"
+        type: object
+        fields:
+          - name: absaetze
+            label: "Absätze"
+            type: text
+            list: true
+          - name: straehne
+            label: "Satz zur Strähne"
+            type: text
+      - name: marvin
+        label: "Marvin Angerer"
+        type: object
+        fields:
+          - name: foto
+            label: "Foto (Hochformat 3:4)"
+            type: image
+          - name: text
+            label: "Text"
+            type: text
+            list: true
+      - name: fallbeispiele
+        label: "Fallbeispiele"
+        type: object
+        list: true
+        description: "Der Abschnitt erscheint, sobald ein Beispiel eingetragen ist"
+        fields:
+          - name: titel
+            label: "Titel"
+            type: string
+          - name: branche
+            label: "Branche"
+            type: string
+          - name: ausgangslage
+            label: "Ausgangslage"
+            type: text
+          - name: vorgehen
+            label: "Was wir gemacht haben"
+            type: text
+          - name: ergebnis
+            label: "Ergebnis"
+            type: text
+          - name: zahl
+            label: "Zahl zum Ergebnis (optional)"
+            type: string
+      - name: video
+        label: "Video (MP4, optional)"
+        type: file
+      - name: leistungen
+        label: "Leistungen"
+        type: object
+        list: true
+        fields:
+          - name: slug
+            label: "Adresse (nicht ändern)"
+            type: string
+          - name: name
+            label: "Name"
+            type: string
+          - name: mit_marvin
+            label: "Gemeinsam mit Marvin"
+            type: boolean
+          - name: kurz
+            label: "Kurzbeschreibung"
+            type: text
+          - name: einleitung
+            label: "Einleitung"
+            type: text
+          - name: seitentitel
+            label: "Seitentitel für Google"
+            type: string
+          - name: google_beschreibung
+            label: "Beschreibung für Google"
+            type: text
+          - name: probleme
+            label: "Kommt Ihnen das bekannt vor?"
+            type: object
+            list: true
+            fields:
+              - name: titel
+                label: "Titel"
+                type: string
+              - name: text
+                label: "Text"
+                type: text
+          - name: leistungen
+            label: "Einzelne Leistungen"
+            type: object
+            list: true
+            fields:
+              - name: titel
+                label: "Titel"
+                type: string
+              - name: kurz
+                label: "Kurz"
+                type: string
+              - name: text
+                label: "Text"
+                type: text
+              - name: nur_mit_team
+                label: "Nur zeigen, wenn das Team gezeigt wird"
+                type: boolean
+      - name: ablauf
+        label: "Ablauf"
+        type: object
+        list: true
+        fields:
+          - name: titel
+            label: "Schritt"
+            type: string
+          - name: text
+            label: "Text"
+            type: text
+      - name: faq
+        label: "Häufige Fragen"
+        type: object
+        list: true
+        fields:
+          - name: frage
+            label: "Frage"
+            type: string
+          - name: antwort
+            label: "Antwort"
+            type: text

@@ -1,0 +1,133 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "outputDirectory": ".",
+  "trailingSlash": true,
+  "regions": [
+    "fra1"
+  ],
+  "redirects": [
+    {
+      "source": "/projektstrategie",
+      "destination": "/leistungen/strategie/",
+      "statusCode": 301
+    },
+    {
+      "source": "/service-engineering",
+      "destination": "/leistungen/strategie/",
+      "statusCode": 301
+    },
+    {
+      "source": "/unternehmensnachfolge",
+      "destination": "/leistungen/strategie/",
+      "statusCode": 301
+    },
+    {
+      "source": "/versteckte-steuererhoehung-durch-kurzarbeitergeld",
+      "destination": "/leistungen/strategie/",
+      "statusCode": 301
+    },
+    {
+      "source": "/marketing-und-vertrieb",
+      "destination": "/leistungen/vertrieb/",
+      "statusCode": 301
+    },
+    {
+      "source": "/dienstleistungen",
+      "destination": "/leistungen/",
+      "statusCode": 301
+    },
+    {
+      "source": "/bildungsallianz",
+      "destination": "/leistungen/coaching/",
+      "statusCode": 301
+    },
+    {
+      "source": "/bvmw",
+      "destination": "/ueber-mich/",
+      "statusCode": 301
+    },
+    {
+      "source": "/unterstuetzung-oberfranken-regio-bayreuth-stadt",
+      "destination": "/ueber-mich/",
+      "statusCode": 301
+    },
+    {
+      "source": "/kontaktdaten",
+      "destination": "/kontakt/",
+      "statusCode": 301
+    },
+    {
+      "source": "/die-zeit-wird-knapp",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ueber-bettina",
+      "destination": "/ueber-mich/",
+      "statusCode": 301
+    },
+    {
+      "source": "/engagement",
+      "destination": "/ueber-mich/",
+      "statusCode": 301
+    },
+    {
+      "source": "/leistungen/personal",
+      "destination": "/leistungen/coaching/",
+      "statusCode": 301
+    },
+    {
+      "source": "/leistungen/finanzierung",
+      "destination": "/leistungen/strategie/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sitemap_index.xml",
+      "destination": "/sitemap.xml",
+      "statusCode": 301
+    },
+    {
+      "source": "/:kind(post|page|category|post_tag|author)-sitemap.xml",
+      "destination": "/sitemap.xml",
+      "statusCode": 301
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        }
+      ]
+    },
+    {
+      "source": "/assets/fonts/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/logo-varianten/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ]
+}

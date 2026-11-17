@@ -1,0 +1,7 @@
+{
+  "name": "bettina-angerer-consulting",
+  "private": true,
+  "description": "Statische Website, nur die Formularfunktion in api/ braucht Pakete.",
+  "engines": { "node": ">=20" },
+  "dependencies": { "nodemailer": "^6.9.16" }
+}

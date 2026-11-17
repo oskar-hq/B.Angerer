@@ -21,8 +21,8 @@
   <link rel="stylesheet" href="../assets/css/styles.css?v=20">
   <script>
     document.documentElement.classList.remove('no-js');
-    // Testumgebung nicht in Suchmaschinen aufnehmen. Auf www.bettina-angerer.de greift das nicht, dort ist die Seite indexierbar.
-    if (/github\.io$|localhost|127\.0\.0\.1/.test(location.hostname)) {
+    // Test- und Vorschauumgebungen (GitHub, Vercel-Vorschau) nicht in Suchmaschinen aufnehmen. Auf www.bettina-angerer.de greift das nicht, dort ist die Seite indexierbar.
+    if (/github\.io$|vercel\.app$|localhost|127\.0\.0\.1/.test(location.hostname)) {
       var m = document.createElement('meta'); m.name = 'robots'; m.content = 'noindex, nofollow'; document.head.appendChild(m);
     }
   </script>
@@ -161,7 +161,7 @@
   </main>
 
   <dialog class="wizard" id="wizard" aria-labelledby="wizard-label">
-    <form id="enquiry-form" action="../anfrage.php" method="post" novalidate>
+    <form id="enquiry-form" action="../api/anfrage" method="post" novalidate>
       <header class="wizard-head">
         <p class="wizard-title" id="wizard-label">Erstgespräch anfragen</p>
         <button class="wizard-close" type="button" data-close-wizard aria-label="Fenster schließen"><span></span><span></span></button>

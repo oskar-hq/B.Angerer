@@ -2,8 +2,8 @@
 (function () {
   'use strict';
 
-  // Ersatzweg, falls der Versand über den Server nicht klappt (z. B. auf der Testseite bei GitHub,
-  // dort läuft kein PHP). Dann öffnet sich das E-Mail-Programm mit dieser Empfängeradresse.
+  // Ersatzweg, falls der Versand über den Server nicht klappt (z. B. auf der Testseite bei GitHub
+  // oder solange in Vercel kein Postfach eingetragen ist). Dann öffnet sich das E-Mail-Programm mit dieser Empfängeradresse.
   // Für die Testphase laut Absprache; vor dem Livegang auf info@bettina-angerer.de stellen.
   var CONTACT_EMAIL = 'info@oskarjacobsen.de';
 
@@ -204,7 +204,7 @@
     window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent(m.subject) + '&body=' + encodeURIComponent(m.body);
   }
 
-  // Normalfall: Anfrage geht über anfrage.php direkt als E-Mail an Bettina Angerer.
+  // Normalfall: Anfrage geht über die Vercel-Funktion api/anfrage direkt als E-Mail an Bettina Angerer.
   function send() {
     if (sending) return;
     var d = new FormData(form);

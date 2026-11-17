@@ -1,0 +1,338 @@
+{
+  "schalter": {
+    "team_zeigen": false,
+    "kundenlogos_zeigen": false,
+    "kundenlogos": [],
+    "bvmw_siegel_zeigen": true
+  },
+  "kennzahlen": [
+    {
+      "zahl": "30+",
+      "text": "Jahre im und für den Mittelstand"
+    },
+    {
+      "zahl": "Hunderte",
+      "text": "Unternehmerinnen und Unternehmer in meinem Netzwerk"
+    }
+  ],
+  "startseite": {
+    "einleitung": "Ich berate Inhaberinnen und Inhaber mittelständischer Unternehmen in Deutschland, Österreich und der Schweiz. Ich schaue mir jede Abteilung an, vom Vertrieb bis zur Buchhaltung, finde die Stellen, an denen Geld verloren geht, und bringe Sie mit den Menschen zusammen, die Sie weiterbringen.",
+    "einleitung_mit_team": "Ich berate Inhaberinnen und Inhaber mittelständischer Unternehmen in Deutschland, Österreich und der Schweiz. Ich finde die Stellen, an denen Geld verloren geht, und bringe Sie mit den Menschen zusammen, die Sie weiterbringen. Für Vertrieb und Social Media arbeite ich mit meinem Partner Marvin Angerer und seinem Team, das Ihre Kunden dort erreicht, wo sie heute sind."
+  },
+  "ueber_mich": {
+    "absaetze": [
+      "Seit über dreißig Jahren arbeite ich im und für den Mittelstand. Angefangen habe ich in leitenden Positionen in Marketing und Controlling. Dort habe ich gelernt, dass gute Ideen nur dann etwas wert sind, wenn sie sich am Ende in den Zahlen zeigen. Daran messe ich meine Arbeit bis heute.",
+      "Acht Jahre lang habe ich die Mittelstandsarbeit des BVMW in Nordbayern geleitet. In dieser Zeit habe ich mit Hunderten Unternehmerinnen und Unternehmern gesprochen, über Nachfolge, Fachkräfte, Finanzierung und über die Frage, wie man Kunden heute überhaupt noch erreicht. Aus dieser Zeit ist ein Netzwerk entstanden, das von der Kommune über Landtag und Bundestag bis nach Brüssel reicht. Mit der Region bleibe ich zudem über meine Ehrenämter verbunden.",
+      "Seit Januar 2026 arbeite ich mit Bettina Angerer Consulting für Unternehmen im gesamten DACH-Raum, zusammen mit meinem Partner Marvin Angerer. Ich schaue mir jede Abteilung an, vom Vertrieb bis zur Buchhaltung, und suche die Stellen, an denen Geld verloren geht oder liegen bleibt. Wo ein Unternehmen jemanden braucht, den ich nicht ersetzen kann, bringe ich die richtigen Leute aus meinem Netzwerk zusammen. Unternehmerinnen und Unternehmer, die ihr Haus strategisch führen wollen, coache ich und bilde sie aus.",
+      "Ich halte mich an das Leitbild des Ehrbaren Kaufmanns. Für mich heißt das: Ich sage offen, was ich sehe, auch wenn es unbequem ist. Und ich verkaufe niemandem ein Projekt, das er nicht braucht."
+    ],
+    "straehne": "Die blaue Haarsträhne fällt beim ersten Treffen fast allen auf. Oft fängt das Gespräch genau damit an, und das ist mir recht."
+  },
+  "marvin": {
+    "foto": "",
+    "text": [
+      "Marvin Angerer ist mein Partner bei Bettina Angerer Consulting. Sein Schwerpunkt sind Vertrieb, Social Media und Content: Er sorgt dafür, dass Ihr Unternehmen die Menschen erreicht, die heute Ihre Kunden sind."
+    ]
+  },
+  "fallbeispiele": [],
+  "video": "",
+  "leistungen": [
+    {
+      "slug": "strategie",
+      "name": "Strategie und Sanierung",
+      "mit_marvin": false,
+      "kurz": "Ich finde die Stellen, an denen in Ihrem Unternehmen Geld verloren geht oder liegen bleibt.",
+      "einleitung": "Wenn die Zahlen nicht stimmen, liegt das selten an einer einzigen Ursache. Ich schaue mir jede Abteilung an, vom Einkauf über Personal und Vertrieb bis zur Buchhaltung, und sage Ihnen offen, was ich sehe. Daraus entsteht ein Plan, der sich in Ihren Zahlen zeigt.",
+      "seitentitel": "Strategie, Sanierung und Nachfolge",
+      "google_beschreibung": "Unternehmensanalyse, Restrukturierung, Prozessoptimierung, Nachfolge und Förderung: Bettina Angerer bringt mittelständische Unternehmen zurück in die schwarzen Zahlen.",
+      "probleme": [
+        {
+          "titel": "Der Umsatz stimmt, der Gewinn nicht",
+          "text": "Es wird viel gearbeitet und verkauft, aber am Jahresende bleibt zu wenig übrig."
+        },
+        {
+          "titel": "Kosten laufen weiter, der Nutzen nicht",
+          "text": "Verträge, Abläufe und Ausgaben, die irgendwann sinnvoll waren, laufen einfach weiter."
+        },
+        {
+          "titel": "Die Nachfolge ist offen",
+          "text": "Der Generationswechsel steht an, aber es gibt noch keinen Plan, wie das Unternehmen übergeben wird."
+        },
+        {
+          "titel": "Für Neues fehlt das Geld",
+          "text": "Investitionen scheitern am Etat, und Förderprogramme bleiben ungenutzt, weil niemand Zeit für den Antrag hat."
+        }
+      ],
+      "leistungen": [
+        {
+          "titel": "Unternehmensanalyse",
+          "kurz": "Zahlen, Strukturen und Abläufe, klar und ehrlich bewertet.",
+          "text": "Ich gehe mit Ihnen durch jede Abteilung und lasse mir zeigen, wie dort gearbeitet wird. Am Ende steht eine schriftliche Einschätzung: wo Ihr Unternehmen Geld verliert, wo es Geld liegen lässt und was Sie zuerst angehen sollten.",
+          "nur_mit_team": false
+        },
+        {
+          "titel": "Restrukturierung und Turnaround",
+          "kurz": "Begleitung, bis die Zahlen wieder schwarz sind.",
+          "text": "Wenn es eng wird, braucht es Entscheidungen, die im Alltag gern aufgeschoben werden. Ich bereite sie mit Ihnen vor, spreche mit Banken und Partnern und bleibe dabei, bis die Maßnahmen greifen.",
+          "nur_mit_team": false
+        },
+        {
+          "titel": "Prozessoptimierung",
+          "kurz": "Einkauf, Personal, Vertrieb, Marketing und Finanzen.",
+          "text": "Viele Abläufe sind über Jahre gewachsen und kosten mehr Zeit, als sie müssten. Wir räumen sie gemeinsam auf, Abteilung für Abteilung, ohne den laufenden Betrieb zu stören.",
+          "nur_mit_team": false
+        },
+        {
+          "titel": "Unternehmensnachfolge",
+          "kurz": "Die Übergabe planen, bevor sie drängt.",
+          "text": "Ob Familie, Führungskräfte oder ein externer Käufer: Eine Nachfolge braucht Jahre Vorlauf. Ich helfe Ihnen, das Unternehmen übergabefähig zu machen, und begleite die Gespräche zwischen den Generationen.",
+          "nur_mit_team": false
+        },
+        {
+          "titel": "Finanzierung und Förderung",
+          "kurz": "Fördermittel abrufen und Vorhaben sauber budgetieren.",
+          "text": "Für Digitalisierung, Weiterbildung und Beratung gibt es Förderprogramme. Ich prüfe, welche für Sie in Frage kommen, und lege für jedes Vorhaben Budget, Meilensteine und Kennzahlen fest. So wissen Sie jederzeit, was es kostet und was es bringt.",
+          "nur_mit_team": false
+        }
+      ]
+    },
+    {
+      "slug": "netzwerk",
+      "name": "Netzwerk und Politik",
+      "mit_marvin": false,
+      "kurz": "Ich bringe Sie mit den Menschen zusammen, die Ihr Vorhaben voranbringen.",
+      "einleitung": "In mehr als dreißig Jahren ist ein Netzwerk gewachsen, das von Unternehmerinnen und Unternehmern über Verbände bis in die Politik reicht, von der Kommune über Landtag und Bundestag bis nach Brüssel. Wo Ihr Unternehmen jemanden braucht, den ich nicht ersetzen kann, stelle ich den Kontakt her.",
+      "seitentitel": "Netzwerk und politische Kontakte für den Mittelstand",
+      "google_beschreibung": "Bettina Angerer verbindet Unternehmen miteinander und öffnet Türen von der Kommune über Landtag und Bundestag bis nach Brüssel.",
+      "probleme": [
+        {
+          "titel": "Der passende Partner fehlt",
+          "text": "Sie suchen einen Lieferanten, einen Kooperationspartner oder einen Spezialisten, kennen aber niemanden, dem Sie vertrauen."
+        },
+        {
+          "titel": "Ein Vorhaben steckt fest",
+          "text": "Genehmigungen, Förderzusagen oder Gespräche mit Behörden kommen nicht voran, weil der richtige Ansprechpartner fehlt."
+        }
+      ],
+      "leistungen": [
+        {
+          "titel": "Unternehmen verbinden",
+          "kurz": "Kooperationen, Kunden und Partner aus meinem Netzwerk.",
+          "text": "Ich kenne viele Unternehmen persönlich und weiß, wer was kann. Wenn zwei zueinander passen, bringe ich sie an einen Tisch. Das gilt für Kooperationen ebenso wie für neue Kunden oder Lieferanten.",
+          "nur_mit_team": false
+        },
+        {
+          "titel": "Kontakte in die Politik",
+          "kurz": "Von der Kommune bis zur EU.",
+          "text": "Ich weiß, wer in Rathaus, Landtag, Bundestag und in Brüssel für welches Thema zuständig ist. Ich helfe Ihnen, Ihr Anliegen dort vorzubringen, wo darüber entschieden wird.",
+          "nur_mit_team": false
+        },
+        {
+          "titel": "Internationale Kontakte",
+          "kurz": "Mittelstandsnetzwerke in vielen Ländern.",
+          "text": "Über die Mittelstandsarbeit der letzten Jahre habe ich Kontakte in zahlreiche Länder. Wenn Sie einen neuen Markt prüfen, finde ich Ansprechpartner, die ihn kennen.",
+          "nur_mit_team": false
+        },
+        {
+          "titel": "Spezialisten auf Empfehlung",
+          "kurz": "Wo ich nicht selbst helfe, nenne ich jemanden, der es kann.",
+          "text": "Steuerfragen, Recht, Technik: Manche Aufgaben gehören in andere Hände. Ich empfehle Ihnen nur Menschen, mit denen ich selbst gute Erfahrungen gemacht habe.",
+          "nur_mit_team": false
+        }
+      ]
+    },
+    {
+      "slug": "coaching",
+      "name": "Coaching für Unternehmer",
+      "mit_marvin": false,
+      "kurz": "Ich bilde Unternehmerinnen und Unternehmer darin aus, ihr Haus strategisch zu führen.",
+      "einleitung": "Viele Inhaber sind hervorragend in ihrem Fach und stecken trotzdem jeden Tag im operativen Geschäft fest. Im Coaching arbeiten wir daran, dass Sie Ihr Unternehmen von oben sehen: mit klaren Zahlen, klaren Prioritäten und Entscheidungen, die Sie auch vor Ihrem Team vertreten können.",
+      "seitentitel": "Coaching und Ausbildung in strategischer Unternehmensführung",
+      "google_beschreibung": "Coaching, Sparring und Ausbildung für Inhaberinnen und Inhaber, die ihr Unternehmen strategisch führen wollen. Bettina Angerer Consulting.",
+      "probleme": [
+        {
+          "titel": "Keine Zeit für Strategie",
+          "text": "Das Tagesgeschäft frisst die Woche. Für die Frage, wohin das Unternehmen in fünf Jahren soll, bleibt nichts übrig."
+        },
+        {
+          "titel": "Allein mit den großen Entscheidungen",
+          "text": "Mit dem Team können Sie nicht über alles sprechen, mit der Familie wollen Sie es nicht. Es fehlt ein Gegenüber, das offen widerspricht."
+        }
+      ],
+      "leistungen": [
+        {
+          "titel": "Strategische Unternehmensführung",
+          "kurz": "Ein Programm, das Sie Schritt für Schritt aufbauen.",
+          "text": "Wir arbeiten an Ihren eigenen Zahlen und Fragen: Wie lese ich meine Auswertungen richtig, woran erkenne ich früh, dass etwas schiefläuft, und wie setze ich Prioritäten, die das Team mitträgt?",
+          "nur_mit_team": false
+        },
+        {
+          "titel": "Sparring auf Augenhöhe",
+          "kurz": "Vertraulich, direkt und regelmäßig.",
+          "text": "In festen Abständen sprechen wir über das, was Sie gerade beschäftigt. Ich sage Ihnen, was ich sehe, auch wenn es unbequem ist. Was Sie daraus machen, entscheiden Sie.",
+          "nur_mit_team": false
+        },
+        {
+          "titel": "Führung im Generationswechsel",
+          "kurz": "Wenn erfahrene Führung auf ein junges Team trifft.",
+          "text": "Ältere und jüngere Mitarbeiter haben oft unterschiedliche Vorstellungen von Arbeit. Ich vermittle zwischen beiden Seiten, damit das Wissen der einen und der Schwung der anderen dem Unternehmen zugutekommen.",
+          "nur_mit_team": false
+        },
+        {
+          "titel": "Weiterbildung für Ihr Team",
+          "kurz": "Workshops vor Ort, an echten Aufgaben.",
+          "text": "Praktiker aus meinem Netzwerk schulen Ihre Mitarbeiter direkt bei Ihnen im Haus. So bleibt das Wissen im Unternehmen und wird sofort angewendet.",
+          "nur_mit_team": false
+        }
+      ]
+    },
+    {
+      "slug": "vertrieb",
+      "name": "Vertrieb",
+      "mit_marvin": true,
+      "kurz": "Neue Kunden gewinnen, ohne Ihre Mannschaft von den bestehenden abzuziehen.",
+      "einleitung": "Viele Mittelständler leben von Empfehlungen und Stammkunden. Das trägt lange, wächst aber nicht von allein. Gemeinsam mit meinem Partner Marvin Angerer baue ich Ihnen einen zweiten Weg zu neuen Kunden auf: planbar, messbar und so, dass Ihr Team dabei entlastet wird.",
+      "seitentitel": "Vertrieb und Neukundengewinnung",
+      "google_beschreibung": "Neue Kunden gewinnen mit Akquise über LinkedIn und Instagram, Testläufen für neue Zielgruppen und einer klaren Vertriebsstrategie.",
+      "probleme": [
+        {
+          "titel": "Empfehlungen reichen nicht mehr",
+          "text": "Der Auftragseingang hängt an wenigen Kontakten. Fällt einer weg, fehlt Umsatz."
+        },
+        {
+          "titel": "Kaltakquise bleibt liegen",
+          "text": "Niemand im Team hat Zeit, täglich fremde Menschen anzuschreiben und nachzufassen."
+        },
+        {
+          "titel": "Neue Märkte sind ein Risiko",
+          "text": "Sie vermuten Potenzial in einer neuen Zielgruppe, wollen dafür aber nicht gleich Personal umschichten."
+        }
+      ],
+      "leistungen": [
+        {
+          "titel": "Akquise über LinkedIn und Instagram",
+          "kurz": "Ihre Zielkunden finden und persönlich ansprechen.",
+          "text": "Ein System sucht nach Menschen, die zu Ihrer Zielgruppe passen, und prüft vorab deren Unternehmen. Jede Nachricht geht einzeln und persönlich raus, wer nicht antwortet, wird zur richtigen Zeit erinnert. Der tägliche Aufwand liegt bei rund zehn Minuten, und Sie sehen schwarz auf weiß, welche Ansprache funktioniert.",
+          "nur_mit_team": false
+        },
+        {
+          "titel": "Testballon für neue Zielgruppen",
+          "kurz": "Erst im kleinen Versuch prüfen, ob sich ein Weg lohnt.",
+          "text": "Bevor Sie Mitarbeiter und Budget auf einen neuen Markt ansetzen, testen wir ihn: eine klar umrissene Zielgruppe, eine begrenzte Laufzeit, messbare Antworten. Danach entscheiden Sie anhand von Zahlen.",
+          "nur_mit_team": false
+        },
+        {
+          "titel": "Vertriebsstrategie",
+          "kurz": "Ein klarer Plan, wer wen wann anspricht.",
+          "text": "Wir ordnen Ihre Vertriebsrichtungen: Fachkunden, Endkunden, Großkunden. Für jede legen wir fest, welche Ansprache passt, welche Kanäle sich lohnen und woran Sie Erfolg erkennen.",
+          "nur_mit_team": false
+        },
+        {
+          "titel": "Betreuung großer Kunden",
+          "kurz": "Erfahrung aus der Arbeit mit Konzernen und Sendern.",
+          "text": "Große Kunden haben eigene Abläufe, Einkaufsregeln und Erwartungen. Marvin Angerer und sein Team kennen diese Welt aus der täglichen Arbeit und begleiten Sie von der ersten Anfrage bis zur laufenden Zusammenarbeit.",
+          "nur_mit_team": true
+        }
+      ]
+    },
+    {
+      "slug": "marketing",
+      "name": "Marketing und Social Media",
+      "mit_marvin": true,
+      "kurz": "Inhalte, die Ihre Kunden dort erreichen, wo sie heute sind.",
+      "einleitung": "Klassische Werbung verliert an Wirkung, weil sich Ihr Publikum verändert hat. Was heute trägt, sind Inhalte, die Menschen freiwillig ansehen: geplant, verlässlich produziert und messbar. Hier arbeite ich eng mit meinem Partner Marvin Angerer zusammen, der diese Welt aus dem Alltag kennt.",
+      "seitentitel": "Marketing und Social Media für den Mittelstand",
+      "google_beschreibung": "Content-Strategie, Content-Produktion, Personal Branding und Creator-Kooperationen für mittelständische Unternehmen, gemeinsam mit Marvin Angerer.",
+      "probleme": [
+        {
+          "titel": "Anzeigen verpuffen",
+          "text": "Was vor fünf Jahren noch getragen hat, bringt heute kaum Rückmeldung."
+        },
+        {
+          "titel": "Kein Gesicht nach außen",
+          "text": "Ihre Kunden wollen sehen, wer hinter dem Unternehmen steht. Im Netz finden sie wenig."
+        },
+        {
+          "titel": "Social Media bleibt liegen",
+          "text": "Das Thema steht auf jeder Liste, aber niemand im Haus hat Zeit oder Erfahrung dafür."
+        },
+        {
+          "titel": "Die Generationen verstehen sich nicht",
+          "text": "Die Chefetage und die Zielgruppe sprechen unterschiedliche Sprachen. Das kostet Reichweite und Vertrauen."
+        }
+      ],
+      "leistungen": [
+        {
+          "titel": "Content-Strategie",
+          "kurz": "Was Sie zeigen, wem und wo.",
+          "text": "Wir klären, welche Themen Ihr Unternehmen glaubwürdig besetzen kann, auf welchen Plattformen Ihre Kunden unterwegs sind und in welchem Rhythmus Inhalte erscheinen. Das Ergebnis ist ein Redaktionsplan, den Sie verstehen und freigeben.",
+          "nur_mit_team": false
+        },
+        {
+          "titel": "Content-Produktion",
+          "kurz": "Dreh, Schnitt, Grafik und Text aus einer Hand.",
+          "text": "Sie stellen Ihr Wissen und Ihre Menschen vor die Kamera, um alles Weitere kümmern wir uns und liefern fertige Beiträge, die zur jeweiligen Plattform passen.",
+          "nur_mit_team": false
+        },
+        {
+          "titel": "Personal Branding",
+          "kurz": "Ihr Auftritt als Unternehmerin oder Unternehmer.",
+          "text": "Menschen kaufen von Menschen. Wir entwickeln Ihren persönlichen Auftritt: Positionierung, Bildsprache und Profile. So werden Sie sichtbar, ohne sich zu verbiegen.",
+          "nur_mit_team": false
+        },
+        {
+          "titel": "Zusammenarbeit mit Creatorn",
+          "kurz": "Die richtigen Gesichter für Ihr Produkt.",
+          "text": "Wenn es schneller gehen soll, erreichen Sie über Creator Menschen, die Ihrer Marke sonst nicht begegnen würden. Wir wählen passende Partner aus, verhandeln und begleiten die Zusammenarbeit.",
+          "nur_mit_team": false
+        },
+        {
+          "titel": "Produktdesign",
+          "kurz": "Verpackung und Auftritt, die im Regal und im Bild funktionieren.",
+          "text": "Vom Getränkekühlschrank bis zur Verpackung: Marvin Angerer und sein Team gestalten Produkte so, dass sie im Handel auffallen und auf Fotos und Videos gut aussehen.",
+          "nur_mit_team": true
+        }
+      ]
+    }
+  ],
+  "ablauf": [
+    {
+      "titel": "Anfrage",
+      "text": "Sie beantworten sechs kurze Fragen. Das Wichtigste ist ein Satz dazu, wo es bei Ihnen hakt."
+    },
+    {
+      "titel": "Mein Anruf",
+      "text": "Ich rufe Sie persönlich an. Wenn es um Vertrieb oder Social Media geht, ist mein Partner Marvin Angerer gleich mit dabei."
+    },
+    {
+      "titel": "Testballon",
+      "text": "Wir beginnen mit einem kleinen, messbaren Schritt. So sehen Sie früh, ob der Weg trägt."
+    },
+    {
+      "titel": "Ihre Entscheidung",
+      "text": "Erst wenn die Zahlen stimmen, sprechen wir über ein größeres Projekt. Ob es weitergeht, entscheiden Sie."
+    }
+  ],
+  "faq": [
+    {
+      "frage": "Arbeiten Sie nur in Bayern?",
+      "antwort": "Nein. Mein Sitz ist in Bayreuth, ich arbeite aber für Unternehmen in ganz Deutschland, in Österreich und in der Schweiz. Gespräche führe ich vor Ort oder per Video, je nachdem, was die Aufgabe verlangt."
+    },
+    {
+      "frage": "Was passiert nach meiner Anfrage?",
+      "antwort": "Ich lese jede Anfrage selbst und rufe Sie für ein Erstgespräch an. Wenn ich nicht die Richtige für Ihr Anliegen bin, sage ich Ihnen das offen und nenne Ihnen jemanden aus meinem Netzwerk, der besser passt."
+    },
+    {
+      "frage": "Was ist ein Testballon?",
+      "antwort": "Ein kleiner, zeitlich begrenzter erster Schritt, dessen Ergebnis sich messen lässt. Zum Beispiel sprechen wir eine neue Zielgruppe an und zählen, wie viele antworten, oder wir prüfen eine Abteilung, bevor wir das ganze Unternehmen umbauen. Erst wenn die Zahlen stimmen, wird daraus ein größeres Projekt."
+    },
+    {
+      "frage": "Welche Rolle hat Marvin Angerer?",
+      "antwort": "Marvin Angerer ist mein Partner bei Bettina Angerer Consulting. Sein Schwerpunkt sind Vertrieb, Social Media und Content. Ihre erste Ansprechpartnerin bin ich. Wenn es um seine Themen geht, ist er von Anfang an mit dabei."
+    },
+    {
+      "frage": "Muss ich mich mit Social Media auskennen?",
+      "antwort": "Nein. Sie sagen, was Sie erreichen wollen, wir übersetzen das in Maßnahmen und erklären jeden Schritt in klarer Sprache."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+# Baut die Seiten neu, sobald Texte (content/inhalte.json), Vorlagen oder das Bauskript geändert werden,
+# zum Beispiel wenn Bettina im Redaktionssystem speichert. Vercel veröffentlicht danach automatisch.
+name: Seiten bauen
+on:
+  push:
+    paths: ["content/**", "partials/**", "build.py"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: python3 build.py
+      - name: Geänderte Seiten speichern
+        run: |
+          git config user.name "Website-Bau"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || (git commit -m "Seiten nach Textänderung neu gebaut" && git push)
