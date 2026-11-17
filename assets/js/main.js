@@ -1,14 +1,16 @@
-/* Angerer Consulting */
+/* Bettina Angerer Consulting */
 (function () {
   'use strict';
 
-  // Empfänger der Anfragen. Für die Testphase laut Absprache; später auf Bettinas Adresse ändern.
+  // Ersatzweg, falls der Versand über den Server nicht klappt (z. B. auf der Testseite bei GitHub,
+  // dort läuft kein PHP). Dann öffnet sich das E-Mail-Programm mit dieser Empfängeradresse.
+  // Für die Testphase laut Absprache; vor dem Livegang auf info@bettina-angerer.de stellen.
   var CONTACT_EMAIL = 'info@oskarjacobsen.de';
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var root = document.documentElement;
 
-  /* ---------- Mobile menu ---------- */
+  /* ---------- Menü auf dem Handy ---------- */
   var toggle = document.querySelector('.menu-toggle');
   var menu = document.getElementById('mobile-menu');
   function setMenu(open) {
@@ -23,128 +25,91 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
   }
 
-  /* ---------- Scroll reveals, gestaffelt ---------- */
-  var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      // Elemente, die gleichzeitig ins Bild kommen, erscheinen nacheinander.
-      var batch = entries.filter(function (en) { return en.isIntersecting; })
-        .sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top || a.boundingClientRect.left - b.boundingClientRect.left; });
-      batch.forEach(function (en, i) {
-        var el = en.target;
-        var delay = reduce ? 0 : Math.min(i * 110, 440);
-        el.style.setProperty('--d', delay + 'ms');
-        el.classList.add('is-in');
-        setTimeout(function () { el.classList.add('is-done'); el.style.removeProperty('--d'); }, delay + 1000);
-        io.unobserve(el);
-      });
-    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
-    reveals.forEach(function (el) { io.observe(el); });
-  } else {
-    reveals.forEach(function (el) { el.classList.add('is-in', 'is-done'); });
-  }
+  /* ---------- Scroll-Effekte: nur zwei, beide erzählen etwas ---------- */
+  var effects = [];
+  var ticking = false;
+  function runEffects() { ticking = false; effects.forEach(function (fn) { fn(); }); }
+  function requestTick() { if (!ticking) { ticking = true; requestAnimationFrame(runEffects); } }
+  window.addEventListener('scroll', requestTick, { passive: true });
+  window.addEventListener('resize', requestTick);
 
-  /* ---------- Zahlen zählen hoch ---------- */
-  var counters = document.querySelectorAll('[data-count]');
-  if (counters.length && !reduce && 'IntersectionObserver' in window) {
-    var easeOut = function (t) { return 1 - Math.pow(1 - t, 4); };
-    var cio = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        cio.unobserve(en.target);
-        var el = en.target, end = parseInt(el.dataset.count, 10), suffix = el.dataset.suffix || '';
-        var start = null, dur = 1800, wait = 900;
-        el.textContent = '0' + suffix;
-        var tick = function (ts) {
-          if (start === null) start = ts + wait;
-          var t = Math.max(0, Math.min(1, (ts - start) / dur));
-          el.textContent = Math.round(easeOut(t) * end) + suffix;
-          if (t < 1) requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
-      });
-    }, { threshold: 0.4 });
-    counters.forEach(function (c) { cio.observe(c); });
-  }
-
-  /* ---------- Logoband läuft endlos ---------- */
-  var marquee = document.querySelector('.marquee');
-  if (marquee) {
-    if (reduce) { marquee.classList.add('is-static'); }
+  // 1. Rot wird Schwarz: die Ergebniskurve zeichnet sich beim Scrollen von unten nach oben.
+  var curve = document.querySelector('[data-curve]');
+  if (curve) {
+    var red = curve.querySelector('.curve-red');
+    var black = curve.querySelector('.curve-black');
+    var dot = curve.querySelector('.curve-dot');
+    var labelBlack = curve.querySelector('.curve-label-black');
+    var lr = red.getTotalLength(), lb = black.getTotalLength();
+    var setCurve = function (p) {
+      var pr = Math.min(1, p / 0.45), pb = Math.max(0, (p - 0.45) / 0.55);
+      red.style.strokeDasharray = lr; red.style.strokeDashoffset = lr * (1 - pr);
+      black.style.strokeDasharray = lb; black.style.strokeDashoffset = lb * (1 - pb);
+      dot.style.opacity = pb >= 1 ? 1 : 0;
+      labelBlack.style.opacity = pb > 0.5 ? 1 : 0;
+    };
+    if (reduce) { setCurve(1); }
     else {
-      var list = marquee.querySelector('.refs-list');
-      Array.prototype.slice.call(list.children).forEach(function (li) {
-        var c = li.cloneNode(true); c.setAttribute('aria-hidden', 'true'); list.appendChild(c);
+      effects.push(function () {
+        var r = curve.getBoundingClientRect(), vh = window.innerHeight;
+        // Beginnt, wenn die Kurve unten ins Bild kommt, fertig, wenn sie in der oberen Hälfte steht.
+        setCurve(Math.max(0, Math.min(1, (vh * 0.95 - r.top) / (vh * 0.6))));
       });
-      marquee.classList.add('is-running');
     }
   }
 
-  /* ---------- Scroll: Header, Fortschritt, Parallaxe ---------- */
-  var header = document.querySelector('.header');
-  var progress = document.querySelector('.scroll-progress');
-  var strand = document.querySelector('.hero-strand-wrap');
-  var lastY = window.scrollY, scrollTick = false;
-  var onScroll = function () {
-    scrollTick = false;
-    var y = window.scrollY;
-    var max = document.documentElement.scrollHeight - window.innerHeight;
-    if (progress) progress.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0) + ')';
-    if (header && !root.classList.contains('menu-open')) {
-      if (y > 480 && y > lastY + 4) header.classList.add('is-hidden');
-      else if (y < lastY - 4 || y <= 480) header.classList.remove('is-hidden');
-    }
-    if (strand && !reduce && y < window.innerHeight * 1.5) strand.style.transform = 'translate3d(0,' + (y * 0.18).toFixed(1) + 'px,0)';
-    lastY = y;
-  };
-  window.addEventListener('scroll', function () {
-    if (!scrollTick) { scrollTick = true; requestAnimationFrame(onScroll); }
-  }, { passive: true });
-  onScroll();
-
-  /* ---------- Tagline: word by word ---------- */
-  var tag = document.querySelector('[data-reveal-words]');
-  if (tag) {
-    var words = [];
-    (function split(node, gold) {
-      Array.prototype.slice.call(node.childNodes).forEach(function (child) {
-        if (child.nodeType === 3) {
-          var frag = document.createDocumentFragment();
-          child.textContent.split(/(\s+)/).forEach(function (part) {
-            if (!part) return;
-            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
-            var s = document.createElement('span');
-            s.className = 'w' + (gold ? ' gold' : '');
-            s.textContent = part;
-            words.push(s);
-            frag.appendChild(s);
-          });
-          node.replaceChild(frag, child);
-        } else if (child.nodeType === 1) {
-          split(child, gold || child.hasAttribute('data-gold'));
+  // 2. Die Strähne als Linie: verbindet auf der Startseite die Abschnitte, Punkt für Punkt.
+  var main = document.querySelector('.home main');
+  if (main && window.matchMedia('(min-width: 1340px)').matches && !reduce) {
+    var NS = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('class', 'thread'); svg.setAttribute('aria-hidden', 'true');
+    var path = document.createElementNS(NS, 'path');
+    svg.appendChild(path);
+    main.appendChild(svg);
+    var nodes = [], len = 0, ys = [];
+    var build = function () {
+      var sections = Array.prototype.slice.call(main.querySelectorAll(':scope > section')).slice(1);
+      var mainTop = main.getBoundingClientRect().top + window.scrollY;
+      var left = Math.max(0, (window.innerWidth - 1200) / 2 - 20);
+      svg.style.left = left + 'px';
+      svg.style.height = main.offsetHeight + 'px';
+      svg.setAttribute('viewBox', '0 0 64 ' + main.offsetHeight);
+      nodes.forEach(function (c) { c.remove(); });
+      nodes = []; ys = [];
+      var d = '';
+      sections.forEach(function (s, i) {
+        var y = s.getBoundingClientRect().top + window.scrollY - mainTop + 96;
+        var x = i % 2 ? 46 : 16;
+        if (i === 0) d = 'M' + x + ' ' + y;
+        else {
+          var py = ys[i - 1], px = (i - 1) % 2 ? 46 : 16, my = (py + y) / 2;
+          d += ' C' + px + ' ' + my + ' ' + x + ' ' + my + ' ' + x + ' ' + y;
         }
+        ys.push(y);
+        var c = document.createElementNS(NS, 'circle');
+        c.setAttribute('cx', x); c.setAttribute('cy', y); c.setAttribute('r', 6);
+        svg.appendChild(c); nodes.push(c);
       });
-    })(tag, false);
-
-    if (reduce) {
-      words.forEach(function (w) { w.classList.add('on'); });
-    } else {
-      var ticking = false;
-      var update = function () {
-        ticking = false;
-        var r = tag.getBoundingClientRect();
-        var vh = window.innerHeight;
-        // Fortschritt: Start, wenn der Absatz bei 85 % der Höhe ankommt, Ende bei 40 %.
-        var p = (vh * 0.85 - r.top) / (vh * 0.45 + r.height * 0.5);
-        var n = Math.round(Math.max(0, Math.min(1, p)) * words.length);
-        words.forEach(function (w, i) { w.classList.toggle('on', i < n); });
-      };
-      window.addEventListener('scroll', function () {
-        if (!ticking) { ticking = true; requestAnimationFrame(update); }
-      }, { passive: true });
-      update();
-    }
+      path.setAttribute('d', d);
+      len = path.getTotalLength();
+      path.style.strokeDasharray = len;
+    };
+    build();
+    window.addEventListener('resize', function () { build(); requestTick(); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { build(); requestTick(); });
+    window.addEventListener('load', function () { build(); requestTick(); });
+    effects.push(function () {
+      if (!ys.length) return;
+      var mainTop = main.getBoundingClientRect().top + window.scrollY;
+      var line = window.scrollY + window.innerHeight * 0.6 - mainTop;
+      var first = ys[0], last = ys[ys.length - 1];
+      var p = Math.max(0, Math.min(1, (line - first) / (last - first)));
+      path.style.strokeDashoffset = len * (1 - p);
+      nodes.forEach(function (c, i) { c.classList.toggle('on', ys[i] <= line); });
+    });
   }
+  requestTick();
 
   /* ---------- Anfrage in Schritten ---------- */
   var dialog = document.getElementById('wizard');
@@ -153,23 +118,22 @@
 
   var steps = Array.prototype.slice.call(form.querySelectorAll('.step'));
   var questions = steps.length - 1; // letzter Schritt ist die Bestätigung
+  var doneStep = steps[questions];
   var bar = form.querySelector('.wizard-bar');
   var count = form.querySelector('.wizard-count');
   var foot = form.querySelector('.wizard-foot');
   var backBtn = form.querySelector('[data-back]');
   var nextBtn = form.querySelector('[data-next]');
+  var sendError = form.querySelector('.send-error');
   var resultText = document.getElementById('result-text');
   var copyBtn = document.getElementById('copy-btn');
-  var current = 0;
+  var current = 0, sending = false;
   document.getElementById('result-mail').textContent = CONTACT_EMAIL;
 
-  function show(i, back) {
+  function show(i) {
     current = i;
     var done = i === questions;
-    steps.forEach(function (st, n) {
-      st.classList.toggle('is-active', n === i);
-      st.classList.toggle('from-back', !!back);
-    });
+    steps.forEach(function (st, n) { st.classList.toggle('is-active', n === i); });
     var pct = done ? 100 : Math.round((i / questions) * 100);
     bar.firstElementChild.style.transform = 'scaleX(' + (done ? 1 : Math.max(i / questions, 0.04)) + ')';
     bar.setAttribute('aria-valuenow', String(pct));
@@ -177,7 +141,7 @@
     backBtn.hidden = i === 0 || done;
     foot.classList.toggle('is-done', done || i === 0);
     nextBtn.firstChild.textContent = done ? 'Schließen ' : (i === questions - 1 ? 'Anfrage senden ' : 'Weiter ');
-    var focusEl = done ? steps[i].querySelector('h2')
+    var focusEl = done ? doneStep.querySelector(doneStep.dataset.mode === 'sent' ? '.done-sent h2' : '.done-mail h2')
       : (steps[i].dataset.step === 'fields' ? steps[i].querySelector('input, textarea') : steps[i].querySelector('legend'));
     if (focusEl) focusEl.focus({ preventScroll: true });
     form.querySelector('.wizard-body').scrollTop = 0;
@@ -209,11 +173,10 @@
     return firstBad;
   }
 
-  function send() {
-    var d = new FormData(form);
+  function mailText(d) {
     var subject = 'Anfrage Erstgespräch: ' + d.get('firma') + ' [Umsatz ' + d.get('umsatz') + ']';
     var body = [
-      'Anfrage über die Website von Angerer Consulting',
+      'Anfrage über die Website von Bettina Angerer Consulting',
       '',
       'Unternehmen: ' + d.get('firma'),
       'Branche: ' + d.get('branche'),
@@ -229,10 +192,37 @@
       'E-Mail: ' + d.get('email'),
       'Telefon: ' + (d.get('telefon') || 'nicht angegeben')
     ].join('\n');
-    resultText.textContent = 'Betreff: ' + subject + '\n\n' + body;
+    return { subject: subject, body: body };
+  }
+
+  // Ersatzweg: E-Mail-Programm öffnen und den Text zum Kopieren anzeigen.
+  function fallbackMail(d) {
+    var m = mailText(d);
+    resultText.textContent = 'Betreff: ' + m.subject + '\n\n' + m.body;
+    doneStep.dataset.mode = 'mail';
     show(questions);
-    window.location.href = 'mailto:' + CONTACT_EMAIL +
-      '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent(m.subject) + '&body=' + encodeURIComponent(m.body);
+  }
+
+  // Normalfall: Anfrage geht über anfrage.php direkt als E-Mail an Bettina Angerer.
+  function send() {
+    if (sending) return;
+    var d = new FormData(form);
+    sending = true; nextBtn.disabled = true;
+    sendError.classList.remove('is-on');
+    var ctrl = 'AbortController' in window ? new AbortController() : null;
+    var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 15000);
+    fetch(form.action, { method: 'POST', body: d, headers: { 'Accept': 'application/json' }, signal: ctrl ? ctrl.signal : undefined })
+      .then(function (res) {
+        return res.json().catch(function () { return null; }).then(function (json) { return { status: res.status, json: json }; });
+      })
+      .then(function (r) {
+        if (r.json && r.json.ok) { doneStep.dataset.mode = 'sent'; track('Anfrage gesendet'); show(questions); return; }
+        if (r.json && r.json.error && r.status === 422) { sendError.textContent = r.json.error; sendError.classList.add('is-on'); return; }
+        track('Anfrage Ersatzweg'); fallbackMail(d);
+      })
+      .catch(function () { track('Anfrage Ersatzweg'); fallbackMail(d); })
+      .then(function () { clearTimeout(timer); sending = false; nextBtn.disabled = false; });
   }
 
   function next() {
@@ -240,7 +230,7 @@
     var bad = validateStep(current);
     if (bad) { bad.focus(); return; }
     track('Anfrage Schritt', { schritt: current + 1 });
-    if (current === questions - 1) { track('Anfrage gesendet'); send(); } else show(current + 1);
+    if (current === questions - 1) send(); else show(current + 1);
   }
 
   // Messpunkte: greifen nur, wenn später ein Analysewerkzeug eingebunden wird.
@@ -254,7 +244,7 @@
   function openWizard() {
     track('Anfrage geöffnet');
     if (root.classList.contains('menu-open')) setMenu(false);
-    if (current === questions) { form.reset(); current = 0; }
+    if (current === questions) { form.reset(); current = 0; delete doneStep.dataset.mode; }
     if (typeof dialog.showModal === 'function') dialog.showModal(); else dialog.setAttribute('open', '');
     root.classList.add('wizard-lock');
     show(current);
@@ -272,22 +262,20 @@
   });
 
   nextBtn.addEventListener('click', next);
-  backBtn.addEventListener('click', function () { if (current > 0) show(current - 1, true); });
+  backBtn.addEventListener('click', function () { if (current > 0) show(current - 1); });
 
   // Auswahl per Klick oder Tipp geht direkt zur nächsten Frage (nicht bei Tastatur).
   form.addEventListener('click', function (e) {
     if (e.target.matches('.option input') && e.detail > 0) {
       var at = current;
-      setTimeout(function () { if (current === at) next(); }, 280);
+      setTimeout(function () { if (current === at) next(); }, 250);
     }
   });
-  form.addEventListener('input', function (e) {
-    var holder = e.target.closest('.invalid');
-    if (holder) holder.classList.remove('invalid');
-  });
-  form.addEventListener('change', function (e) {
-    var holder = e.target.closest('.invalid');
-    if (holder) holder.classList.remove('invalid');
+  ['input', 'change'].forEach(function (ev) {
+    form.addEventListener(ev, function (e) {
+      var holder = e.target.closest('.invalid');
+      if (holder) holder.classList.remove('invalid');
+    });
   });
   form.addEventListener('keydown', function (e) {
     if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA' && e.target.tagName !== 'BUTTON' && e.target.tagName !== 'A') {
