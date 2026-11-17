@@ -1,8 +1,21 @@
 {
   "schalter": {
     "team_zeigen": false,
-    "kundenlogos_zeigen": false,
-    "kundenlogos": [],
+    "kundenlogos_zeigen": true,
+    "kundenlogos": [
+      "Red Bull",
+      "DZ Bank",
+      "Netflix",
+      "Joyn",
+      "ZDF",
+      "ITV Studios",
+      "Miss Germany",
+      "Knabe Malz",
+      "HR",
+      "BR",
+      "WDR",
+      "NDR"
+    ],
     "bvmw_siegel_zeigen": true
   },
   "kennzahlen": [
@@ -90,7 +103,8 @@
           "text": "Für Digitalisierung, Weiterbildung und Beratung gibt es Förderprogramme. Ich prüfe, welche für Sie in Frage kommen, und lege für jedes Vorhaben Budget, Meilensteine und Kennzahlen fest. So wissen Sie jederzeit, was es kostet und was es bringt.",
           "nur_mit_team": false
         }
-      ]
+      ],
+      "kundenlogos": []
     },
     {
       "slug": "netzwerk",
@@ -135,7 +149,8 @@
           "text": "Wo ein Unternehmen jemanden braucht, den ich nicht ersetzen kann, bringe ich die richtigen Leute aus meinem Netzwerk zusammen.",
           "nur_mit_team": false
         }
-      ]
+      ],
+      "kundenlogos": []
     },
     {
       "slug": "coaching",
@@ -180,6 +195,13 @@
           "text": "Praktiker aus meinem Netzwerk schulen Ihre Mitarbeiter direkt bei Ihnen im Haus. So bleibt das Wissen im Unternehmen und wird sofort angewendet.",
           "nur_mit_team": false
         }
+      ],
+      "kundenlogos": [
+        "ZDF",
+        "HR",
+        "BR",
+        "WDR",
+        "NDR"
       ]
     },
     {
@@ -229,6 +251,12 @@
           "text": "Große Kunden haben eigene Abläufe, Einkaufsregeln und Erwartungen. Marvin Angerer und sein Team kennen diese Welt aus der täglichen Arbeit und begleiten Sie von der ersten Anfrage bis zur laufenden Zusammenarbeit.",
           "nur_mit_team": true
         }
+      ],
+      "kundenlogos": [
+        "Red Bull",
+        "DZ Bank",
+        "Netflix",
+        "Joyn"
       ]
     },
     {
@@ -294,6 +322,12 @@
           "text": "Drehorte, die im Gedächtnis bleiben, für Content, der nicht wie Content aussieht.",
           "nur_mit_team": true
         }
+      ],
+      "kundenlogos": [
+        "Red Bull",
+        "Knabe Malz",
+        "Miss Germany",
+        "ITV Studios"
       ]
     }
   ],

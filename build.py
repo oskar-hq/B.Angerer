@@ -70,14 +70,15 @@ def logo_list(names, R="{R}"):
     return '<ul class="logos" aria-label="Referenzen">' + "".join(out) + "</ul>"
 
 
-def client_logos(label="Marvin Angerer und sein Team haben gearbeitet für"):
-    if not (SHOW_CLIENT_LOGOS and CLIENT_LOGOS):
+def client_logos(names=None, label="Marvin Angerer und sein Team haben gearbeitet für"):
+    names = CLIENT_LOGOS if names is None else names
+    if not (SHOW_CLIENT_LOGOS and names):
         return ""
     return f'''
     <section class="refs" aria-label="Referenzen">
       <div class="wrap">
         <p class="refs-label">{label}</p>
-        {logo_list(CLIENT_LOGOS)}
+        {logo_list(names)}
       </div>
     </section>
 '''
@@ -108,6 +109,7 @@ SERVICES = [{
     "pains": [(p["titel"], p["text"]) for p in l["probleme"]],
     "items": [(i["titel"], i["kurz"], i["text"]) for i in l["leistungen"] if SHOW_TEAM or not i.get("nur_mit_team")],
     "title": f'{l["seitentitel"]} | {NAME}', "desc": l["google_beschreibung"],
+    "logos": l.get("kundenlogos", []),
 } for l in C["leistungen"]]
 
 FAQ = [(f["frage"], f["antwort"]) for f in C["faq"]]
@@ -510,7 +512,7 @@ for s in SERVICES:
       </div>
     </section>
 ''' if s.get("partner") else "")
-    body = page_hero(s["lead"], s["intro"], crumbs) + client_logos() + f'''
+    body = page_hero(s["lead"], s["intro"], crumbs) + client_logos(s["logos"]) + f'''
     <section class="section" aria-labelledby="lage-title">
       <div class="wrap">
         <div class="section-head">

@@ -382,7 +382,9 @@ p, li, dd { text-wrap: pretty; }
 /* Referenzen (nur nach Freigabe sichtbar) */
 .refs { padding: 32px 0; border-bottom: 1px solid var(--line); }
 .refs-label { text-align: center; font-size: 15px; color: var(--ink-soft); margin-bottom: 20px; }
-.logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 24px 48px; }
+.logos { display: grid; grid-template-columns: repeat(3, 1fr); justify-items: center; align-items: center; gap: 24px 16px; max-width: 1040px; margin: 0 auto; }
+@media (min-width: 760px) { .logos { grid-template-columns: repeat(6, 1fr); gap: 32px 24px; } }
+.logos:has(> li:nth-child(4):last-child), .logos:has(> li:nth-child(5):last-child) { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px 48px; }
 .logo { display: block; height: calc(26px * var(--k, 1)); background: var(--navy); -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: center; mask-position: center; }
 .logo-text { font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--navy); }
 

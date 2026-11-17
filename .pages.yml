@@ -127,6 +127,10 @@ content:
           - name: google_beschreibung
             label: "Beschreibung für Google"
             type: text
+          - name: kundenlogos
+            label: "Kundenlogos auf dieser Seite"
+            type: string
+            list: true
           - name: probleme
             label: "Kommt Ihnen das bekannt vor?"
             type: object
