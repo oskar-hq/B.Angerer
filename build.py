@@ -265,7 +265,7 @@ def page_hero(h1, lead, crumbs, extra=""):
 '''
 
 
-def final_cta(heading="Erzählen Sie mir, wo es hakt.", text="Sechs kurze Fragen, eine nach der anderen. Ich lese jede Anfrage persönlich und melde mich bei Ihnen."):
+def final_cta(heading="Erzählen Sie mir, wo es hakt.", text="Sechs kurze Fragen, eine nach der anderen. Ich lese jede Anfrage persönlich und melde mich, wenn ich Ihnen weiterhelfen kann."):
     return f'''    <section class="section final on-navy" aria-labelledby="anfrage-title">
       <div class="wrap final-inner">
         <h2 id="anfrage-title">{heading}</h2>
@@ -611,7 +611,7 @@ body = page_hero("Ich mache aus roten Zahlen schwarze.",
       </div>
     </section>
 
-''' + final_cta("Lernen wir uns kennen.", "Sechs kurze Fragen, dann rufe ich Sie persönlich an.")
+''' + final_cta("Lernen wir uns kennen.", "Sechs kurze Fragen. Wenn ich Ihnen weiterhelfen kann, rufe ich Sie persönlich an.")
 urls.append(page("ueber-mich/index.html", f"Über mich: Bettina Angerer | {NAME}",
                  "Bettina Angerer: über dreißig Jahre im und für den Mittelstand, zuerst in Marketing und Controlling, heute mit Bettina Angerer Consulting im gesamten DACH-Raum.",
                  body, current="ueber-mich/", schema=[PERSON_SCHEMA], crumbs=crumbs))
@@ -619,12 +619,12 @@ urls.append(page("ueber-mich/index.html", f"Über mich: Bettina Angerer | {NAME}
 # ================================================================ Kontakt
 crumbs = [("kontakt/", "Kontakt")]
 body = page_hero("So erreichen Sie mich",
-                 "Jede Zusammenarbeit beginnt mit sechs kurzen Fragen. Ich lese Ihre Antworten selbst und melde mich dann persönlich bei Ihnen.", crumbs) + f'''
+                 "Jede Zusammenarbeit beginnt mit sechs kurzen Fragen. Ich lese Ihre Antworten selbst und melde mich persönlich, wenn ich Ihnen weiterhelfen kann.", crumbs) + f'''
     <section class="section" aria-labelledby="kontakt-title">
       <div class="wrap contact">
         <div class="contact-card">
           <h2 id="kontakt-title">Anfrage in sechs Fragen</h2>
-          <p>Umsatz, Unternehmensgröße, Tätigkeitsbereich, Branche und ein Satz zu Ihrem Anliegen. Ich lese jede Anfrage selbst und rufe Sie an.</p>
+          <p>Umsatz, Unternehmensgröße, Tätigkeitsbereich, Branche und ein Satz zu Ihrem Anliegen. Ich lese jede Anfrage selbst und rufe Sie an, wenn ich Ihnen weiterhelfen kann.</p>
           {cta()}
         </div>
         <div class="contact-card">
