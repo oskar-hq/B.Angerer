@@ -1,7 +1,7 @@
 {
   "schalter": {
     "team_zeigen": false,
-    "kundenlogos_zeigen": true,
+    "kundenlogos_zeigen": false,
     "kundenlogos": [
       "Red Bull",
       "DZ Bank",
