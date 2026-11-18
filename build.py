@@ -306,7 +306,7 @@ def cases_section():
             <h3>{c["titel"]}</h3>
             <dl>
               <dt>Ausgangslage</dt><dd>{c["ausgang"]}</dd>
-              <dt>Was wir gemacht haben</dt><dd>{c["vorgehen"]}</dd>
+              <dt>Was ich gemacht habe</dt><dd>{c["vorgehen"]}</dd>
               <dt>Ergebnis</dt><dd>{c["ergebnis"]}</dd>
             </dl>{zahl}
           </article>'''
@@ -315,7 +315,7 @@ def cases_section():
       <div class="wrap">
         <div class="section-head">
           <h2 id="praxis-title">Aus der Praxis</h2>
-          <p class="lead">Einige Unternehmen, die ich begleitet habe. Namen nenne ich nur, wenn die Inhaber zugestimmt haben.</p>
+          <p class="lead">Drei Beispiele aus meiner Arbeit. Namen bleiben vertraulich, deshalb nenne ich nur Branche und Größe.</p>
         </div>
         <div class="cases">{items}
         </div>
@@ -406,7 +406,7 @@ home = f'''    <section class="hero" aria-labelledby="hero-title">
       <div class="wrap">
         <div class="section-head">
           <h2 id="leistungen-title">Klassische Unternehmensberatung trifft auf die Welt der Neuen Medien</h2>
-          <p class="lead">Bettina Angerer Consulting vereint, was sonst getrennt erbracht wird: aus einer Hand, unter einem Dach, mit einem Namen. Wenn es um Vertrieb oder Social Media geht, ist mein Partner Marvin Angerer gleich mit dabei.</p>
+          <p class="lead">Bettina Angerer Consulting vereint, was sonst getrennt erbracht wird: aus einer Hand und unter einem Namen. Wenn es um Vertrieb oder Social Media geht, ist mein Partner Marvin Angerer gleich mit dabei.</p>
         </div>
         <ul class="svc-list">{svc_rows}
         </ul>
@@ -428,7 +428,7 @@ home = f'''    <section class="hero" aria-labelledby="hero-title">
         <div class="about-copy">
           <h2 id="about-title">Seit über dreißig Jahren im und für den Mittelstand</h2>
           <p class="lead">In dieser Zeit habe ich mit Hunderten Unternehmerinnen und Unternehmern gesprochen, über Nachfolge, Fachkräfte, Finanzierung und darüber, wie man Kunden heute überhaupt noch erreicht.</p>
-          <p>Daraus ist ein Netzwerk entstanden, das von der Kommune über Landtag und Bundestag bis nach Brüssel reicht. Für die Unternehmen, die ich berate, bin ich mehr als eine Beraterin: Vertrauensperson, Türöffnerin und Strategin in einem.</p>
+          <p>Daraus ist ein Netzwerk entstanden, das von der Kommune über Landtag und Bundestag bis nach Brüssel reicht. Für die Unternehmen, die ich berate, bin ich mehr als eine Beraterin: eine Vertrauensperson, die selbst mit am Tisch sitzt.</p>
           {seal_block()}
           <a class="textlink" href="{{R}}ueber-mich/">Mehr über mich {ARROW}</a>
         </div>
@@ -486,7 +486,7 @@ for n, s in enumerate(SERVICES):
 '''
 crumbs = [("leistungen/", "Leistungen")]
 body = page_hero("Klassische Unternehmensberatung trifft auf die Welt der Neuen Medien",
-                 "Bettina Angerer Consulting vereint, was sonst getrennt erbracht wird. Jede Säule steht für sich. Zusammen ergeben sie ein Angebot aus einer Hand, unter einem Dach, mit einem Namen.", crumbs)
+                 "Bettina Angerer Consulting vereint, was sonst getrennt erbracht wird. Jede Säule steht für sich. Zusammen ergeben sie ein Angebot aus einer Hand und unter einem Namen.", crumbs)
 body += f'''    <nav class="jump" aria-label="Leistungen im Überblick">
       <div class="wrap jump-inner">{"".join(f'<a href="#{s["slug"]}">{s["name"]}</a>' for s in SERVICES)}</div>
     </nav>
@@ -561,14 +561,18 @@ for s in SERVICES:
 
 # ================================================================ Über mich
 crumbs = [("ueber-mich/", "Über mich")]
+career = "".join(f'''
+            <li><h3>{w["station"]}</h3><p class="timeline-where">{w["bereich"]}</p><p class="timeline-result">{w["ergebnis"]}</p></li>''' for w in C["werdegang"])
+degrees = "".join(f"<li>{a}</li>" for a in C["abschluesse"])
 bio_paras = "\n          ".join(f'<p{" class=\"lead\"" if i == 0 else ""}>{p}</p>' for i, p in enumerate(C["ueber_mich"]["absaetze"]))
 video = (f'''
           <figure class="video">
             <video controls preload="none" playsinline poster="{{R}}{VIDEO_POSTER}" src="{{R}}{VIDEO}"></video>
             <figcaption>Bettina Angerer stellt sich vor</figcaption>
-          </figure>''' if VIDEO else "")
+          </figure>''' if VIDEO else ('''
+          <figure class="video video-placeholder" aria-hidden="true"><span>Hier kommt Ihr Video hin (45 bis 60 Sekunden, mit Untertiteln)</span></figure>''' if C.get("video_platzhalter") else ""))
 body = page_hero("Ich mache aus roten Zahlen schwarze.",
-                 "Für die Unternehmen, die ich berate, bin ich mehr als eine Beraterin: Vertrauensperson, Türöffnerin und Strategin in einem.", crumbs) + f'''
+                 "Für die Unternehmen, die ich berate, bin ich mehr als eine Beraterin: eine Vertrauensperson, die selbst mit am Tisch sitzt.", crumbs) + f'''
     <section class="section" aria-labelledby="bio-title">
       <div class="wrap bio">
         <figure class="bio-portrait">
@@ -583,7 +587,21 @@ body = page_hero("Ich mache aus roten Zahlen schwarze.",
       </div>
     </section>
 
-    <section class="section on-paper" aria-labelledby="partner-title">
+    <section class="section on-paper" aria-labelledby="weg-title">
+      <div class="wrap career">
+        <div>
+          <h2 id="weg-title">Mein beruflicher Weg</h2>
+          <p class="lead">Stationen aus meinem Werdegang und was dabei herausgekommen ist. Die neueste steht oben.</p>
+        </div>
+        <div>
+          <ol class="timeline">{career}
+          </ol>
+          <ul class="degrees">{degrees}</ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="partner-title">
       <div class="wrap who">
         <div>
           <h2 id="partner-title">Zwei Generationen. Eine Mission.</h2>
@@ -593,25 +611,25 @@ body = page_hero("Ich mache aus roten Zahlen schwarze.",
       </div>
     </section>
 
-    <section class="section" aria-labelledby="werte-title">
+    <section class="section on-paper" aria-labelledby="werte-title">
       <div class="wrap">
         <div class="section-head">
-          <h2 id="werte-title">Ehrbar. Verbindlich. Wirksam.</h2>
+          <h2 id="werte-title">Wofür ich stehe</h2>
         </div>
         <div class="bridge">
           <article class="world">
             <h3>Vision</h3>
-            <p>Jedes Unternehmen, das uns anvertraut wird, soll stärker, sichtbarer und zukunftssicherer aus der Zusammenarbeit hervorgehen, mit Zahlen, die stimmen, und einer Stimme, die gehört wird.</p>
+            <p>Jedes Unternehmen, das uns anvertraut wird, soll stärker und zukunftssicherer aus der Zusammenarbeit hervorgehen, mit Zahlen, die stimmen, und einer Stimme, die gehört wird.</p>
           </article>
           <article class="world">
             <h3>Mission</h3>
-            <p>Wir verbinden wirtschaftliche Substanz mit moderner Kommunikation. Wir öffnen Türen, die andere nicht kennen. Wir liefern Ergebnisse, keine Berichte. Und wir tun das mit der Haltung des Ehrbaren Kaufmanns: fair, verbindlich, transparent.</p>
+            <p>Wir verbinden wirtschaftliche Substanz mit moderner Kommunikation und bringen die richtigen Menschen zusammen. Wir liefern Ergebnisse, keine Berichte, mit der Haltung des Ehrbaren Kaufmanns.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section on-paper" id="prinzip" aria-labelledby="prinzip-title">
+    <section class="section" id="prinzip" aria-labelledby="prinzip-title">
       <div class="wrap">
         <div class="section-head">
           <h2 id="prinzip-title">Die Brücke zwischen zwei Welten</h2>
@@ -620,11 +638,11 @@ body = page_hero("Ich mache aus roten Zahlen schwarze.",
         <div class="bridge">
           <article class="world">
             <h3>Die erfahrene Welt</h3>
-            <p>Chefetage und Strategie, Finanzen und Verhandlung, Politik und Netzwerk, der Ehrbare Kaufmann. Über dreißig Jahre Substanz.</p>
+            <p>Über dreißig Jahre in Chefetagen, mit Zahlen, die stimmen, und einem Netzwerk bis in die Politik.</p>
           </article>
           <article class="world dark">
             <h3>Die medien-native Welt</h3>
-            <p>TikTok, Reels und YouTube, Creator, Content und Community, Trend, Tempo und Authentizität. Die Generation, die Ihre Zielgruppe ist.</p>
+            <p>Eine Generation, die TikTok und YouTube fließend spricht und selbst Teil Ihrer Zielgruppe ist.</p>
           </article>
         </div>
         <p class="bridge-saying">Beide Welten brauchen <span class="u">einander.</span></p>

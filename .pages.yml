@@ -90,7 +90,7 @@ content:
             label: "Ausgangslage"
             type: text
           - name: vorgehen
-            label: "Was wir gemacht haben"
+            label: "Was ich gemacht habe"
             type: text
           - name: ergebnis
             label: "Ergebnis"
@@ -98,6 +98,27 @@ content:
           - name: zahl
             label: "Zahl zum Ergebnis (optional)"
             type: string
+      - name: werdegang
+        label: "Mein beruflicher Weg (neueste Station oben)"
+        type: object
+        list: true
+        fields:
+          - name: station
+            label: "Position"
+            type: string
+          - name: bereich
+            label: "Unternehmen oder Branche"
+            type: string
+          - name: ergebnis
+            label: "Ergebnis"
+            type: text
+      - name: abschluesse
+        label: "Abschlüsse"
+        type: string
+        list: true
+      - name: video_platzhalter
+        label: "Platz für das Video freihalten, solange keins da ist"
+        type: boolean
       - name: video
         label: "Video (MP4, optional)"
         type: file

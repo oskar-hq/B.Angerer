@@ -366,6 +366,20 @@ p, li, dd { text-wrap: pretty; }
 .bridge-saying { margin-top: 48px; font-family: var(--serif); font-weight: 600; font-size: clamp(28px, 4.4vw, 44px); line-height: 1.2; color: var(--navy); }
 @media (min-width: 760px) { .bridge { grid-template-columns: 1fr 1fr; gap: 24px; } .world { padding: 40px; } }
 
+.video-placeholder { margin-top: 32px; aspect-ratio: 16 / 9; background: var(--navy); border: 2px dashed var(--strand-bright); display: flex; align-items: center; justify-content: center; padding: 24px; text-align: center; color: var(--on-dark-soft); font-size: 15px; }
+.career { display: grid; gap: 32px; align-items: start; }
+.career .lead { margin-top: 16px; color: var(--ink-soft); }
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before { content: ""; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px; background: var(--strand); opacity: 0.4; }
+.timeline li { position: relative; padding-bottom: 28px; }
+.timeline li::before { content: ""; position: absolute; left: -32px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--white); border: 2.5px solid var(--strand); }
+.timeline li:first-child::before { background: var(--strand); }
+.timeline h3 { font-size: 20px; }
+.timeline-where { font-size: 15px; color: var(--gold-ink); font-weight: 600; margin-top: 2px; }
+.timeline-result { margin-top: 6px; color: var(--ink-soft); }
+.degrees { margin-top: 8px; padding-top: 20px; border-top: 1px solid var(--line); display: grid; gap: 6px; font-size: 15px; color: var(--ink-soft); }
+@media (min-width: 900px) { .career { grid-template-columns: 0.8fr 1.2fr; gap: 80px; } .career > div:first-child { position: sticky; top: 112px; } }
+
 /* Kontakt */
 .contact { display: grid; gap: 24px; }
 .contact-card { padding: 28px; background: var(--paper); }
