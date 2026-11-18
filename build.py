@@ -350,7 +350,7 @@ svc_rows = "".join(f'''
           <li>
             <a href="{{R}}leistungen/{s["slug"]}/">
               <h3>{s["name"]}</h3>
-              <p>{s["lead"]}{' <span class="with">Gemeinsam mit Marvin Angerer.</span>' if s.get("partner") else ''}</p>
+              <p>{s["lead"]}{' <span class="with">Gemeinsam mit meinem Partner Marvin Angerer.</span>' if s.get("partner") else ''}</p>
               {ARROW}
             </a>
           </li>''' for s in SERVICES)
