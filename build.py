@@ -281,7 +281,7 @@ def final_cta(heading="Lassen Sie uns sprechen.", text="Ich helfe beim Hinsehen.
 
 
 def marvin_card(heading_tag="h3"):
-    photo = (f'<img src="{{R}}{MARVIN["photo"]}" width="600" height="800" loading="lazy" alt="Marvin Angerer, Partner bei {NAME}">'
+    photo = (f'<img src="{{R}}{MARVIN["photo"]}" width="400" height="400" loading="lazy" alt="Marvin Angerer, Partner bei {NAME}">'
              if MARVIN["photo"] else '<span class="initials" aria-hidden="true">MA</span>')
     text = "".join(f"<p>{t}</p>" for t in MARVIN["text"])
     return f'''<article class="partner">
