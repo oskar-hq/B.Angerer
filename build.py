@@ -373,8 +373,7 @@ curve = '''<figure class="curve" data-curve>
 home = f'''    <section class="hero" aria-labelledby="hero-title">
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <p class="hero-kicker">Unternehmensberatung · Neue Medien · Strategie · Netzwerk</p>
-          <h1 id="hero-title">Aus <span class="red">roten Zahlen</span> machen wir <span class="black u">schwarze</span>.</h1>
+          <h1 id="hero-title"><span class="hl">Aus <span class="red">roten Zahlen</span></span> <span class="hl">machen wir <span class="black u">schwarze</span>.</span></h1>
           <p class="lead">{hero_sub}</p>
           <div class="hero-actions">
             {cta()}
