@@ -9,47 +9,47 @@
   "redirects": [
     {
       "source": "/projektstrategie",
-      "destination": "/leistungen/strategie/",
+      "destination": "/#leistungen",
       "statusCode": 301
     },
     {
       "source": "/service-engineering",
-      "destination": "/leistungen/strategie/",
+      "destination": "/#leistungen",
       "statusCode": 301
     },
     {
       "source": "/unternehmensnachfolge",
-      "destination": "/leistungen/strategie/",
+      "destination": "/#leistungen",
       "statusCode": 301
     },
     {
       "source": "/versteckte-steuererhoehung-durch-kurzarbeitergeld",
-      "destination": "/leistungen/strategie/",
+      "destination": "/#leistungen",
       "statusCode": 301
     },
     {
       "source": "/marketing-und-vertrieb",
-      "destination": "/leistungen/vertrieb/",
+      "destination": "/#leistungen",
       "statusCode": 301
     },
     {
       "source": "/dienstleistungen",
-      "destination": "/leistungen/",
+      "destination": "/#leistungen",
       "statusCode": 301
     },
     {
       "source": "/bildungsallianz",
-      "destination": "/leistungen/coaching/",
+      "destination": "/#leistungen",
       "statusCode": 301
     },
     {
       "source": "/bvmw",
-      "destination": "/ueber-mich/",
+      "destination": "/ueber-uns/",
       "statusCode": 301
     },
     {
       "source": "/unterstuetzung-oberfranken-regio-bayreuth-stadt",
-      "destination": "/ueber-mich/",
+      "destination": "/ueber-uns/",
       "statusCode": 301
     },
     {
@@ -63,23 +63,28 @@
       "statusCode": 301
     },
     {
+      "source": "/ueber-mich",
+      "destination": "/ueber-uns/",
+      "statusCode": 301
+    },
+    {
       "source": "/ueber-bettina",
-      "destination": "/ueber-mich/",
+      "destination": "/ueber-uns/",
       "statusCode": 301
     },
     {
       "source": "/engagement",
-      "destination": "/ueber-mich/",
+      "destination": "/ueber-uns/",
       "statusCode": 301
     },
     {
-      "source": "/leistungen/personal",
-      "destination": "/leistungen/coaching/",
+      "source": "/leistungen",
+      "destination": "/#leistungen",
       "statusCode": 301
     },
     {
-      "source": "/leistungen/finanzierung",
-      "destination": "/leistungen/strategie/",
+      "source": "/leistungen/:slug*",
+      "destination": "/#leistungen",
       "statusCode": 301
     },
     {

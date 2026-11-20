@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Baut die statische Website von Bettina Angerer Consulting.
+"""Baut die statische Website von Angerer Consulting.
 
 Aufruf:  python3 build.py
 Erzeugt alle HTML-Seiten, sitemap.xml und robots.txt im Projektordner.
@@ -33,7 +33,7 @@ VIDEO_POSTER = "assets/img/portrait.jpg"
 MARVIN = {"photo": C["marvin"]["foto"] or None, "text": C["marvin"]["text"]}
 
 ORG = {
-    "name": "Bettina Angerer Consulting",
+    "name": "Angerer Consulting",
     "person": "Bettina Angerer",
     "partner": "Marvin Angerer",
     "street": "Heinrich-Fickenscher-Str. 5A",
@@ -70,7 +70,7 @@ def logo_list(names, R="{R}"):
     return '<ul class="logos" aria-label="Referenzen">' + "".join(out) + "</ul>"
 
 
-def client_logos(names=None, label="Marvin Angerer und sein Team haben gearbeitet für"):
+def client_logos(names=None, label="Kunden aus unserem Netzwerk"):
     names = CLIENT_LOGOS if names is None else names
     if not (SHOW_CLIENT_LOGOS and names):
         return ""
@@ -78,7 +78,7 @@ def client_logos(names=None, label="Marvin Angerer und sein Team haben gearbeite
     <section class="refs" aria-label="Referenzen">
       <div class="wrap">
         <p class="refs-label">{label}</p>
-        {logo_list(names)}
+        <div class="marquee">{logo_list(names)}</div>
       </div>
     </section>
 '''
@@ -103,18 +103,15 @@ def seal_block(cls="cert"):
 
 
 # ---------------------------------------------------------------- Leistungen
-# Reihenfolge = Gewichtung. Strategie zuerst, Social Media ist ein Teil, nicht das Ganze.
+# Nur noch auf der Startseite, kompakt. Reihenfolge = Gewichtung.
 SERVICES = [{
-    "slug": l["slug"], "name": l["name"], "partner": l["mit_marvin"], "lead": l["kurz"], "intro": l["einleitung"],
-    "pains": [(p["titel"], p["text"]) for p in l["probleme"]],
-    "items": [(i["titel"], i["kurz"], i["text"]) for i in l["leistungen"] if SHOW_TEAM or not i.get("nur_mit_team")],
-    "title": f'{l["seitentitel"]} | {NAME}', "desc": l["google_beschreibung"],
-    "logos": l.get("kundenlogos", []),
+    "slug": l["slug"], "name": l["name"], "partner": l["mit_marvin"], "lead": l["kurz"],
+    "items": [(i["titel"], i["text"]) for i in l["punkte"] if SHOW_TEAM or not i.get("nur_mit_team")],
 } for l in C["leistungen"]]
 
 FAQ = [(f["frage"], f["antwort"]) for f in C["faq"]]
 
-NAV = [("leistungen/", "Leistungen"), ("ueber-mich/", "Über mich"), ("kontakt/", "Kontakt")]
+NAV = [("#leistungen", "Leistungen"), ("ueber-uns/", "Über uns"), ("kontakt/", "Kontakt")]
 
 # Ablauf: gilt auf Start- und Leistungsseiten gleich.
 PROCESS = [(p["titel"], p["text"]) for p in C["ablauf"]]
@@ -127,7 +124,7 @@ def process_html():
 
 # ---------------------------------------------------------------- Rahmen
 def page(path, title, desc, body, current="", schema=None, crumbs=None, extra_head="", body_cls=""):
-    """path: Zielpfad relativ zum Projekt, z. B. 'leistungen/vertrieb/index.html'."""
+    """path: Zielpfad relativ zum Projekt, z. B. 'ueber-uns/index.html'."""
     depth = path.count("/")
     R = "../" * depth
     url_path = path[:-len("index.html")] if path.endswith("index.html") else path
@@ -147,10 +144,9 @@ def page(path, title, desc, body, current="", schema=None, crumbs=None, extra_he
 
     nav = "\n        ".join(nav_link(h, l) for h, l in NAV)
     mnav = "\n    ".join(nav_link(h, l) for h, l in [("", "Startseite")] + NAV)
-    svc_links = "\n            ".join(f'<li><a href="{R}leistungen/{s["slug"]}/">{s["name"]}</a></li>' for s in SERVICES)
     brand = f'''<a class="brand" href="{R or './'}" aria-label="{NAME}, zur Startseite">
         <svg class="brand-mark" aria-hidden="true"><use href="#mark"/></svg>
-        <span class="brand-text"><span class="brand-name">Bettina Angerer</span> <span class="brand-sub">Consulting</span></span>
+        <span class="brand-text"><span class="brand-name">Angerer</span> <span class="brand-sub">Consulting</span></span>
       </a>'''
     doc = f'''<!doctype html>
 <html lang="de" class="no-js">
@@ -218,9 +214,11 @@ def page(path, title, desc, body, current="", schema=None, crumbs=None, extra_he
           <p class="footer-claim">{CLAIM}</p>
         </div>
         <div>
-          <h2 class="footer-h">Leistungen</h2>
+          <h2 class="footer-h">Seiten</h2>
           <ul>
-            {svc_links}
+            <li><a href="{R}#leistungen">Leistungen</a></li>
+            <li><a href="{R}ueber-uns/">Über uns</a></li>
+            <li><a href="{R}kontakt/">Kontakt</a></li>
           </ul>
         </div>
         <div>
@@ -267,7 +265,7 @@ def page_hero(h1, lead, crumbs, extra=""):
 '''
 
 
-def final_cta(heading="Lassen Sie uns sprechen.", text="Ich helfe beim Hinsehen. Und beim Handeln. Sechs kurze Fragen, und jede Anfrage lese ich persönlich."):
+def final_cta(heading="Lassen Sie uns sprechen.", text="Wir helfen beim Hinsehen und beim Handeln. Sechs kurze Fragen, und jede Anfrage lesen wir persönlich."):
     return f'''    <section class="section final on-navy" aria-labelledby="anfrage-title">
       <div class="wrap final-inner">
         <h2 id="anfrage-title">{heading}</h2>
@@ -287,7 +285,7 @@ def marvin_card(heading_tag="h3"):
     return f'''<article class="partner">
           <figure class="partner-photo{' is-placeholder' if not MARVIN['photo'] else ''}">{photo}</figure>
           <div>
-            <p class="partner-role">Mein Partner</p>
+            <p class="partner-role">Partner</p>
             <{heading_tag} class="partner-name">Marvin Angerer</{heading_tag}>
             {text}
           </div>
@@ -306,7 +304,7 @@ def cases_section():
             <h3>{c["titel"]}</h3>
             <dl>
               <dt>Ausgangslage</dt><dd>{c["ausgang"]}</dd>
-              <dt>Was ich gemacht habe</dt><dd>{c["vorgehen"]}</dd>
+              <dt>Vorgehen</dt><dd>{c["vorgehen"]}</dd>
               <dt>Ergebnis</dt><dd>{c["ergebnis"]}</dd>
             </dl>{zahl}
           </article>'''
@@ -315,7 +313,7 @@ def cases_section():
       <div class="wrap">
         <div class="section-head">
           <h2 id="praxis-title">Aus der Praxis</h2>
-          <p class="lead">Drei Beispiele aus meiner Arbeit. Namen bleiben vertraulich, deshalb nenne ich nur Branche und Größe.</p>
+          <p class="lead">Drei Beispiele aus der Arbeit von Bettina Angerer. Namen bleiben vertraulich, deshalb nennen wir nur Branche und Größe.</p>
         </div>
         <div class="cases">{items}
         </div>
@@ -332,13 +330,14 @@ ORG_SCHEMA = {
     "address": {"@type": "PostalAddress", "streetAddress": ORG["street"], "postalCode": ORG["zip"],
                 "addressLocality": ORG["city"], "addressCountry": "DE"},
     "areaServed": [{"@type": "Country", "name": n} for n in ("Deutschland", "Österreich", "Schweiz")],
-    "founder": {"@id": f"{SITE}/ueber-mich/#person"},
-    "member": [{"@id": f"{SITE}/ueber-mich/#person"}, {"@type": "Person", "name": ORG["partner"], "jobTitle": "Partner"}],
-    "knowsAbout": ["Unternehmensberatung", "Sanierung", "Restrukturierung", "Unternehmensnachfolge", "Strategische Unternehmensführung", "Coaching", "Vertrieb", "Social Media", "Mittelstand"],
+    "founder": {"@id": f"{SITE}/ueber-uns/#person"},
+    "member": [{"@id": f"{SITE}/ueber-uns/#person"}, {"@type": "Person", "name": ORG["partner"], "jobTitle": "Partner"}],
+    "alternateName": "Angerer Consulting, Bettina und Marvin Angerer",
+    "knowsAbout": ["Unternehmensberatung", "Neuausrichtung", "Turnaround", "Unternehmensnachfolge", "Strategische Unternehmensführung", "Coaching", "Vertrieb", "Social Media", "Mittelstand"],
 }
 PERSON_SCHEMA = {
-    "@context": "https://schema.org", "@type": "Person", "@id": f"{SITE}/ueber-mich/#person",
-    "name": "Bettina Angerer", "jobTitle": "Unternehmensberaterin", "url": f"{SITE}/ueber-mich/",
+    "@context": "https://schema.org", "@type": "Person", "@id": f"{SITE}/ueber-uns/#person",
+    "name": "Bettina Angerer", "jobTitle": "Unternehmensberaterin", "url": f"{SITE}/ueber-uns/",
     "image": f"{SITE}/assets/img/portrait.jpg", "worksFor": {"@id": f"{SITE}/#organisation"},
 }
 
@@ -347,16 +346,15 @@ urls = []
 # ================================================================ Startseite
 stats = "".join(f'<div class="stat"><dt>{n}</dt><dd>{l}</dd></div>' for n, l in STATS)
 svc_rows = "".join(f'''
-          <li>
-            <a href="{{R}}leistungen/{s["slug"]}/">
+          <article class="svc" id="{s["slug"]}">
+            <div class="svc-head">
               <h3>{s["name"]}</h3>
-              <p>{s["lead"]}{' <span class="with">Gemeinsam mit meinem Partner Marvin Angerer.</span>' if s.get("partner") else ''}</p>
-              {ARROW}
-            </a>
-          </li>''' for s in SERVICES)
+              <p>{s["lead"]}</p>{'<p class="with">Schwerpunkt von Partner Marvin Angerer</p>' if s.get("partner") else ''}
+            </div>
+            <ul class="svc-items">{"".join(f"<li><strong>{t}</strong> <span>{x}</span></li>" for t, x in s["items"])}</ul>
+          </article>''' for s in SERVICES)
 faq_html = "".join(f"<details><summary>{q}</summary><p>{a}</p></details>" for q, a in FAQ)
-
-hero_sub = C["startseite"]["einleitung_mit_team" if SHOW_TEAM else "einleitung"]
+hero_sub = C["startseite"]["einleitung"]
 
 # Die Kurve ist schematisch: keine echten Werte, nur das Bild von Rot nach Schwarz.
 curve = '''<figure class="curve" data-curve>
@@ -376,11 +374,11 @@ home = f'''    <section class="hero" aria-labelledby="hero-title">
       <div class="wrap hero-grid">
         <div class="hero-copy">
           <p class="hero-kicker">Unternehmensberatung · Neue Medien · Strategie · Netzwerk</p>
-          <h1 id="hero-title">Aus <span class="red">roten Zahlen</span> mache ich <span class="black u">schwarze</span>.</h1>
+          <h1 id="hero-title">Aus <span class="red">roten Zahlen</span> machen wir <span class="black u">schwarze</span>.</h1>
           <p class="lead">{hero_sub}</p>
           <div class="hero-actions">
             {cta()}
-            <span class="hero-note">Sechs kurze Fragen. Ich lese jede Anfrage selbst.</span>
+            <span class="hero-note">Sechs kurze Fragen. Wir lesen jede Anfrage persönlich.</span>
           </div>
           <dl class="stats">{stats}</dl>
         </div>
@@ -395,8 +393,8 @@ home = f'''    <section class="hero" aria-labelledby="hero-title">
       <div class="wrap measure-grid">
         <div>
           <h2 id="mass-title">Gute Ideen sind nur dann etwas wert, wenn sie sich am Ende in den Zahlen zeigen.</h2>
-          <p class="lead">Aus roten Zahlen mache ich schwarze Zahlen. Daran messe ich meine Arbeit.</p>
-          <p>Ich verkaufe niemandem ein großes Projekt, bevor die Zahlen stimmen. Deshalb beginnen wir mit einem Testballon: einem kleinen, messbaren Schritt.</p>
+          <p class="lead">Aus roten Zahlen machen wir schwarze Zahlen. Daran messen wir unsere Arbeit.</p>
+          <p>Wir verkaufen niemandem ein großes Projekt, bevor die Zahlen stimmen. Deshalb beginnen wir mit einem Testballon: einem kleinen, messbaren Schritt.</p>
         </div>
         {curve}
       </div>
@@ -406,19 +404,19 @@ home = f'''    <section class="hero" aria-labelledby="hero-title">
       <div class="wrap">
         <div class="section-head">
           <h2 id="leistungen-title">Klassische Unternehmensberatung trifft auf die Welt der Neuen Medien</h2>
-          <p class="lead">Bettina Angerer Consulting vereint, was sonst getrennt erbracht wird: aus einer Hand und unter einem Namen. Wenn es um Vertrieb oder Social Media geht, ist mein Partner Marvin Angerer gleich mit dabei.</p>
+          <p class="lead">{NAME} vereint, was sonst getrennt erbracht wird. Und wenn für neues Marketing das Budget fehlt, schauen wir gemeinsam in Ihre Zahlen und finden Wege, wie es sich finanzieren lässt.</p>
         </div>
-        <ul class="svc-list">{svc_rows}
-        </ul>
+        <div class="svcs">{svc_rows}
+        </div>
       </div>
     </section>
 
     <section class="section fit" aria-labelledby="fit-title">
       <div class="wrap fit-grid">
-        <h2 id="fit-title">Für wen ich arbeite</h2>
+        <h2 id="fit-title">Für wen wir arbeiten</h2>
         <div class="fit-copy">
-          <p class="lead">Ich arbeite mit Inhaberinnen und Inhabern, die selbst entscheiden und bereit sind, etwas zu verändern, auch wenn es unbequem wird. Wer nur eine Bestätigung für den bisherigen Weg sucht, ist bei mir falsch.</p>
-          <p>Ich sitze selbst mit am Tisch, deshalb begleite ich nur wenige Unternehmen gleichzeitig. Jede Anfrage lese ich persönlich, und wenn ich nicht helfen kann, sage ich das offen und nenne Ihnen jemanden aus meinem Netzwerk, der besser passt.</p>
+          <p class="lead">Wir arbeiten mit Inhaberinnen und Inhabern, die selbst entscheiden und bereit sind, etwas zu verändern, auch wenn es unbequem wird. Wer nur eine Bestätigung für den bisherigen Weg sucht, ist bei uns falsch.</p>
+          <p>Wir sitzen selbst mit am Tisch, deshalb begleiten wir nur wenige Unternehmen gleichzeitig. Jede Anfrage lesen wir persönlich, und wenn wir nicht helfen können, sagen wir das offen und nennen Ihnen jemanden aus unserem Netzwerk, der besser passt.</p>
         </div>
       </div>
     </section>
@@ -426,11 +424,11 @@ home = f'''    <section class="hero" aria-labelledby="hero-title">
     <section class="section on-paper" aria-labelledby="about-title">
       <div class="wrap about-teaser">
         <div class="about-copy">
-          <h2 id="about-title">Seit über dreißig Jahren im und für den Mittelstand</h2>
-          <p class="lead">In dieser Zeit habe ich mit Hunderten Unternehmerinnen und Unternehmern gesprochen, über Nachfolge, Fachkräfte, Finanzierung und darüber, wie man Kunden heute überhaupt noch erreicht.</p>
-          <p>Daraus ist ein Netzwerk entstanden, das von der Kommune über Landtag und Bundestag bis nach Brüssel reicht. Für die Unternehmen, die ich berate, bin ich mehr als eine Beraterin: eine Vertrauensperson, die selbst mit am Tisch sitzt.</p>
+          <h2 id="about-title">Zweimal Angerer, zwei Generationen</h2>
+          <p class="lead">Bettina Angerer arbeitet seit über dreißig Jahren im und für den Mittelstand. Aus dieser Zeit ist ein Netzwerk entstanden, das von der Kommune über Landtag und Bundestag bis nach Brüssel reicht.</p>
+          <p>Marvin Angerer spricht die Sprache der Generation, die heute Ihre Kunden stellt. Gemeinsam übersetzen wir dort, wo Wachstum entsteht.</p>
           {seal_block()}
-          <a class="textlink" href="{{R}}ueber-mich/">Mehr über mich {ARROW}</a>
+          <a class="textlink" href="{{R}}ueber-uns/">Mehr über uns {ARROW}</a>
         </div>
         {marvin_card()}
       </div>
@@ -464,103 +462,11 @@ faq_schema = {"@context": "https://schema.org", "@type": "FAQPage",
               "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
 web_schema = {"@context": "https://schema.org", "@type": "WebSite", "name": NAME, "url": f"{SITE}/", "inLanguage": "de"}
 urls.append(page("index.html", f"{NAME} | {CLAIM}",
-                 "Bettina Angerer berät Inhaberinnen und Inhaber mittelständischer Unternehmen im DACH-Raum: Strategie und Sanierung, Netzwerk und Politik, Coaching, Vertrieb und Social Media. Aus roten Zahlen werden schwarze.",
+                 "Bettina und Marvin Angerer beraten mittelständische Unternehmen im DACH-Raum: Unternehmensberatung und Strategie, Neue Medien, Vertrieb, Netzwerk und Coaching. Aus roten Zahlen machen wir schwarze.",
                  home, schema=[ORG_SCHEMA, web_schema, faq_schema], body_cls="home"))
 
-# ================================================================ Leistungen Übersicht
-rows = ""
-for n, s in enumerate(SERVICES):
-    lis = "".join(f"<li><h3>{t}</h3><p>{long}</p></li>" for t, _, long in s["items"])
-    rows += f'''
-    <section class="section detail{' on-paper' if n % 2 else ''}" id="{s["slug"]}" aria-labelledby="{s["slug"]}-title">
-      <div class="wrap detail-grid">
-        <div class="detail-side">
-          <h2 id="{s["slug"]}-title">{s["name"]}</h2>
-          <p class="lead">{s["lead"]}</p>
-          <p>{s["intro"]}</p>
-          <a class="btn btn-outline" href="{{R}}leistungen/{s["slug"]}/">Mehr zu {s["name"]} {ARROW}</a>
-        </div>
-        <ul class="item-list">{lis}</ul>
-      </div>
-    </section>
-'''
-crumbs = [("leistungen/", "Leistungen")]
-body = page_hero("Klassische Unternehmensberatung trifft auf die Welt der Neuen Medien",
-                 "Bettina Angerer Consulting vereint, was sonst getrennt erbracht wird. Jede Säule steht für sich. Zusammen ergeben sie ein Angebot aus einer Hand und unter einem Namen.", crumbs)
-body += f'''    <nav class="jump" aria-label="Leistungen im Überblick">
-      <div class="wrap jump-inner">{"".join(f'<a href="#{s["slug"]}">{s["name"]}</a>' for s in SERVICES)}</div>
-    </nav>
-''' + rows + final_cta()
-urls.append(page("leistungen/index.html", f"Leistungen | {NAME}",
-                 "Strategie und Sanierung, Netzwerk und Politik, Coaching für Unternehmer, Vertrieb sowie Marketing und Social Media: alle Leistungen von Bettina Angerer Consulting im Überblick.",
-                 body, current="leistungen/", crumbs=crumbs))
-
-# ================================================================ Leistung Einzelseiten
-for s in SERVICES:
-    crumbs = [("leistungen/", "Leistungen"), (f'leistungen/{s["slug"]}/', s["name"])]
-    pains = "".join(f'<li><h3>{t}</h3><p>{d}</p></li>' for t, d in s["pains"])
-    lis = "".join(f"<li><h3>{t}</h3><p>{long}</p></li>" for t, _, long in s["items"])
-    others = "".join(f'<li><a href="{{R}}leistungen/{o["slug"]}/"><h3>{o["name"]}</h3><p>{o["lead"]}</p>{ARROW}</a></li>' for o in SERVICES if o is not s)
-    who = (f'''
-    <section class="section on-paper" aria-labelledby="wer-title">
-      <div class="wrap who">
-        <div>
-          <h2 id="wer-title">Zwei Generationen im Tandem</h2>
-          <p class="lead">Ich dolmetsche in die Welt der Entscheider. Die nächste Generation dolmetscht in die Welt der Neuen Medien. Gemeinsam übersetzen wir dort, wo Wachstum entsteht.</p>
-        </div>
-        {marvin_card()}
-      </div>
-    </section>
-''' if s.get("partner") else "")
-    body = page_hero(s["lead"], s["intro"], crumbs) + client_logos(s["logos"]) + f'''
-    <section class="section" aria-labelledby="lage-title">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 id="lage-title">Kommt Ihnen das bekannt vor?</h2>
-        </div>
-        <ul class="pains">{pains}</ul>
-      </div>
-    </section>
-
-    <section class="section on-paper" aria-labelledby="was-title">
-      <div class="wrap detail-grid">
-        <div class="detail-side">
-          <h2 id="was-title">Was ich für Sie tue</h2>
-          <p class="lead">Wir liefern Ergebnisse, keine Berichte. Und ich verkaufe niemandem ein Projekt, das er nicht braucht.</p>
-          {cta(cls="btn")}
-        </div>
-        <ul class="item-list">{lis}</ul>
-      </div>
-    </section>
-{who}
-    <section class="section" aria-labelledby="ablauf-title">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 id="ablauf-title">So beginnt eine Zusammenarbeit</h2>
-        </div>
-        {process_html()}
-      </div>
-    </section>
-
-    <section class="section on-paper" aria-labelledby="weitere-title">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 id="weitere-title">Das greift ineinander</h2>
-        </div>
-        <ul class="others">{others}</ul>
-      </div>
-    </section>
-
-''' + final_cta()
-    svc_schema = {"@context": "https://schema.org", "@type": "Service", "name": s["name"],
-                  "serviceType": s["name"], "description": s["desc"], "provider": {"@id": f"{SITE}/#organisation"},
-                  "areaServed": ["DE", "AT", "CH"], "url": f'{SITE}/leistungen/{s["slug"]}/',
-                  "hasOfferCatalog": {"@type": "OfferCatalog", "name": s["name"],
-                                      "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": t}} for t, _, _ in s["items"]]}}
-    urls.append(page(f'leistungen/{s["slug"]}/index.html', s["title"], s["desc"], body, current="leistungen/", schema=[svc_schema], crumbs=crumbs))
-
-# ================================================================ Über mich
-crumbs = [("ueber-mich/", "Über mich")]
+# ================================================================ Über uns
+crumbs = [("ueber-uns/", "Über uns")]
 career = "".join(f'''
             <li><h3>{w["station"]}</h3><p class="timeline-where">{w["bereich"]}</p><p class="timeline-result">{w["ergebnis"]}</p></li>''' for w in C["werdegang"])
 degrees = "".join(f"<li>{a}</li>" for a in C["abschluesse"])
@@ -570,16 +476,17 @@ video = (f'''
             <video controls preload="none" playsinline poster="{{R}}{VIDEO_POSTER}" src="{{R}}{VIDEO}"></video>
             <figcaption>Bettina Angerer stellt sich vor</figcaption>
           </figure>''' if VIDEO else ('''
-          <figure class="video video-placeholder" aria-hidden="true"><span>Hier kommt Ihr Video hin (45 bis 60 Sekunden, mit Untertiteln)</span></figure>''' if C.get("video_platzhalter") else ""))
-body = page_hero("Ich mache aus roten Zahlen schwarze.",
-                 "Für die Unternehmen, die ich berate, bin ich mehr als eine Beraterin: eine Vertrauensperson, die selbst mit am Tisch sitzt.", crumbs) + f'''
+          <figure class="video video-placeholder" aria-hidden="true"><span>Video folgt</span></figure>''' if C.get("video_platzhalter") else ""))
+body = page_hero("Zwei Generationen. Eine Stimme.",
+                 f"{NAME}, das sind Bettina und Marvin Angerer. Klassische Unternehmensberatung trifft auf die Welt der Neuen Medien.", crumbs) + f'''
     <section class="section" aria-labelledby="bio-title">
       <div class="wrap bio">
         <figure class="bio-portrait">
           <img src="{{R}}assets/img/portrait.jpg" width="1076" height="1434" alt="Bettina Angerer, Unternehmensberaterin, mit ihrer blauen Haarsträhne">
         </figure>
         <div class="bio-copy">
-          <h2 id="bio-title" class="sr-only">Mein Weg</h2>
+          <p class="partner-role">Gründerin</p>
+          <h2 id="bio-title" class="person-name">Bettina Angerer</h2>
           {bio_paras}
           <p class="strand-note">{C["ueber_mich"]["straehne"]}</p>{video}
           {seal_block()}
@@ -590,6 +497,7 @@ body = page_hero("Ich mache aus roten Zahlen schwarze.",
     <section class="section on-paper" aria-labelledby="weg-title">
       <div class="wrap career">
         <div>
+          <p class="partner-role">Bettina Angerer</p>
           <h2 id="weg-title">Mein beruflicher Weg</h2>
           <p class="lead">Stationen aus meinem Werdegang und was dabei herausgekommen ist. Die neueste steht oben.</p>
         </div>
@@ -605,7 +513,7 @@ body = page_hero("Ich mache aus roten Zahlen schwarze.",
       <div class="wrap who">
         <div>
           <h2 id="partner-title">Zwei Generationen. Eine Mission.</h2>
-          <p class="lead">Eine wirklich tragfähige Brücke braucht beide Ufer gleichzeitig: das Erfahrene und das Junge. Genau deshalb arbeite ich im Tandem.</p>
+          <p class="lead">Eine wirklich tragfähige Brücke braucht beide Ufer gleichzeitig: das Erfahrene und das Junge. Genau deshalb arbeiten wir im Tandem.</p>
         </div>
         {marvin_card("h3")}
       </div>
@@ -614,7 +522,7 @@ body = page_hero("Ich mache aus roten Zahlen schwarze.",
     <section class="section on-paper" aria-labelledby="werte-title">
       <div class="wrap">
         <div class="section-head">
-          <h2 id="werte-title">Wofür ich stehe</h2>
+          <h2 id="werte-title">Wofür wir stehen</h2>
         </div>
         <div class="bridge">
           <article class="world">
@@ -633,7 +541,7 @@ body = page_hero("Ich mache aus roten Zahlen schwarze.",
       <div class="wrap">
         <div class="section-head">
           <h2 id="prinzip-title">Die Brücke zwischen zwei Welten</h2>
-          <p class="lead">Die Welt eines erfahrenen Unternehmers ist nicht die Welt von TikTok. Ich dolmetsche in die Welt der Entscheider, die nächste Generation dolmetscht in die Welt der Neuen Medien. Gemeinsam übersetzen wir dort, wo Wachstum entsteht.</p>
+          <p class="lead">Die Welt eines erfahrenen Unternehmers ist nicht die Welt von TikTok. Bettina Angerer dolmetscht in die Welt der Entscheider, Marvin Angerer in die Welt der Neuen Medien. Gemeinsam übersetzen wir dort, wo Wachstum entsteht.</p>
         </div>
         <div class="bridge">
           <article class="world">
@@ -650,25 +558,25 @@ body = page_hero("Ich mache aus roten Zahlen schwarze.",
     </section>
 
 ''' + final_cta()
-urls.append(page("ueber-mich/index.html", f"Über mich: Bettina Angerer | {NAME}",
-                 "Bettina Angerer: über dreißig Jahre im und für den Mittelstand, zuerst in Marketing und Controlling, heute mit Bettina Angerer Consulting im gesamten DACH-Raum.",
-                 body, current="ueber-mich/", schema=[PERSON_SCHEMA], crumbs=crumbs))
+urls.append(page("ueber-uns/index.html", f"Über uns: Bettina und Marvin Angerer | {NAME}",
+                 "Bettina Angerer bringt über dreißig Jahre im und für den Mittelstand mit, Marvin Angerer die Sprache der Neuen Medien. Gemeinsam sind sie Angerer Consulting.",
+                 body, current="ueber-uns/", schema=[PERSON_SCHEMA], crumbs=crumbs))
 
 # ================================================================ Kontakt
 crumbs = [("kontakt/", "Kontakt")]
-body = page_hero("So erreichen Sie mich",
-                 "Lassen Sie uns sprechen. Jede Zusammenarbeit beginnt mit sechs kurzen Fragen, und jede Anfrage lese ich persönlich.", crumbs) + f'''
+body = page_hero("So erreichen Sie uns",
+                 "Lassen Sie uns sprechen. Jede Zusammenarbeit beginnt mit sechs kurzen Fragen, und jede Anfrage lesen wir persönlich.", crumbs) + f'''
     <section class="section" aria-labelledby="kontakt-title">
       <div class="wrap contact">
         <div class="contact-card">
           <h2 id="kontakt-title">Anfrage in sechs Fragen</h2>
-          <p>Jede Anfrage lese ich persönlich, und wenn ich nicht helfen kann, sage ich das offen und nenne Ihnen jemanden aus meinem Netzwerk, der besser passt.</p>
+          <p>Jede Anfrage lesen wir persönlich, und wenn wir nicht helfen können, sagen wir das offen und nennen Ihnen jemanden aus unserem Netzwerk, der besser passt.</p>
           {cta()}
         </div>
         <div class="contact-card">
           <h2>{NAME}</h2>
           <address>
-            Bettina Angerer<br>{ORG["street"]}<br>{ORG["zip"]} {ORG["city"]}
+            Bettina und Marvin Angerer<br>{ORG["street"]}<br>{ORG["zip"]} {ORG["city"]}
           </address>
           <ul class="contact-list">
             <li><span>E-Mail</span><a href="mailto:{ORG["email"]}">{ORG["email"]}</a></li>
@@ -678,7 +586,7 @@ body = page_hero("So erreichen Sie mich",
     </section>
 '''
 urls.append(page("kontakt/index.html", f"Kontakt | {NAME}",
-                 f"Kontakt zu Bettina Angerer, {NAME}: {ORG['street']}, {ORG['zip']} {ORG['city']}. Erstgespräch in sechs kurzen Fragen anfragen.",
+                 f"Kontakt zu {NAME}, {ORG['street']}, {ORG['zip']} {ORG['city']}. Erstgespräch in sechs kurzen Fragen anfragen.",
                  body, current="kontakt/", schema=[ORG_SCHEMA], crumbs=crumbs))
 
 
@@ -829,11 +737,11 @@ t = re.sub(r'\s*<link rel="canonical"[^>]*>', '\n  <meta name="robots" content="
 p404.write_text(t)
 
 # Seiten, die es nicht mehr gibt, aus früheren Entwürfen entfernen.
-for old in ("engagement", "ueber-bettina", "leistungen/personal", "leistungen/finanzierung"):
+for old in ("engagement", "ueber-bettina", "ueber-mich", "leistungen"):
     shutil.rmtree(ROOT / old, ignore_errors=True)
 
 sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-prio = {"": "1.0", "leistungen/": "0.9", "ueber-mich/": "0.8", "kontakt/": "0.7"}
+prio = {"": "1.0", "ueber-uns/": "0.8", "kontakt/": "0.7"}
 for u in urls:
     p = prio.get(u, "0.8" if u.startswith("leistungen/") else "0.3")
     sm += f"  <url><loc>{SITE}/{u}</loc><priority>{p}</priority></url>\n"

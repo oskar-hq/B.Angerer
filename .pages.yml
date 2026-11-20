@@ -49,11 +49,8 @@ content:
           - name: einleitung
             label: "Einleitung unter der Überschrift"
             type: text
-          - name: einleitung_mit_team
-            label: "Einleitung, wenn das Team gezeigt wird"
-            type: text
       - name: ueber_mich
-        label: "Über mich"
+        label: "Über uns: persönlicher Text von Bettina (Ich-Form)"
         type: object
         fields:
           - name: absaetze
@@ -90,7 +87,7 @@ content:
             label: "Ausgangslage"
             type: text
           - name: vorgehen
-            label: "Was ich gemacht habe"
+            label: "Vorgehen"
             type: text
           - name: ergebnis
             label: "Ergebnis"
@@ -123,47 +120,23 @@ content:
         label: "Video (MP4, optional)"
         type: file
       - name: leistungen
-        label: "Leistungen"
+        label: "Leistungen (Startseite)"
         type: object
         list: true
         fields:
           - name: slug
-            label: "Adresse (nicht ändern)"
+            label: "Kennung (nicht ändern)"
             type: string
           - name: name
             label: "Name"
             type: string
           - name: mit_marvin
-            label: "Gemeinsam mit Marvin"
+            label: "Schwerpunkt von Marvin"
             type: boolean
           - name: kurz
             label: "Kurzbeschreibung"
             type: text
-          - name: einleitung
-            label: "Einleitung"
-            type: text
-          - name: seitentitel
-            label: "Seitentitel für Google"
-            type: string
-          - name: google_beschreibung
-            label: "Beschreibung für Google"
-            type: text
-          - name: kundenlogos
-            label: "Kundenlogos auf dieser Seite"
-            type: string
-            list: true
-          - name: probleme
-            label: "Kommt Ihnen das bekannt vor?"
-            type: object
-            list: true
-            fields:
-              - name: titel
-                label: "Titel"
-                type: string
-              - name: text
-                label: "Text"
-                type: text
-          - name: leistungen
+          - name: punkte
             label: "Einzelne Leistungen"
             type: object
             list: true
@@ -171,12 +144,9 @@ content:
               - name: titel
                 label: "Titel"
                 type: string
-              - name: kurz
-                label: "Kurz"
-                type: string
               - name: text
-                label: "Text"
-                type: text
+                label: "Ein Satz dazu"
+                type: string
               - name: nur_mit_team
                 label: "Nur zeigen, wenn das Team gezeigt wird"
                 type: boolean

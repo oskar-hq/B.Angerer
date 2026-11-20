@@ -402,6 +402,27 @@ p, li, dd { text-wrap: pretty; }
 .logo { display: block; height: calc(26px * var(--k, 1)); background: var(--navy); -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: center; mask-position: center; }
 .logo-text { font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--navy); }
 
+
+/* ---------- Leistungen kompakt (Startseite) ---------- */
+.svcs { border-top: 1px solid var(--line-dark); }
+.svc { display: grid; gap: 16px; padding: 32px 0; border-bottom: 1px solid var(--line-dark); scroll-margin-top: 100px; }
+.svc-head h3 { font-size: 24px; color: var(--on-dark); }
+.svc-head p { margin-top: 8px; color: var(--on-dark-soft); max-width: 460px; }
+.svc-head .with { color: var(--gold-light); font-size: 15px; font-weight: 600; }
+.svc-items { display: grid; gap: 10px; }
+.svc-items li { position: relative; padding-left: 22px; color: var(--on-dark-soft); font-size: 16px; line-height: 1.5; }
+.svc-items li::before { content: ""; position: absolute; left: 0; top: 11px; width: 12px; height: 2px; border-radius: 2px; background: var(--strand-bright); }
+.svc-items strong { color: var(--on-dark); font-weight: 600; }
+@media (min-width: 900px) { .svc { grid-template-columns: 0.9fr 1.1fr; gap: 64px; padding: 40px 0; } .svc-head h3 { font-size: 28px; } }
+
+/* Laufendes Logo-Banner */
+.marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.marquee.is-running .logos { display: flex; flex-wrap: nowrap; width: max-content; max-width: none; gap: 0; animation: marquee 50s linear infinite; }
+.marquee.is-running .logos li { padding: 0 32px; }
+.marquee.is-running:hover .logos { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+.person-name { font-size: clamp(30px, 4vw, 40px); margin: 4px 0 20px; }
+
 /* ---------- Footer ---------- */
 .footer { background: var(--navy-deep); color: var(--on-dark-soft); padding: 64px 0 32px; }
 .footer-grid { display: grid; gap: 40px; }

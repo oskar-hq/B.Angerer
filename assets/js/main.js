@@ -1,4 +1,4 @@
-/* Bettina Angerer Consulting */
+/* Angerer Consulting */
 (function () {
   'use strict';
 
@@ -23,6 +23,16 @@
     toggle.addEventListener('click', function () { setMenu(!root.classList.contains('menu-open')); });
     menu.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+  }
+
+  /* ---------- Logo-Banner läuft endlos (nicht bei reduzierter Bewegung) ---------- */
+  var marquee = document.querySelector('.marquee');
+  if (marquee && !reduce) {
+    var list = marquee.querySelector('.logos');
+    Array.prototype.slice.call(list.children).forEach(function (li) {
+      var c = li.cloneNode(true); c.setAttribute('aria-hidden', 'true'); list.appendChild(c);
+    });
+    marquee.classList.add('is-running');
   }
 
   /* ---------- Scroll-Effekte: nur zwei, beide erzählen etwas ---------- */
@@ -176,7 +186,7 @@
   function mailText(d) {
     var subject = 'Anfrage Erstgespräch: ' + d.get('firma') + ' [Umsatz ' + d.get('umsatz') + ']';
     var body = [
-      'Anfrage über die Website von Bettina Angerer Consulting',
+      'Anfrage über die Website von Angerer Consulting',
       '',
       'Unternehmen: ' + d.get('firma'),
       'Branche: ' + d.get('branche'),

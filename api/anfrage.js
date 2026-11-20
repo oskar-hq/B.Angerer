@@ -1,4 +1,4 @@
-// Versand des Anfrageformulars von Bettina Angerer Consulting (Vercel-Funktion, Region Frankfurt).
+// Versand des Anfrageformulars von Angerer Consulting (Vercel-Funktion, Region Frankfurt).
 // Die Angaben werden nicht gespeichert, sondern nur als E-Mail über das Postfach von Bettina weitergeleitet.
 //
 // Benötigte Umgebungsvariablen in Vercel (Settings > Environment Variables):
@@ -47,7 +47,7 @@ module.exports = async (req, res) => {
 
   const when = new Date().toLocaleString('de-DE', { timeZone: 'Europe/Berlin', dateStyle: 'medium', timeStyle: 'short' });
   const text = [
-    'Anfrage über die Website von Bettina Angerer Consulting', '',
+    'Anfrage über die Website von Angerer Consulting', '',
     'Unternehmen: ' + d.firma, 'Branche: ' + d.branche, 'Jahresumsatz: ' + d.umsatz,
     'Mitarbeiter: ' + d.mitarbeiter, 'Tätigkeitsbereich: ' + d.gebiet, '',
     'Anliegen:', d.anliegen, '',
@@ -59,7 +59,7 @@ module.exports = async (req, res) => {
     const port = Number(SMTP_PORT || 465);
     const transport = nodemailer.createTransport({ host: SMTP_HOST, port, secure: port === 465, auth: { user: SMTP_USER, pass: SMTP_PASS } });
     await transport.sendMail({
-      from: { name: 'Website Bettina Angerer Consulting', address: MAIL_FROM || SMTP_USER },
+      from: { name: 'Website Angerer Consulting', address: MAIL_FROM || SMTP_USER },
       to: MAIL_TO,
       replyTo: { name: d.name, address: d.email },
       subject: `Anfrage Erstgespräch: ${d.firma} [Umsatz ${d.umsatz}]`,

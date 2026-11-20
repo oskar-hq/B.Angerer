@@ -1,7 +1,7 @@
 {
   "schalter": {
     "team_zeigen": false,
-    "kundenlogos_zeigen": false,
+    "kundenlogos_zeigen": true,
     "kundenlogos": [
       "Red Bull",
       "DZ Bank",
@@ -29,14 +29,13 @@
     }
   ],
   "startseite": {
-    "einleitung": "Ich schaue mir jede Abteilung an, vom Vertrieb bis zur Buchhaltung, und suche die Stellen, an denen Geld verloren geht oder liegen bleibt. Und ich bleibe dran, bis die Zahlen stimmen.",
-    "einleitung_mit_team": "Ich schaue mir jede Abteilung an, vom Vertrieb bis zur Buchhaltung, und suche die Stellen, an denen Geld verloren geht oder liegen bleibt. Und ich bleibe dran, bis die Zahlen stimmen."
+    "einleitung": "Wir schauen uns jede Abteilung an, vom Vertrieb bis zur Buchhaltung, und finden die Stellen, an denen Geld verloren geht oder liegen bleibt. Und wir bringen Ihr Marketing auf den Stand von heute."
   },
   "ueber_mich": {
     "absaetze": [
       "Seit über dreißig Jahren arbeite ich im und für den Mittelstand. Angefangen habe ich in leitenden Positionen in Marketing und Controlling. Dort habe ich gelernt, dass gute Ideen nur dann etwas wert sind, wenn sie sich am Ende in den Zahlen zeigen. Daran messe ich meine Arbeit bis heute.",
       "Acht Jahre lang habe ich die Mittelstandsarbeit des BVMW in Nordbayern geleitet. In dieser Zeit habe ich mit Hunderten Unternehmerinnen und Unternehmern gesprochen, über Nachfolge, Fachkräfte, Finanzierung und über die Frage, wie man Kunden heute überhaupt noch erreicht. Aus dieser Zeit ist ein Netzwerk entstanden, das von der Kommune über Landtag und Bundestag bis nach Brüssel reicht. Mit der Region bleibe ich zudem über meine Ehrenämter verbunden.",
-      "Seit Januar 2026 arbeite ich mit Bettina Angerer Consulting für Unternehmen im gesamten DACH-Raum, zusammen mit meinem Partner Marvin Angerer. Ich schaue mir jede Abteilung an, vom Vertrieb bis zur Buchhaltung, und suche die Stellen, an denen Geld verloren geht oder liegen bleibt. Wo ein Unternehmen jemanden braucht, den ich nicht ersetzen kann, bringe ich die richtigen Leute aus meinem Netzwerk zusammen. Unternehmerinnen und Unternehmer, die ihr Haus strategisch führen wollen, coache ich und bilde sie aus.",
+      "Seit Januar 2026 arbeite ich mit Angerer Consulting für Unternehmen im gesamten DACH-Raum, zusammen mit meinem Partner Marvin Angerer. Ich schaue mir jede Abteilung an, vom Vertrieb bis zur Buchhaltung, und suche die Stellen, an denen Geld verloren geht oder liegen bleibt. Wo ein Unternehmen jemanden braucht, den ich nicht ersetzen kann, bringe ich die richtigen Leute aus meinem Netzwerk zusammen. Unternehmerinnen und Unternehmer, die ihr Haus strategisch führen wollen, coache ich und bilde sie aus.",
       "Ich halte mich an das Leitbild des Ehrbaren Kaufmanns. Für mich heißt das: Ich sage offen, was ich sehe, auch wenn es unbequem ist. Und ich verkaufe niemandem ein Projekt, das er nicht braucht."
     ],
     "straehne": "Die blaue Haarsträhne fällt beim ersten Treffen fast allen auf. Oft fängt das Gespräch genau damit an, und das ist mir recht."
@@ -44,31 +43,31 @@
   "marvin": {
     "foto": "assets/img/marvin.jpg",
     "text": [
-      "Marvin Angerer ist mein Partner bei Bettina Angerer Consulting. Wenn es um Vertrieb oder Social Media geht, ist er gleich mit dabei. Er gehört zu einer Generation, die mit Instagram, TikTok und YouTube nicht nur aufgewachsen ist, sondern sie fließend spricht. Für Produktion und Social Media bringt er ein eingespieltes Team mit."
+      "Marvin Angerer ist Partner bei Angerer Consulting. Wenn es um Vertrieb oder Social Media geht, ist er gleich mit dabei. Er gehört zu einer Generation, die mit Instagram, TikTok und YouTube nicht nur aufgewachsen ist, sondern sie fließend spricht. Für Produktion und Social Media bringt er ein eingespieltes Team mit."
     ]
   },
   "fallbeispiele": [
     {
       "titel": "Geschäftsjahr mit roten Zahlen gedreht",
-      "branche": "Gebäudedienstleister mit über 50 Mitarbeitern",
+      "branche": "Mittelstandsunternehmen (Dienstleistung) mit über 50 Mitarbeitern",
       "ausgangslage": "Die betriebswirtschaftliche Auswertung (BWA) war negativ.",
-      "vorgehen": "Ich habe die Digitalisierung des Betriebs geleitet, eine neue Software im ganzen Unternehmen eingeführt und einen neuen Workflow für über 50 Mitarbeiter aufgesetzt. Dabei habe ich Kommunikations- und Entscheidungswege vereinfacht.",
+      "vorgehen": "Leitung der Digitalisierung, eine neue Software für das ganze Unternehmen und ein neuer Workflow für über 50 Mitarbeiter. Dabei wurden Kommunikations- und Entscheidungswege vereinfacht.",
       "ergebnis": "Innerhalb eines Geschäftsjahres wurde aus der negativen BWA ein sechsstelliges positives Ergebnis.",
       "zahl": ""
     },
     {
       "titel": "Vom Einzelunternehmen zu drei Standorten",
-      "branche": "Immobilienunternehmen",
-      "ausgangslage": "Ein Einzelunternehmen unter Führung der Inhaberin.",
-      "vorgehen": "Ich habe Controlling und strategische Unternehmensführung übernommen, Kennzahlen ausgewertet, Rentabilitäts- und Risikomanagement neu aufgestellt und die Marktpositionierung begleitet.",
+      "branche": "Dienstleistungsunternehmen",
+      "ausgangslage": "Ein Einzelunternehmen.",
+      "vorgehen": "Übernahme von Controlling und strategischer Unternehmensführung, Auswertung der Kennzahlen, neues Rentabilitäts- und Risikomanagement und Begleitung der Marktpositionierung.",
       "ergebnis": "Drei Standorte, 5 Angestellte und 4 Freelancer, bei gesunkenen Betriebskosten.",
       "zahl": ""
     },
     {
       "titel": "Verlässliche Zahlen als Grundlage für Wachstum",
-      "branche": "Mittelstandsunternehmen, GmbH & Co. KG",
+      "branche": "Mittelstandsunternehmen",
       "ausgangslage": "Es fehlte eine belastbare Zahlenbasis für Entscheidungen.",
-      "vorgehen": "Ich habe ein Controlling-System eingeführt und darauf aufbauend Wachstumsinitiativen entwickelt.",
+      "vorgehen": "Einführung eines Controlling-Systems und darauf aufbauend die Entwicklung von Wachstumsinitiativen.",
       "ergebnis": "Rund 20 % Wachstum und neue Absatzmärkte.",
       "zahl": ""
     }
@@ -79,154 +78,71 @@
       "slug": "strategie",
       "name": "Unternehmensberatung und Strategie",
       "mit_marvin": false,
-      "kurz": "Betriebswirtschaftliche Analyse und Sanierung: aus roten Zahlen werden schwarze Zahlen.",
-      "einleitung": "Ich schaue mir jede Abteilung an, vom Vertrieb bis zur Buchhaltung, und suche die Stellen, an denen Geld verloren geht oder liegen bleibt. Ich verstehe die Zahlen eines Unternehmens und bringe die nötige Konsequenz mit, um echte Veränderung zu bewirken.",
-      "seitentitel": "Unternehmensberatung, Sanierung und Strategie für den Mittelstand",
-      "google_beschreibung": "Unternehmensanalyse, Restrukturierung, Turnaround und Prozessoptimierung: Bettina Angerer macht aus roten Zahlen schwarze Zahlen.",
-      "probleme": [
-        {
-          "titel": "Die Zahlen sind rot",
-          "text": "Ihr Unternehmen steckt in der Restrukturierung, und Sie brauchen jemanden, der die Zahlen versteht und die nötige Konsequenz mitbringt."
-        },
-        {
-          "titel": "Der Generationenwechsel steht an",
-          "text": "Die Übergabe an die nächste Generation ist noch nicht geregelt."
-        },
-        {
-          "titel": "Krisen von allen Seiten",
-          "text": "Energie-, Personal-, Bürokratie- und Finanzkrisen prägen Ihren Alltag. Gute Ratschläge allein reichen nicht mehr."
-        }
-      ],
-      "leistungen": [
+      "kurz": "Betriebswirtschaftliche Analyse und Neuausrichtung: aus roten Zahlen werden schwarze Zahlen.",
+      "punkte": [
         {
           "titel": "Unternehmensanalyse",
-          "kurz": "Ihre Zahlen und Abläufe, ehrlich bewertet.",
-          "text": "Ich schaue mir jede Abteilung an und sage offen, was ich sehe, auch wenn es unbequem ist.",
+          "text": "Ihre Zahlen und Abläufe, ehrlich bewertet, Abteilung für Abteilung.",
           "nur_mit_team": false
         },
         {
-          "titel": "Restrukturierung und Turnaround-Begleitung",
-          "kurz": "Aus roten Zahlen werden schwarze Zahlen.",
-          "text": "Wir liefern Ergebnisse, keine Berichte. Und ich verkaufe niemandem ein Projekt, das er nicht braucht.",
+          "titel": "Neuausrichtung und Turnaround",
+          "text": "Wir begleiten Sie, bis die Zahlen wieder stimmen.",
           "nur_mit_team": false
         },
         {
           "titel": "Prozessoptimierung",
-          "kurz": "In allen Unternehmensbereichen, vom Einkauf bis zum Vertrieb.",
-          "text": "In jeder Abteilung suche ich die Stellen, an denen Geld verloren geht oder liegen bleibt.",
+          "text": "In allen Unternehmensbereichen, vom Einkauf bis zum Vertrieb.",
           "nur_mit_team": false
         },
         {
           "titel": "Unternehmensnachfolge",
-          "kurz": "Für Unternehmen vor einem Generationenwechsel.",
-          "text": "Ich begleite die Übergabe und vermittle zwischen den Generationen, damit das Unternehmen in guten Händen weiterläuft.",
+          "text": "Für Unternehmen vor einem Generationenwechsel.",
           "nur_mit_team": false
         },
         {
           "titel": "Finanzierung und Förderung",
-          "kurz": "Fördermittel abrufen und Vorhaben sauber budgetieren.",
-          "text": "Für viele Vorhaben gibt es Förderprogramme. Ich prüfe, welche für Sie in Frage kommen, und lege für jedes Vorhaben Budget und Kennzahlen fest. So wissen Sie jederzeit, was es kostet und was es bringt.",
+          "text": "Wir schauen in Ihre Zahlen und finden Wege, wie sich Ihr Vorhaben finanzieren lässt.",
           "nur_mit_team": false
         }
-      ],
-      "kundenlogos": []
+      ]
     },
     {
-      "slug": "netzwerk",
-      "name": "Netzwerk und politischer Zugang",
-      "mit_marvin": false,
-      "kurz": "Ich bringe Sie mit den Menschen zusammen, die Ihr Anliegen weiterbringen, in Wirtschaft und Politik.",
-      "einleitung": "In über dreißig Jahren ist ein Netzwerk aus über 11.000 Kontakten entstanden: 10.250 Kontakte bundesweit, 650 in meiner Heimatregion und 120 international, darunter Entscheider aus Wirtschaft und Politik und wichtige Multiplikatoren. Wo ein Unternehmen jemanden braucht, den ich nicht ersetzen kann, bringe ich die richtigen Leute aus meinem Netzwerk zusammen.",
-      "seitentitel": "Netzwerk und politischer Zugang für den Mittelstand",
-      "google_beschreibung": "Über 11.000 Kontakte aus Wirtschaft und Politik: Bettina Angerer verbindet Unternehmen miteinander und bringt sie mit den richtigen Menschen zusammen, von der Kommune bis nach Brüssel.",
-      "probleme": [
+      "slug": "neue-medien",
+      "name": "Neue Medien und digitale Kommunikation",
+      "mit_marvin": true,
+      "kurz": "Content statt Werbung: Inhalte, die Ihre Zielgruppe dort abholen, wo sie tatsächlich ist.",
+      "punkte": [
         {
-          "titel": "Der richtige Kontakt fehlt",
-          "text": "Sie möchten politische und wirtschaftliche Netzwerke für Ihr Wachstum nutzen, wissen aber nicht, wer zuständig ist."
+          "titel": "Strategische Klarheit vor jeder Aktion",
+          "text": "Erst die Strategie, dann die Produktion.",
+          "nur_mit_team": false
         },
         {
-          "titel": "Ein Partner wird gesucht",
-          "text": "Sie suchen ein Unternehmen für eine Kooperation, in Deutschland oder im Ausland."
+          "titel": "Systematische Content-Produktion",
+          "text": "Kontinuierlich und planbar, mit professioneller Video- und Grafikproduktion.",
+          "nur_mit_team": false
+        },
+        {
+          "titel": "Personal Branding",
+          "text": "Sichtbar und glaubwürdig als Unternehmerin oder Unternehmer.",
+          "nur_mit_team": false
+        },
+        {
+          "titel": "Kampagnen-Management",
+          "text": "Von der Planung bis zur Auswertung.",
+          "nur_mit_team": false
+        },
+        {
+          "titel": "Creator-Netzwerk",
+          "text": "Zugang zu über 60 Content Creatorn mit über 60 Millionen Followern.",
+          "nur_mit_team": true
+        },
+        {
+          "titel": "Location-Scouting",
+          "text": "Drehorte, die im Gedächtnis bleiben.",
+          "nur_mit_team": true
         }
-      ],
-      "leistungen": [
-        {
-          "titel": "Vernetzung von Unternehmen",
-          "kurz": "Persönlich und auf Ergebnis ausgerichtet.",
-          "text": "Unternehmensvermittlung und Kooperationsanbahnung. Gemeinsam erreichen wir mehr als allein.",
-          "nur_mit_team": false
-        },
-        {
-          "titel": "Direkter politischer Draht",
-          "kurz": "Von der Kommune über Landtag und Bundestag bis nach Brüssel.",
-          "text": "Ein direkter Draht von der Gemeinde bis nach Brüssel, den ich seit Jahrzehnten pflege.",
-          "nur_mit_team": false
-        },
-        {
-          "titel": "Internationale Kontakte",
-          "kurz": "Wirtschaftliche Mittelstandskontakte in nahezu alle Länder der Welt.",
-          "text": "Bundesweites und internationales Mittelstandsnetzwerk, persönlich und über Jahrzehnte gewachsen.",
-          "nur_mit_team": false
-        },
-        {
-          "titel": "Die richtigen Leute zusammenbringen",
-          "kurz": "Wo ich nicht selbst helfen kann, nenne ich jemanden aus meinem Netzwerk.",
-          "text": "Wo ein Unternehmen jemanden braucht, den ich nicht ersetzen kann, bringe ich die richtigen Leute aus meinem Netzwerk zusammen.",
-          "nur_mit_team": false
-        }
-      ],
-      "kundenlogos": []
-    },
-    {
-      "slug": "coaching",
-      "name": "Coaching für Unternehmer",
-      "mit_marvin": false,
-      "kurz": "Coaching und Begleitung von Unternehmern in strategischer Unternehmensführung.",
-      "einleitung": "Unternehmerinnen und Unternehmer, die ihr Haus strategisch führen wollen, coache ich und bilde sie aus. Ich bin Sparringspartnerin auf Augenhöhe, vertraulich und direkt.",
-      "seitentitel": "Coaching und Ausbildung in strategischer Unternehmensführung",
-      "google_beschreibung": "Bettina Angerer coacht Inhaberinnen und Inhaber in strategischer Unternehmensführung und begleitet sie als Sparringspartnerin auf Augenhöhe.",
-      "probleme": [
-        {
-          "titel": "Sie suchen Begleitung auf Augenhöhe",
-          "text": "Als Inhaber oder Geschäftsführer möchten Sie strategische Entscheidungen nicht allein treffen."
-        },
-        {
-          "titel": "Erfahrene Führung trifft auf ein junges Team",
-          "text": "Zwischen Chefetage und jüngeren Mitarbeitern fehlt die gemeinsame Sprache."
-        }
-      ],
-      "leistungen": [
-        {
-          "titel": "Coaching für Unternehmer",
-          "kurz": "Strategische Entscheidungen, starke Führung.",
-          "text": "Unternehmerinnen und Unternehmer, die ihr Haus strategisch führen wollen, coache ich und bilde sie aus.",
-          "nur_mit_team": false
-        },
-        {
-          "titel": "Sparringspartnerin auf Augenhöhe",
-          "kurz": "Vertraulich und direkt.",
-          "text": "Mut zur Klarheit: Ich sage offen, was ich sehe, auch wenn es unbequem ist.",
-          "nur_mit_team": false
-        },
-        {
-          "titel": "Generationentransfer im Unternehmen",
-          "kurz": "Wenn erfahrene Führung auf ein junges Team trifft.",
-          "text": "Wir dolmetschen auch intern, wenn erfahrene Führung auf ein junges Team trifft. Ein oft unterschätzter Erfolgsfaktor.",
-          "nur_mit_team": false
-        },
-        {
-          "titel": "Weiterbildung für Ihr Team",
-          "kurz": "Workshops vor Ort, an echten Aufgaben.",
-          "text": "Praktiker aus meinem Netzwerk schulen Ihre Mitarbeiter direkt bei Ihnen im Haus. So bleibt das Wissen im Unternehmen und wird sofort angewendet.",
-          "nur_mit_team": false
-        }
-      ],
-      "kundenlogos": [
-        "ZDF",
-        "HR",
-        "BR",
-        "WDR",
-        "NDR"
       ]
     },
     {
@@ -234,177 +150,125 @@
       "name": "Vertrieb",
       "mit_marvin": true,
       "kurz": "Neue Kunden gewinnen, ohne Ihre Mannschaft von den bestehenden abzuziehen.",
-      "einleitung": "Viele Mittelständler leben von Empfehlungen und Stammkunden. Das trägt lange, wächst aber nicht von allein. Gemeinsam mit meinem Partner Marvin Angerer baue ich Ihnen einen zweiten Weg zu neuen Kunden auf: planbar und so, dass Ihr Team dabei entlastet wird.",
-      "seitentitel": "Vertrieb und Neukundengewinnung",
-      "google_beschreibung": "Neue Kunden gewinnen mit Akquise über LinkedIn und Instagram, Testläufen für neue Zielgruppen und einer klaren Vertriebsstrategie.",
-      "probleme": [
-        {
-          "titel": "Empfehlungen reichen nicht mehr",
-          "text": "Der Auftragseingang hängt an wenigen Kontakten. Fällt einer weg, fehlt Umsatz."
-        },
-        {
-          "titel": "Kaltakquise bleibt liegen",
-          "text": "Niemand im Team hat Zeit, täglich fremde Menschen anzuschreiben und nachzufassen."
-        },
-        {
-          "titel": "Neue Märkte sind ein Risiko",
-          "text": "Sie vermuten Potenzial in einer neuen Zielgruppe, wollen dafür aber nicht gleich Personal umschichten."
-        }
-      ],
-      "leistungen": [
+      "punkte": [
         {
           "titel": "Akquise über LinkedIn und Instagram",
-          "kurz": "Ihre Zielkunden finden und persönlich ansprechen.",
-          "text": "Ein System sucht nach Menschen, die zu Ihrer Zielgruppe passen, und prüft vorab deren Unternehmen. Jede Nachricht geht einzeln und persönlich raus, wer nicht antwortet, wird zur richtigen Zeit erinnert. Der tägliche Aufwand liegt bei rund zehn Minuten, und Sie sehen schwarz auf weiß, welche Ansprache funktioniert.",
+          "text": "Ihre Zielkunden finden und persönlich ansprechen.",
           "nur_mit_team": false
         },
         {
           "titel": "Testballon für neue Zielgruppen",
-          "kurz": "Erst im kleinen Versuch prüfen, ob sich ein Weg lohnt.",
-          "text": "Bevor Sie Mitarbeiter und Budget auf einen neuen Markt ansetzen, testen wir ihn mit einer klar umrissenen Zielgruppe und einer begrenzten Laufzeit. Danach entscheiden Sie anhand von Zahlen.",
+          "text": "Erst im kleinen Versuch prüfen, ob sich ein Weg lohnt.",
           "nur_mit_team": false
         },
         {
           "titel": "Vertriebsstrategie",
-          "kurz": "Ein klarer Plan, wer wen wann anspricht.",
-          "text": "Wir ordnen Ihre Vertriebsrichtungen nach Kundengruppen. Für jede legen wir fest, welche Ansprache passt und woran Sie Erfolg erkennen.",
+          "text": "Ein klarer Plan, wer wen wann anspricht.",
           "nur_mit_team": false
         },
         {
           "titel": "Betreuung großer Kunden",
-          "kurz": "Erfahrung aus der Arbeit mit Konzernen und Sendern.",
-          "text": "Große Kunden haben eigene Abläufe, Einkaufsregeln und Erwartungen. Marvin Angerer und sein Team kennen diese Welt aus der täglichen Arbeit und begleiten Sie von der ersten Anfrage bis zur laufenden Zusammenarbeit.",
+          "text": "Erfahrung aus der Arbeit mit Konzernen und Sendern.",
           "nur_mit_team": true
         }
-      ],
-      "kundenlogos": [
-        "Red Bull",
-        "DZ Bank",
-        "Netflix",
-        "Joyn"
       ]
     },
     {
-      "slug": "marketing",
-      "name": "Neue Medien und digitale Kommunikation",
-      "mit_marvin": true,
-      "kurz": "Content statt Werbung: Inhalte, die Ihre Zielgruppe dort abholen, wo sie tatsächlich ist.",
-      "einleitung": "Viele Mittelständler wissen nicht, wie sie sich in den Neuen Medien authentisch und wirkungsvoll positionieren sollen. Sie verlieren täglich Reichweite und Umsatz an Wettbewerber, die diesen Kanal längst nutzen. Die Antwort heißt nicht mehr Werbung, sondern systematischer Content, der Ihre Zielgruppe dort abholt, wo sie tatsächlich ist.",
-      "seitentitel": "Neue Medien und digitale Kommunikation für den Mittelstand",
-      "google_beschreibung": "Systematische Content-Produktion, Personal Branding und Kampagnen-Management für mittelständische Unternehmen, gemeinsam mit Marvin Angerer.",
-      "probleme": [
+      "slug": "netzwerk",
+      "name": "Netzwerk und politischer Zugang",
+      "mit_marvin": false,
+      "kurz": "Wir bringen Sie mit den Menschen zusammen, die Ihr Anliegen weiterbringen, in Wirtschaft und Politik.",
+      "punkte": [
         {
-          "titel": "Ihre Zielkunden sind genervt",
-          "text": "Von zu viel Werbung. Leider auch von Ihrer."
+          "titel": "Über 11.000 Kontakte",
+          "text": "10.250 bundesweit, 650 in der Heimatregion und 120 international.",
+          "nur_mit_team": false
         },
         {
-          "titel": "Die Aufmerksamkeit fehlt",
-          "text": "Ihre Anzeige konkurriert nicht mit anderen Anzeigen, sondern mit Katzenvideos und der Instagram-Story der Tochter. Wer hier unterbrechen will, verliert."
+          "titel": "Direkter politischer Draht",
+          "text": "Von der Gemeinde bis nach Brüssel, seit Jahrzehnten gepflegt.",
+          "nur_mit_team": false
         },
         {
-          "titel": "Das Vertrauen fehlt",
-          "text": "Bezahlte Botschaften verlieren Glaubwürdigkeit, echte Geschichten gewinnen sie. Ihre Kunden wollen sehen, wer Sie sind, nicht was Sie verkaufen."
-        },
-        {
-          "titel": "Die Sichtbarkeit fehlt",
-          "text": "Während Sie überlegen, ob TikTok oder LinkedIn-Video relevant ist, holt Ihr Mitbewerber dort bereits Ihre Zielkunden ab."
+          "titel": "Vernetzung von Unternehmen",
+          "text": "Kooperationen, Kunden und Partner aus unserem Netzwerk.",
+          "nur_mit_team": false
         }
-      ],
-      "leistungen": [
+      ]
+    },
+    {
+      "slug": "coaching",
+      "name": "Coaching für Unternehmer",
+      "mit_marvin": false,
+      "kurz": "Coaching und Begleitung von Unternehmern in strategischer Unternehmensführung.",
+      "punkte": [
         {
-          "titel": "Strategische Klarheit vor jeder Aktion",
-          "kurz": "Erst die Strategie, dann die Produktion.",
-          "text": "Bevor produziert wird, steht fest, wen Sie erreichen wollen und mit welcher Botschaft.",
+          "titel": "Sparring auf Augenhöhe",
+          "text": "Vertraulich und direkt.",
           "nur_mit_team": false
         },
         {
-          "titel": "Systematische Content-Produktion",
-          "kurz": "Kontinuierlich und planbar statt einzelner Aktionen.",
-          "text": "Systematischer Content, der Ihre Zielgruppe dort abholt, wo sie tatsächlich ist, und der Ihre Marke stärkt, statt sie aufzudrängen. Mit professioneller Video- und Grafikproduktion.",
+          "titel": "Generationentransfer im Unternehmen",
+          "text": "Wenn erfahrene Führung auf ein junges Team trifft.",
           "nur_mit_team": false
         },
         {
-          "titel": "Personal Branding",
-          "kurz": "Sichtbar und glaubwürdig als Unternehmerin oder Unternehmer.",
-          "text": "Ihre Kunden wollen sehen, wer Sie sind, nicht was Sie verkaufen.",
+          "titel": "Weiterbildung für Ihr Team",
+          "text": "Workshops vor Ort, an echten Aufgaben.",
           "nur_mit_team": false
-        },
-        {
-          "titel": "Kampagnen-Management von A bis Z",
-          "kurz": "Von der Planung bis zur Auswertung.",
-          "text": "Wir starten mit einer ersten Kampagne und bauen aus, was wirkt.",
-          "nur_mit_team": false
-        },
-        {
-          "titel": "Creator-Netzwerk",
-          "kurz": "Zugang zu über 60 Content Creatorn mit über 60 Millionen Followern.",
-          "text": "Direkter Draht zu Nischen-Creatorn: gezielte Reichweite in Ihrer Branche, nicht Streuverlust in der Masse.",
-          "nur_mit_team": true
-        },
-        {
-          "titel": "Location-Scouting",
-          "kurz": "Schlösser, Inseln, Industrieanlagen.",
-          "text": "Drehorte, die im Gedächtnis bleiben, für Content, der nicht wie Content aussieht.",
-          "nur_mit_team": true
         }
-      ],
-      "kundenlogos": [
-        "Red Bull",
-        "Knabe Malz",
-        "Miss Germany",
-        "ITV Studios"
       ]
     }
   ],
   "ablauf": [
     {
       "titel": "Anfrage",
-      "text": "Sie beantworten sechs kurze Fragen. Jede Anfrage lese ich persönlich."
+      "text": "Sie beantworten sechs kurze Fragen. Jede Anfrage lesen wir persönlich."
     },
     {
-      "titel": "Mein Anruf",
-      "text": "Ich rufe Sie persönlich an. Wenn es um Vertrieb oder Social Media geht, ist mein Partner Marvin Angerer gleich mit dabei."
+      "titel": "Erstgespräch",
+      "text": "Bettina Angerer ruft Sie persönlich an. Wenn es um Vertrieb oder Social Media geht, ist Marvin Angerer gleich mit dabei."
     },
     {
       "titel": "Testballon",
-      "text": "Ich verkaufe niemandem ein großes Projekt, bevor die Zahlen stimmen. Deshalb beginnen wir mit einem kleinen, messbaren Schritt."
+      "text": "Wir verkaufen niemandem ein großes Projekt, bevor die Zahlen stimmen. Deshalb beginnen wir mit einem kleinen, messbaren Schritt."
     },
     {
       "titel": "Ihre Entscheidung",
-      "text": "Ich sage offen, was ich sehe, auch wenn es unbequem ist. Ob es weitergeht, entscheiden Sie."
+      "text": "Wir sagen offen, was wir sehen, auch wenn es unbequem ist. Ob es weitergeht, entscheiden Sie."
     }
   ],
   "faq": [
     {
-      "frage": "Arbeiten Sie nur in Bayern?",
-      "antwort": "Nein. Seit Januar 2026 arbeite ich mit Bettina Angerer Consulting für Unternehmen im gesamten DACH-Raum. Mein Sitz ist in Bayreuth."
+      "frage": "Wer steht hinter Angerer Consulting?",
+      "antwort": "Bettina Angerer arbeitet seit über dreißig Jahren im und für den Mittelstand und ist Ihre erste Ansprechpartnerin. Marvin Angerer ist Partner bei Angerer Consulting und kümmert sich um Vertrieb, Social Media und Content."
+    },
+    {
+      "frage": "Was, wenn für neues Marketing das Budget fehlt?",
+      "antwort": "Dann schauen wir uns gemeinsam Ihre Zahlen an. Meist gibt es Stellen, an denen sich Geld freimachen oder Förderung nutzen lässt, sodass sich das Vorhaben finanzieren lässt."
     },
     {
       "frage": "Was passiert nach meiner Anfrage?",
-      "antwort": "Jede Anfrage lese ich persönlich, und wenn ich nicht helfen kann, sage ich das offen und nenne Ihnen jemanden aus meinem Netzwerk, der besser passt. Wenn ich helfen kann, rufe ich Sie an."
+      "antwort": "Jede Anfrage lesen wir persönlich. Wenn wir nicht helfen können, sagen wir das offen und nennen Ihnen jemanden aus unserem Netzwerk, der besser passt. Wenn wir helfen können, rufen wir Sie an."
     },
     {
       "frage": "Was ist ein Testballon?",
-      "antwort": "Ich verkaufe niemandem ein großes Projekt, bevor die Zahlen stimmen. Deshalb beginnen wir mit einem kleinen, zeitlich begrenzten Schritt, dessen Ergebnis sich messen lässt. Erst wenn die Zahlen stimmen, wird daraus ein größeres Projekt."
+      "antwort": "Ein kleiner, zeitlich begrenzter erster Schritt, dessen Ergebnis sich messen lässt. Erst wenn die Zahlen stimmen, wird daraus ein größeres Projekt."
     },
     {
-      "frage": "Welche Rolle hat Marvin Angerer?",
-      "antwort": "Marvin Angerer ist mein Partner bei Bettina Angerer Consulting. Ich bin Ihre erste Ansprechpartnerin. Wenn es um Vertrieb oder Social Media geht, ist er gleich mit dabei."
-    },
-    {
-      "frage": "Muss ich mich mit Social Media auskennen?",
-      "antwort": "Nein. Ich dolmetsche in die Welt der Entscheider, die nächste Generation dolmetscht in die Welt der Neuen Medien. Gemeinsam übersetzen wir dort, wo Wachstum entsteht."
+      "frage": "Arbeiten Sie nur in Bayern?",
+      "antwort": "Nein. Wir arbeiten für Unternehmen im gesamten DACH-Raum. Unser Sitz ist in Bayreuth."
     }
   ],
   "werdegang": [
     {
       "station": "Projektleitung Digitalisierung",
-      "bereich": "Gebäudedienstleister",
-      "ergebnis": "Neuer Workflow für über 50 Mitarbeiter, BWA in einem Geschäftsjahr von negativ auf ein sechsstelliges Ergebnis"
+      "bereich": "Mittelstandsunternehmen (Dienstleistung)",
+      "ergebnis": "Neuer Workflow für über 50 Mitarbeiter, BWA in einem Geschäftsjahr von negativ auf ein sechsstelliges positives Ergebnis"
     },
     {
       "station": "Controlling und strategische Unternehmensführung",
-      "bereich": "Immobilienunternehmen",
+      "bereich": "Dienstleistungsunternehmen",
       "ergebnis": "Vom Einzelunternehmen zu 3 Standorten mit 5 Angestellten und 4 Freelancern"
     },
     {

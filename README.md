@@ -1,10 +1,10 @@
-# Bettina Angerer Consulting
+# Angerer Consulting
 
-Statische Website für Bettina Angerer Consulting (Bettina Angerer und Marvin Angerer).
+Statische Website für Angerer Consulting (Bettina Angerer und Marvin Angerer). Durchgehend in der Wir-Form, nur Bettinas persönlicher Text und ihr Werdegang auf „Über uns“ stehen in der Ich-Form.
 
 ## Aufbau
 
-- `content/inhalte.json` enthält die Texte, Kennzahlen und Schalter, die sich am ehesten ändern (Leistungen, FAQ, Ablauf, Über mich, Marvin, Fallbeispiele). Diese Datei bearbeitet Bettina über das Redaktionssystem.
+- `content/inhalte.json` enthält die Texte, Kennzahlen und Schalter, die sich am ehesten ändern (Leistungen, FAQ, Ablauf, Über uns, Marvin, Fallbeispiele, Werdegang). Diese Datei bearbeitet Bettina über das Redaktionssystem.
 - `build.py` erzeugt daraus alle HTML-Seiten, `sitemap.xml` und `robots.txt`. Seitenaufbau und seltener geänderte Texte stehen im Skript.
 - `partials/` enthält wiederkehrende Teile (Symbole, Anfragefenster, Logo-Varianten).
 - `content/legal/` enthält die Rechtstexte der bisherigen Website als Quelle.
@@ -36,16 +36,16 @@ In `content/inhalte.json` unter `schalter` sowie in den übrigen Feldern:
 | Feld | Stand | Wirkung |
 | --- | --- | --- |
 | `team_zeigen` | aus | Hero-Fassung mit Marvins Team, Leistungen mit `nur_mit_team` erscheinen |
-| `kundenlogos_zeigen` + `kundenlogos` | aus, leer | Kundenlogos unter dem Hero und auf den Leistungsseiten. Erst nach Freigabe |
+| `kundenlogos_zeigen` + `kundenlogos` | an, 12 Logos | Laufendes Banner „Kunden aus unserem Netzwerk“ unter dem Hero |
 | `bvmw_siegel_zeigen` | an | Siegel „Zertifizierte Beratung“, gilt bis mindestens Ende 2027. Aus = überall weg |
 | `kennzahlen` | 2 Werte | „Hunderte“ durch die echte Netzwerkzahl ersetzen |
 | `fallbeispiele` | leer | Abschnitt „Aus der Praxis“ erscheint erst mit Inhalt |
-| `video` | leer | Kurzes Video im Über-mich-Teil, selbst gehostet als MP4 |
+| `video` / `video_platzhalter` | leer / an | Video auf „Über uns“, selbst gehostet als MP4. Bis dahin steht dort „Video folgt“ |
 | `marvin` | Platzhalter | Foto und Text von Marvin Angerer |
 
 ## Seiten
 
-Startseite, Leistungen (Übersicht und fünf Einzelseiten: Strategie und Sanierung, Netzwerk und Politik, Coaching, Vertrieb, Marketing und Social Media), Über mich, Kontakt, Impressum, Datenschutz, Datenverarbeitung, Fehlerseite.
+Startseite (mit allen Leistungen in kurzer Form), Über uns, Kontakt, Impressum, Datenschutz, Datenverarbeitung, Fehlerseite. Eigene Leistungsseiten gibt es nicht mehr, alte Adressen leiten auf `/#leistungen` weiter.
 
 `/logo-varianten/` ist eine Abstimmungsseite für die Strähne im Logo. Sie ist nicht verlinkt, steht nicht in der Sitemap und ist auf `noindex` gesetzt.
 
@@ -72,14 +72,11 @@ Die alte WordPress-Seite hatte diese Seiten. Sie werden per 301 umgeleitet (`ver
 
 | Alt | Neu |
 | --- | --- |
-| /projektstrategie/, /service-engineering/, /unternehmensnachfolge/, /versteckte-steuererhoehung-durch-kurzarbeitergeld/ | /leistungen/strategie/ |
-| /marketing-und-vertrieb/ | /leistungen/vertrieb/ |
-| /dienstleistungen/ | /leistungen/ |
-| /bildungsallianz/ | /leistungen/coaching/ |
-| /bvmw/, /unterstuetzung-oberfranken-regio-bayreuth-stadt/ | /ueber-mich/ |
+| /projektstrategie/, /service-engineering/, /unternehmensnachfolge/, /marketing-und-vertrieb/, /dienstleistungen/, /bildungsallianz/, /versteckte-steuererhoehung-durch-kurzarbeitergeld/, /leistungen/… | /#leistungen |
+| /ueber-mich/, /bvmw/, /unterstuetzung-oberfranken-regio-bayreuth-stadt/ | /ueber-uns/ |
 | /kontaktdaten/ | /kontakt/ |
 | /die-zeit-wird-knapp/ | / |
-| /ueber-mich/, /kontakt/, /impressum/, /datenschutz/ | bleiben gleich |
+| /kontakt/, /impressum/, /datenschutz/ | bleiben gleich |
 | /bettina-angerer-blog/… (Beiträge 2020 bis 2022) | entfallen, Fehlerseite |
 
 GitHub Pages kann keine Weiterleitungen, dort gelten sie nicht.
