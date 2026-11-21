@@ -10,6 +10,7 @@ import html
 import json
 import re
 import shutil
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).parent
@@ -29,7 +30,7 @@ STATS = [(k["zahl"], k["text"]) for k in C["kennzahlen"]]
 CASES = [{"titel": f["titel"], "branche": f["branche"], "ausgang": f["ausgangslage"], "vorgehen": f["vorgehen"],
           "ergebnis": f["ergebnis"], "zahl": f.get("zahl", "")} for f in C["fallbeispiele"]]
 VIDEO = C["video"] or None                        # selbst gehostete MP4, z. B. assets/video/bettina.mp4
-VIDEO_POSTER = "assets/img/portrait.jpg"
+VIDEO_POSTER = "assets/img/portrait-600.webp"
 MARVIN = {"photo": C["marvin"]["foto"] or None, "text": C["marvin"]["text"]}
 
 ORG = {
@@ -84,6 +85,12 @@ def client_logos(names=None, label="Kunden aus unserem Netzwerk"):
 '''
 
 
+def portrait(attrs=""):
+    """Portrait von Bettina als WebP, JPEG für ältere Browser."""
+    return (f'<picture><source type="image/webp" srcset="{{R}}assets/img/portrait-600.webp 600w, {{R}}assets/img/portrait.webp 1076w" sizes="(min-width: 900px) 540px, 100vw">'
+            f'<img src="{{R}}assets/img/portrait.jpg" width="1076" height="1434" alt="Bettina Angerer, Unternehmensberaterin, mit ihrer blauen Haarsträhne"{attrs}></picture>')
+
+
 ARROW = '<svg class="arrow" width="16" height="16" aria-hidden="true"><use href="#arrow"/></svg>'
 STRAND = '<svg class="strand-divider" aria-hidden="true" preserveAspectRatio="none"><use href="#strand"/></svg>'
 
@@ -97,7 +104,7 @@ def seal_block(cls="cert"):
     if not SHOW_BVMW_SEAL:
         return ""
     return f'''<div class="{cls}">
-            <img class="seal" src="{{R}}assets/img/bvmw-zertifiziert.png" width="324" height="283" loading="lazy" alt="Siegel: Zertifizierte Beratung für mittelständische Unternehmen, Beratungsnetzwerk Mittelstand">
+            <img class="seal" src="{{R}}assets/img/bvmw-zertifiziert-240.png" width="240" height="210" loading="lazy" alt="Siegel: Zertifizierte Beratung für mittelständische Unternehmen, Beratungsnetzwerk Mittelstand">
             <p>Zertifizierte Beratung für mittelständische Unternehmen im Beratungsnetzwerk Mittelstand.</p>
           </div>'''
 
@@ -123,7 +130,7 @@ def process_html():
 
 
 # ---------------------------------------------------------------- Rahmen
-def page(path, title, desc, body, current="", schema=None, crumbs=None, extra_head="", body_cls=""):
+def page(path, title, desc, body, current="", schema=None, crumbs=None, extra_head="", body_cls="", robots=""):
     """path: Zielpfad relativ zum Projekt, z. B. 'ueber-uns/index.html'."""
     depth = path.count("/")
     R = "../" * depth
@@ -162,10 +169,19 @@ def page(path, title, desc, body, current="", schema=None, crumbs=None, extra_he
   <meta property="og:title" content="{html.escape(title)}">
   <meta property="og:description" content="{html.escape(desc)}">
   <meta property="og:url" content="{canonical}">
-  <meta property="og:image" content="{SITE}/assets/img/og.png">
+  <meta property="og:image" content="{SITE}/assets/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{NAME}: Aus roten Zahlen machen wir schwarze. Portrait von Bettina Angerer.">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{html.escape(title)}">
+  <meta name="twitter:description" content="{html.escape(desc)}">
+  <meta name="twitter:image" content="{SITE}/assets/img/og.jpg">
+  <meta name="author" content="{NAME}">{f"{chr(10)}  <meta name=\"robots\" content=\"{robots}\">" if robots else ""}
   <meta name="theme-color" content="#0c2d4a">
   <link rel="icon" href="{R}assets/img/logo-mark.svg" type="image/svg+xml">
+  <link rel="icon" href="{R}assets/img/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="{R}assets/img/apple-touch-icon.png">
   <link rel="preload" href="{R}assets/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{R}assets/fonts/libre-franklin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{R}assets/css/styles.css?v={VERSION}">
@@ -279,7 +295,8 @@ def final_cta(heading="Lassen Sie uns sprechen.", text="Wir helfen beim Hinsehen
 
 
 def marvin_card(heading_tag="h3"):
-    photo = (f'<img src="{{R}}{MARVIN["photo"]}" width="400" height="400" loading="lazy" alt="Marvin Angerer, Partner bei {NAME}">'
+    webp = MARVIN["photo"].rsplit(".", 1)[0] + ".webp" if MARVIN["photo"] else ""
+    photo = (f'<picture>{f"<source type=\'image/webp\' srcset=\'{{R}}{webp}\'>" if (ROOT / webp).exists() else ""}<img src="{{R}}{MARVIN["photo"]}" width="400" height="400" loading="lazy" alt="Marvin Angerer, Partner bei {NAME}"></picture>'
              if MARVIN["photo"] else '<span class="initials" aria-hidden="true">MA</span>')
     text = "".join(f"<p>{t}</p>" for t in MARVIN["text"])
     return f'''<article class="partner">
@@ -331,14 +348,27 @@ ORG_SCHEMA = {
                 "addressLocality": ORG["city"], "addressCountry": "DE"},
     "areaServed": [{"@type": "Country", "name": n} for n in ("Deutschland", "Österreich", "Schweiz")],
     "founder": {"@id": f"{SITE}/ueber-uns/#person"},
-    "member": [{"@id": f"{SITE}/ueber-uns/#person"}, {"@type": "Person", "name": ORG["partner"], "jobTitle": "Partner"}],
+    "member": [{"@id": f"{SITE}/ueber-uns/#person"}, {"@id": f"{SITE}/ueber-uns/#marvin"}],
     "alternateName": "Angerer Consulting, Bettina und Marvin Angerer",
-    "knowsAbout": ["Unternehmensberatung", "Neuausrichtung", "Turnaround", "Unternehmensnachfolge", "Strategische Unternehmensführung", "Coaching", "Vertrieb", "Social Media", "Mittelstand"],
+    "knowsAbout": ["Unternehmensberatung", "Neuausrichtung", "Turnaround", "Unternehmensnachfolge", "Strategische Unternehmensführung", "Coaching", "Vertrieb", "Social Media", "Content-Marketing", "Mittelstand"],
+    "slogan": "Aus roten Zahlen machen wir schwarze.",
+    "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Leistungen", "itemListElement": [
+        {"@type": "OfferCatalog", "name": s["name"], "description": s["lead"],
+         "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": t, "description": x}} for t, x in s["items"]]}
+        for s in SERVICES]},
 }
 PERSON_SCHEMA = {
     "@context": "https://schema.org", "@type": "Person", "@id": f"{SITE}/ueber-uns/#person",
     "name": "Bettina Angerer", "jobTitle": "Unternehmensberaterin", "url": f"{SITE}/ueber-uns/",
     "image": f"{SITE}/assets/img/portrait.jpg", "worksFor": {"@id": f"{SITE}/#organisation"},
+    "knowsAbout": ["Unternehmensberatung", "Controlling", "Strategische Unternehmensführung", "Krisenmanagement", "Mittelstand"],
+    "hasCredential": [{"@type": "EducationalOccupationalCredential", "name": a} for a in C["abschluesse"]],
+}
+MARVIN_SCHEMA = {
+    "@context": "https://schema.org", "@type": "Person", "@id": f"{SITE}/ueber-uns/#marvin",
+    "name": "Marvin Angerer", "jobTitle": "Partner", "url": f"{SITE}/ueber-uns/",
+    "worksFor": {"@id": f"{SITE}/#organisation"}, "knowsAbout": ["Social Media", "Content-Marketing", "Vertrieb"],
+    **({"image": f"{SITE}/{MARVIN['photo']}"} if MARVIN["photo"] else {}),
 }
 
 urls = []
@@ -382,7 +412,7 @@ home = f'''    <section class="hero" aria-labelledby="hero-title">
           <dl class="stats">{stats}</dl>
         </div>
         <figure class="hero-portrait">
-          <img src="{{R}}assets/img/portrait.jpg" width="1076" height="1434" alt="Bettina Angerer, Unternehmensberaterin, mit ihrer blauen Haarsträhne" fetchpriority="high">
+          {portrait(' fetchpriority="high"')}
           <figcaption>Bettina Angerer</figcaption>
         </figure>
       </div>
@@ -460,9 +490,10 @@ home = f'''    <section class="hero" aria-labelledby="hero-title">
 faq_schema = {"@context": "https://schema.org", "@type": "FAQPage",
               "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
 web_schema = {"@context": "https://schema.org", "@type": "WebSite", "name": NAME, "url": f"{SITE}/", "inLanguage": "de"}
-urls.append(page("index.html", f"{NAME} | {CLAIM}",
-                 "Bettina und Marvin Angerer beraten mittelständische Unternehmen im DACH-Raum: Unternehmensberatung und Strategie, Neue Medien, Vertrieb, Netzwerk und Coaching. Aus roten Zahlen machen wir schwarze.",
-                 home, schema=[ORG_SCHEMA, web_schema, faq_schema], body_cls="home"))
+urls.append(page("index.html", f"{NAME} | Unternehmensberatung für den Mittelstand",
+                 "Unternehmensberatung und modernes Marketing für den Mittelstand im DACH-Raum. Wir analysieren, richten neu aus und bringen Ihr Marketing auf den Stand von heute.",
+                 home, schema=[ORG_SCHEMA, web_schema, faq_schema], body_cls="home",
+                 extra_head='  <link rel="preload" as="image" type="image/webp" href="assets/img/portrait-600.webp" imagesrcset="assets/img/portrait-600.webp 600w, assets/img/portrait.webp 1076w" imagesizes="(min-width: 900px) 540px, 100vw" fetchpriority="high">\n'))
 
 # ================================================================ Über uns
 crumbs = [("ueber-uns/", "Über uns")]
@@ -481,7 +512,7 @@ body = page_hero("Zwei Generationen. Eine Stimme.",
     <section class="section" aria-labelledby="bio-title">
       <div class="wrap bio">
         <figure class="bio-portrait">
-          <img src="{{R}}assets/img/portrait.jpg" width="1076" height="1434" alt="Bettina Angerer, Unternehmensberaterin, mit ihrer blauen Haarsträhne">
+          {portrait(' loading="lazy"')}
         </figure>
         <div class="bio-copy">
           <p class="partner-role">Gründerin</p>
@@ -558,8 +589,10 @@ body = page_hero("Zwei Generationen. Eine Stimme.",
 
 ''' + final_cta()
 urls.append(page("ueber-uns/index.html", f"Über uns: Bettina und Marvin Angerer | {NAME}",
-                 "Bettina Angerer bringt über dreißig Jahre im und für den Mittelstand mit, Marvin Angerer die Sprache der Neuen Medien. Gemeinsam sind sie Angerer Consulting.",
-                 body, current="ueber-uns/", schema=[PERSON_SCHEMA], crumbs=crumbs))
+                 "Bettina Angerer: über 30 Jahre Unternehmensberatung und Controlling im Mittelstand. Marvin Angerer: Social Media und Vertrieb. Zusammen Angerer Consulting.",
+                 body, current="ueber-uns/", crumbs=crumbs,
+                 schema=[{"@context": "https://schema.org", "@type": "AboutPage", "name": "Über uns", "url": f"{SITE}/ueber-uns/", "about": {"@id": f"{SITE}/#organisation"}},
+                         PERSON_SCHEMA, MARVIN_SCHEMA]))
 
 # ================================================================ Kontakt
 crumbs = [("kontakt/", "Kontakt")]
@@ -584,13 +617,14 @@ body = page_hero("So erreichen Sie uns",
       </div>
     </section>
 '''
-urls.append(page("kontakt/index.html", f"Kontakt | {NAME}",
-                 f"Kontakt zu {NAME}, {ORG['street']}, {ORG['zip']} {ORG['city']}. Erstgespräch in sechs kurzen Fragen anfragen.",
-                 body, current="kontakt/", schema=[ORG_SCHEMA], crumbs=crumbs))
+urls.append(page("kontakt/index.html", f"Kontakt und Erstgespräch | {NAME}",
+                 f"Erstgespräch mit {NAME} anfragen: sechs kurze Fragen, jede Anfrage lesen wir persönlich. {ORG['street']}, {ORG['zip']} {ORG['city']}.",
+                 body, current="kontakt/", crumbs=crumbs,
+                 schema=[{"@context": "https://schema.org", "@type": "ContactPage", "name": "Kontakt", "url": f"{SITE}/kontakt/", "about": {"@id": f"{SITE}/#organisation"}}, ORG_SCHEMA]))
 
 
 # ================================================================ Rechtliches
-def legal_page(slug, name, inner, desc):
+def legal_page(slug, name, inner, desc, robots=""):
     crumbs = [(f"{slug}/", name)]
     body = f'''    <section class="section legal-section">
       <div class="wrap legal">
@@ -599,7 +633,9 @@ def legal_page(slug, name, inner, desc):
       </div>
     </section>
 '''
-    urls.append(page(f"{slug}/index.html", f"{name} | {NAME}", desc, body, crumbs=crumbs))
+    url = page(f"{slug}/index.html", f"{name} | {NAME}", desc, body, crumbs=crumbs, robots=robots)
+    if not robots:
+        urls.append(url)
 
 
 def esc(t):
@@ -688,7 +724,7 @@ legal_page("datenschutz", "Datenschutz", f'''        <h1>Datenschutzerklärung</
         <h2>Aktualität und Änderung der Datenschutzerklärung</h2>
         <p>Stand: November 2026.</p>
         <p>{esc(ds[i_stand + 2])}</p>''',
-           f"Datenschutzerklärung von {NAME}, Bayreuth.")
+           f"Datenschutzerklärung von {NAME}, Bayreuth.", robots="noindex, follow")
 
 dv = [l.strip() for l in (ROOT / "content/legal/datenverarbeitung.txt").read_text().split("\n") if l.strip()]
 out, in_list = [], False
@@ -709,7 +745,7 @@ for n, l in enumerate(dv):
         out.append(f"<p>{esc(l)}</p>")
 legal_page("datenverarbeitung", "Datenverarbeitung",
            f'        <h1>Grundsätze der Datenverarbeitung bei {NAME}</h1>\n        ' + "\n        ".join(out) + "\n        <p>Stand: 01.07.2020</p>",
-           f"Grundsätze der Datenverarbeitung bei {NAME}: Informationen nach Art. 12 ff. DSGVO.")
+           f"Grundsätze der Datenverarbeitung bei {NAME}: Informationen nach Art. 12 ff. DSGVO.", robots="noindex, follow")
 
 # ================================================================ Logo-Varianten (nur zur Abstimmung, nicht verlinkt)
 lv = (ROOT / "partials/logo-varianten.html").read_text()
@@ -743,7 +779,7 @@ sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps
 prio = {"": "1.0", "ueber-uns/": "0.8", "kontakt/": "0.7"}
 for u in urls:
     p = prio.get(u, "0.8" if u.startswith("leistungen/") else "0.3")
-    sm += f"  <url><loc>{SITE}/{u}</loc><priority>{p}</priority></url>\n"
+    sm += f"  <url><loc>{SITE}/{u}</loc><lastmod>{date.today().isoformat()}</lastmod><priority>{p}</priority></url>\n"
 (ROOT / "sitemap.xml").write_text(sm + "</urlset>\n")
 (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")
 print("Seiten:", len(urls) + 1)

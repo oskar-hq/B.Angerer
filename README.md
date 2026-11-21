@@ -92,9 +92,18 @@ Auf `github.io`, auf Vercel-Vorschauadressen (`*.vercel.app`) und lokal setzt di
 - Impressum: Rechtsform und vertretungsberechtigte Personen für die neue Firmierung eintragen
 - Datenschutz: Vercel als Hosting-Anbieter mit Auftragsverarbeitung und Region Frankfurt sowie den E-Mail-Anbieter ergänzen, vom Datenschutzbeauftragten prüfen lassen
 - Netzwerkzahl, Text und Foto von Marvin, Fallbeispiele eintragen
-- Logo: Variante auswählen, Reinzeichnung einbauen (`partials/symbols.html`, `assets/img/logo-mark.svg`, `assets/img/og.png`)
+- Logo: Variante auswählen, Reinzeichnung einbauen (`partials/symbols.html`, `assets/img/logo-mark.svg`, `assets/img/og.jpg`, Browser-Symbole `favicon-48.png`, `apple-touch-icon.png`)
 - Größenstufen im Formular (`partials/wizard.html`) nach Absprache mit Bettina festlegen
 - Sitemap in der Google Search Console einreichen
+
+## Suchmaschinen-Optimierung
+
+- Titel und Beschreibungen sind auf die Länge gekürzt, die Google vollständig anzeigt (Titel bis etwa 60, Beschreibung bis etwa 158 Zeichen).
+- Strukturierte Daten: Unternehmen mit Adresse, Leistungen und Slogan, Personen (Bettina mit Abschlüssen, Marvin), FAQ, Über-uns- und Kontaktseite, Brotkrumen.
+- Bilder als WebP mit JPEG-Rückfall, Portrait in zwei Größen, Hero-Bild wird vorgeladen.
+- Vorschaubild für Social Media `og.jpg` mit Größe und Alt-Text, Browser-Symbole als SVG und PNG.
+- Sitemap mit Datum. Datenschutz und Datenverarbeitung stehen auf `noindex, follow` und nicht in der Sitemap.
+- Nach dem Livegang: Domain in der Google Search Console bestätigen, Sitemap einreichen, Google-Unternehmensprofil auf „Angerer Consulting“ umstellen und auf die neue Seite verlinken.
 
 ## Lokal ansehen
 
