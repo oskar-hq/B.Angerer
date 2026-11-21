@@ -51,7 +51,7 @@ WIZARD = (ROOT / "partials/wizard.html").read_text()
 # ---------------------------------------------------------------- Logos
 LOGOS = {
     "Red Bull": ("redbull.svg", 2.593, 1.45), "DZ Bank": ("dzbank.svg", 7.594, 0.62),
-    "Netflix": ("netflix.svg", 0.55, 1.15), "Joyn": ("joyn.svg", 2.375, 0.8),
+    "Netflix": ("netflix.svg", 3.700, 0.8), "Joyn": ("joyn.svg", 2.375, 0.8),
     "ZDF": ("zdf.svg", 1.711, 0.95), "ITV Studios": ("itv.svg", 1.391, 1.35),
     "Miss Germany": ("missgermany.svg", 4.09, 0.8), "Knabe Malz": ("knabe.png", 2.665, 0.85),
     "HR": ("hr.svg", 1.222, 1.25), "BR": ("br.svg", 1.248, 0.95), "WDR": ("wdr.svg", 3.441, 0.6), "NDR": ("ndr.svg", 1.047, 1.0),
@@ -358,14 +358,14 @@ hero_sub = C["startseite"]["einleitung"]
 
 # Die Kurve ist schematisch: keine echten Werte, nur das Bild von Rot nach Schwarz.
 curve = '''<figure class="curve" data-curve>
-            <svg viewBox="0 0 640 260" role="img" aria-label="Schematische Kurve eines Betriebsergebnisses, die aus dem roten Bereich unter der Nulllinie in den schwarzen Bereich darüber steigt">
+            <svg viewBox="0 0 640 300" role="img" aria-label="Schematische Kurve eines Betriebsergebnisses, die aus dem roten Bereich unter der Nulllinie in den schwarzen Bereich darüber steigt">
               <line class="curve-zero" x1="0" y1="150" x2="640" y2="150"/>
-              <text class="curve-axis" x="636" y="142" text-anchor="end">0</text>
+              <text class="curve-axis" x="4" y="140">0</text>
               <path class="curve-line curve-red" d="M8 196C60 206 104 236 160 226S236 182 268 150"/>
               <path class="curve-line curve-black" d="M268 150C300 118 340 112 396 98S500 70 540 52 610 26 632 20"/>
               <circle class="curve-dot" cx="632" cy="20" r="6"/>
-              <text class="curve-label curve-label-red" x="20" y="246">rote Zahlen</text>
-              <text class="curve-label curve-label-black" x="420" y="118">schwarze Zahlen</text>
+              <text class="curve-label curve-label-red" x="8" y="292">rote Zahlen</text>
+              <text class="curve-label curve-label-black" x="632" y="140" text-anchor="end">schwarze Zahlen</text>
             </svg>
             <figcaption>Betriebsergebnis, schematisch</figcaption>
           </figure>'''

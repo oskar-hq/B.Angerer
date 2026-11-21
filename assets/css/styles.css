@@ -207,7 +207,7 @@ p, li, dd { text-wrap: pretty; }
 .curve-label { font: 600 15px var(--sans); }
 .curve-label-red { fill: var(--red); }
 .curve-label-black { fill: var(--black); }
-.curve figcaption { margin-top: 8px; font-size: 14px; color: var(--ink-soft); }
+.curve figcaption { margin-top: 16px; font-size: 14px; color: var(--ink-soft); }
 @media (max-width: 600px) { .curve-label { font-size: 26px; } .curve-axis { font-size: 24px; } .curve-line { stroke-width: 7; } }
 @media (min-width: 900px) { .measure-grid { grid-template-columns: 1fr 1fr; gap: 80px; } }
 
