@@ -134,7 +134,7 @@ p, li, dd { text-wrap: pretty; }
 .header { position: sticky; top: 0; z-index: 50; background: var(--navy); color: var(--on-dark); border-bottom: 1px solid var(--line-dark); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--on-dark); }
-.brand-mark { width: 44px; height: 44px; flex: none; color: var(--on-dark); }
+.brand-mark { width: auto; height: 46px; flex: none; }
 .brand-text { font-family: var(--serif); font-size: 19px; line-height: 1.1; font-weight: 600; letter-spacing: 0; }
 .brand-sub { font-weight: 400; color: var(--gold-light); }
 .nav { display: none; }
@@ -154,7 +154,7 @@ p, li, dd { text-wrap: pretty; }
 .mobile-menu > a:not(.btn):not(.mobile-tel) { font-family: var(--serif); font-size: 34px; line-height: 1.25; font-weight: 600; text-decoration: none; padding: 6px 0; }
 .mobile-menu a[aria-current] { color: var(--gold-light); }
 .mobile-menu .btn { margin-top: 28px; align-self: flex-start; }
-@media (max-width: 400px) { .brand-text { font-size: 17px; } .brand-mark { width: 38px; height: 38px; } }
+@media (max-width: 400px) { .brand-text { font-size: 17px; } .brand-mark { height: 40px; } }
 @media (min-width: 1000px) {
   .menu-toggle, .mobile-menu { display: none; }
   .header-inner { min-height: 80px; }
@@ -430,6 +430,15 @@ p, li, dd { text-wrap: pretty; }
 @keyframes marquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(calc(var(--set, 50%) * -1), 0, 0); } }
 .person-name { font-size: clamp(30px, 4vw, 40px); margin: 4px 0 20px; }
 
+.refs-label a { text-decoration: none; }
+.refs-label a:hover { text-decoration: underline; text-decoration-color: var(--strand); text-underline-offset: 4px; }
+.refs-bridge { text-align: center; max-width: 640px; margin: 18px auto 0; font-family: var(--serif); font-size: 19px; line-height: 1.4; font-weight: 600; color: var(--navy); }
+.refs-case { text-align: center; max-width: 680px; margin: 10px auto 0; font-size: 15px; color: var(--ink-soft); }
+.refs-case a { text-decoration: none; }
+.refs-case a:hover { text-decoration: underline; text-decoration-color: var(--strand); }
+.refs-case strong { color: var(--ink); font-weight: 600; }
+@media (min-width: 900px) { .refs-bridge { font-size: 22px; margin-top: 28px; } .refs-case { font-size: 16px; } }
+
 /* ---------- Footer ---------- */
 .footer { background: var(--navy-deep); color: var(--on-dark-soft); padding: 64px 0 32px; }
 .footer-grid { display: grid; gap: 40px; }
@@ -567,3 +576,43 @@ p, li, dd { text-wrap: pretty; }
   *, *::before, *::after { transition-duration: 0ms !important; animation: none !important; }
 }
 picture { display: contents; }
+
+/* Erster Bildschirm am Desktop: Zahlen, Logoleiste und stärkster Fall sollen ohne Scrollen sichtbar sein */
+@media (min-width: 900px) {
+  .hero { padding-top: 32px; }
+  .hero-grid { align-items: stretch; gap: 56px; }
+  .hero-copy { padding-bottom: 28px; }
+  .hero .lead { margin-top: 16px; }
+  .hero-actions { margin-top: 22px; }
+  .stats { margin-top: 26px; padding-top: 16px; }
+  .stat dt { font-size: 30px; }
+  .hero-portrait { aspect-ratio: auto; min-height: 0; margin-bottom: 0; }
+  .hero-portrait img { position: absolute; inset: 0; }
+  .refs { padding: 24px 0 26px; }
+  .refs .logo { height: calc(40px * var(--k, 1)); }
+  .refs-label { margin-bottom: 16px; }
+  .refs-bridge { margin-top: 16px; font-size: 21px; }
+  .refs-case { margin-top: 4px; }
+}
+@media (min-width: 1000px) {
+  .header-inner { min-height: 66px; }
+  .hero-grid { grid-template-columns: 1.25fr 0.75fr; }
+  .hero h1 { font-size: clamp(26px, 9.6cqi, 56px); }
+  .hero .lead { font-size: 18px; }
+  .hero { padding-top: 26px; }
+  .stats { margin-top: 20px; padding-top: 14px; }
+  .stat dd { margin-top: 2px; }
+  .refs { padding: 18px 0 20px; }
+  .refs-label { margin-bottom: 12px; }
+  .refs-bridge { margin-top: 12px; font-size: 20px; }
+}
+@media (min-width: 1000px) {
+  /* Button und Zahlen in einer Zeile */
+  .hero-copy { display: grid; grid-template-columns: auto 1fr; column-gap: 40px; align-items: end; }
+  .hero-copy > h1, .hero-copy > .lead { grid-column: 1 / -1; }
+  .hero-actions { grid-column: 1; margin-top: 24px; }
+  .hero-actions .hero-note { display: none; }
+  .stats { grid-column: 2; margin-top: 24px; padding-top: 0; border-top: 0; gap: 24px; }
+  .stat dt { font-size: 28px; }
+  .stat dd { font-size: 14px; }
+}

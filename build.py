@@ -71,15 +71,20 @@ def logo_list(names, R="{R}"):
     return '<ul class="logos" aria-label="Referenzen">' + "".join(out) + "</ul>"
 
 
-def client_logos(names=None, label="Kunden aus unserem Netzwerk"):
+def client_logos(names=None):
+    """Logos aus der Arbeit von Marvins Team. Klar zugeordnet, damit kein falscher Eindruck entsteht."""
     names = CLIENT_LOGOS if names is None else names
     if not (SHOW_CLIENT_LOGOS and names):
         return ""
+    case = C.get("staerkster_fall")
+    case_html = (f'''
+        <p class="refs-case"><a href="#praxis"><strong>{case["wer"]}:</strong> {case["was"]}</a></p>''' if case else "")
     return f'''
-    <section class="refs" aria-label="Referenzen">
+    <section class="refs" aria-labelledby="refs-title">
       <div class="wrap">
-        <p class="refs-label">{label}</p>
+        <p class="refs-label" id="refs-title"><a href="#marvin">{C["logoleiste"]["ueberschrift"]}</a></p>
         <div class="marquee">{logo_list(names)}</div>
+        <p class="refs-bridge">{C["logoleiste"]["bruecke"]}</p>{case_html}
       </div>
     </section>
 '''
@@ -152,7 +157,7 @@ def page(path, title, desc, body, current="", schema=None, crumbs=None, extra_he
     nav = "\n        ".join(nav_link(h, l) for h, l in NAV)
     mnav = "\n    ".join(nav_link(h, l) for h, l in [("", "Startseite")] + NAV)
     brand = f'''<a class="brand" href="{R or './'}" aria-label="{NAME}, zur Startseite">
-        <svg class="brand-mark" aria-hidden="true"><use href="#mark"/></svg>
+        <picture><source type="image/webp" srcset="{R}assets/img/b-logo.webp"><img class="brand-mark" src="{R}assets/img/b-logo.png" width="197" height="244" alt=""></picture>
         <span class="brand-text"><span class="brand-name">Angerer</span> <span class="brand-sub">Consulting</span></span>
       </a>'''
     doc = f'''<!doctype html>
@@ -179,8 +184,8 @@ def page(path, title, desc, body, current="", schema=None, crumbs=None, extra_he
   <meta name="twitter:image" content="{SITE}/assets/img/og.jpg">
   <meta name="author" content="{NAME}">{f"{chr(10)}  <meta name=\"robots\" content=\"{robots}\">" if robots else ""}
   <meta name="theme-color" content="#0c2d4a">
-  <link rel="icon" href="{R}assets/img/logo-mark.svg" type="image/svg+xml">
   <link rel="icon" href="{R}assets/img/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="icon" href="{R}assets/img/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="{R}assets/img/apple-touch-icon.png">
   <link rel="preload" href="{R}assets/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{R}assets/fonts/libre-franklin.woff2" as="font" type="font/woff2" crossorigin>
@@ -299,7 +304,7 @@ def marvin_card(heading_tag="h3"):
     photo = (f'<picture>{f"<source type=\'image/webp\' srcset=\'{{R}}{webp}\'>" if (ROOT / webp).exists() else ""}<img src="{{R}}{MARVIN["photo"]}" width="400" height="400" loading="lazy" alt="Marvin Angerer, Partner bei {NAME}"></picture>'
              if MARVIN["photo"] else '<span class="initials" aria-hidden="true">MA</span>')
     text = "".join(f"<p>{t}</p>" for t in MARVIN["text"])
-    return f'''<article class="partner">
+    return f'''<article class="partner" id="marvin">
           <figure class="partner-photo{' is-placeholder' if not MARVIN['photo'] else ''}">{photo}</figure>
           <div>
             <p class="partner-role">Partner</p>
@@ -326,10 +331,10 @@ def cases_section():
             </dl>{zahl}
           </article>'''
     return f'''
-    <section class="section" aria-labelledby="praxis-title">
+    <section class="section" id="praxis" aria-labelledby="praxis-title">
       <div class="wrap">
         <div class="section-head">
-          <h2 id="praxis-title">Aus der Praxis</h2>
+          <h2 id="praxis-title">Aus der Praxis: Zahlen, die wieder stimmen</h2>
           <p class="lead">Drei Beispiele aus der Arbeit von Bettina Angerer. Namen bleiben vertraulich, deshalb nennen wir nur Branche und Größe.</p>
         </div>
         <div class="cases">{items}
@@ -342,7 +347,7 @@ def cases_section():
 ORG_SCHEMA = {
     "@context": "https://schema.org", "@type": "ProfessionalService", "@id": f"{SITE}/#organisation",
     "name": NAME, "description": CLAIM,
-    "url": f"{SITE}/", "image": f"{SITE}/assets/img/portrait.jpg", "logo": f"{SITE}/assets/img/logo-mark.svg",
+    "url": f"{SITE}/", "image": f"{SITE}/assets/img/portrait.jpg", "logo": f"{SITE}/assets/img/icon-512.png",
     "email": ORG["email"],
     "address": {"@type": "PostalAddress", "streetAddress": ORG["street"], "postalCode": ORG["zip"],
                 "addressLocality": ORG["city"], "addressCountry": "DE"},
