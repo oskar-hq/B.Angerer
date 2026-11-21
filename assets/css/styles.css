@@ -421,10 +421,9 @@ p, li, dd { text-wrap: pretty; }
 
 /* Laufendes Logo-Banner */
 .marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-.marquee.is-running .logos { display: flex; flex-wrap: nowrap; width: max-content; max-width: none; gap: 0; animation: marquee 50s linear infinite; }
+.marquee.is-running .logos { display: flex; flex-wrap: nowrap; width: max-content; max-width: none; margin: 0; gap: 0; animation: marquee var(--dur, 50s) linear infinite; will-change: transform; }
 .marquee.is-running .logos li { padding: 0 32px; }
-.marquee.is-running:hover .logos { animation-play-state: paused; }
-@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes marquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(calc(var(--set, 50%) * -1), 0, 0); } }
 .person-name { font-size: clamp(30px, 4vw, 40px); margin: 4px 0 20px; }
 
 /* ---------- Footer ---------- */

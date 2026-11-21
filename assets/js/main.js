@@ -25,14 +25,29 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
   }
 
-  /* ---------- Logo-Banner läuft endlos (nicht bei reduzierter Bewegung) ---------- */
+  /* ---------- Logo-Banner läuft endlos und nahtlos ---------- */
+  // Eine Runde = alle Logos einmal. Es werden so viele Runden angehängt, dass immer die ganze
+  // Breite gefüllt ist; die Animation verschiebt um genau eine Runde, so ist kein Sprung zu sehen.
   var marquee = document.querySelector('.marquee');
   if (marquee && !reduce) {
     var list = marquee.querySelector('.logos');
-    Array.prototype.slice.call(list.children).forEach(function (li) {
-      var c = li.cloneNode(true); c.setAttribute('aria-hidden', 'true'); list.appendChild(c);
-    });
-    marquee.classList.add('is-running');
+    var originals = Array.prototype.slice.call(list.children);
+    var setupMarquee = function () {
+      Array.prototype.slice.call(list.children).forEach(function (li, i) { if (i >= originals.length) li.remove(); });
+      marquee.classList.add('is-running');
+      var setWidth = originals.reduce(function (sum, li) { return sum + li.getBoundingClientRect().width; }, 0);
+      if (!setWidth) return;
+      var copies = Math.ceil(marquee.clientWidth / setWidth) + 1;
+      for (var c = 0; c < copies; c++) {
+        originals.forEach(function (li) { var k = li.cloneNode(true); k.setAttribute('aria-hidden', 'true'); list.appendChild(k); });
+      }
+      list.style.setProperty('--set', setWidth + 'px');
+      list.style.setProperty('--dur', (setWidth / 45).toFixed(1) + 's');
+    };
+    setupMarquee();
+    window.addEventListener('load', setupMarquee);
+    var mqTimer;
+    window.addEventListener('resize', function () { clearTimeout(mqTimer); mqTimer = setTimeout(setupMarquee, 200); });
   }
 
   /* ---------- Scroll-Effekte: nur zwei, beide erzählen etwas ---------- */
