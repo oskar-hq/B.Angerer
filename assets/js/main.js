@@ -94,7 +94,7 @@
     main.appendChild(svg);
     var nodes = [], len = 0, ys = [];
     var build = function () {
-      var sections = Array.prototype.slice.call(main.querySelectorAll(':scope > section')).slice(1);
+      var sections = Array.prototype.slice.call(main.querySelectorAll(':scope > section:not(.refs)')).slice(1);
       var mainTop = main.getBoundingClientRect().top + window.scrollY;
       var left = Math.max(0, (window.innerWidth - 1200) / 2 - 20);
       svg.style.left = left + 'px';

@@ -398,8 +398,13 @@ p, li, dd { text-wrap: pretty; }
 @media (min-width: 900px) { .contact { grid-template-columns: 1fr 1fr; } .contact-card { padding: 48px; } }
 
 /* Referenzen (nur nach Freigabe sichtbar) */
-.refs { padding: 32px 0; border-bottom: 1px solid var(--line); }
-.refs-label { text-align: center; font-size: 15px; color: var(--ink-soft); margin-bottom: 20px; }
+.refs { padding: 40px 0 44px; border-bottom: 1px solid var(--line); }
+.refs .logo { height: calc(34px * var(--k, 1)); }
+.refs .marquee { margin: 0 calc(50% - 50vw); }
+.marquee.is-running .logos li { padding: 0 36px; }
+@media (min-width: 900px) { .refs { padding: 56px 0 60px; } .refs .logo { height: calc(46px * var(--k, 1)); } .marquee.is-running .logos li { padding: 0 52px; } }
+.refs-label { text-align: center; font-size: 16px; font-weight: 600; color: var(--gold-ink); margin-bottom: 28px; }
+@media (min-width: 900px) { .refs-label { font-size: 17px; margin-bottom: 36px; } }
 .logos { display: grid; grid-template-columns: repeat(3, 1fr); justify-items: center; align-items: center; gap: 24px 16px; max-width: 1040px; margin: 0 auto; }
 @media (min-width: 760px) { .logos { grid-template-columns: repeat(6, 1fr); gap: 32px 24px; } }
 .logos:has(> li:nth-child(4):last-child), .logos:has(> li:nth-child(5):last-child) { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px 48px; }
@@ -420,9 +425,8 @@ p, li, dd { text-wrap: pretty; }
 @media (min-width: 900px) { .svc { grid-template-columns: 0.9fr 1.1fr; gap: 64px; padding: 40px 0; } .svc-head h3 { font-size: 28px; } }
 
 /* Laufendes Logo-Banner */
-.marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
 .marquee.is-running .logos { display: flex; flex-wrap: nowrap; width: max-content; max-width: none; margin: 0; gap: 0; animation: marquee var(--dur, 50s) linear infinite; will-change: transform; }
-.marquee.is-running .logos li { padding: 0 32px; }
 @keyframes marquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(calc(var(--set, 50%) * -1), 0, 0); } }
 .person-name { font-size: clamp(30px, 4vw, 40px); margin: 4px 0 20px; }
 
