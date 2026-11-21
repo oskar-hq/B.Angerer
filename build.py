@@ -491,7 +491,7 @@ faq_schema = {"@context": "https://schema.org", "@type": "FAQPage",
               "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
 web_schema = {"@context": "https://schema.org", "@type": "WebSite", "name": NAME, "url": f"{SITE}/", "inLanguage": "de"}
 urls.append(page("index.html", f"{NAME} | Unternehmensberatung für den Mittelstand",
-                 "Unternehmensberatung und modernes Marketing für den Mittelstand im DACH-Raum. Wir analysieren, richten neu aus und bringen Ihr Marketing auf den Stand von heute.",
+                 "Unternehmensberatung und modernes Marketing für den Mittelstand im DACH-Raum. Wir analysieren, richten neu aus und machen Ihr Marketing zeitgemäß.",
                  home, schema=[ORG_SCHEMA, web_schema, faq_schema], body_cls="home",
                  extra_head='  <link rel="preload" as="image" type="image/webp" href="assets/img/portrait-600.webp" imagesrcset="assets/img/portrait-600.webp 600w, assets/img/portrait.webp 1076w" imagesizes="(min-width: 900px) 540px, 100vw" fetchpriority="high">\n'))
 
