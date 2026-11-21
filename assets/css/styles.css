@@ -398,12 +398,12 @@ p, li, dd { text-wrap: pretty; }
 @media (min-width: 900px) { .contact { grid-template-columns: 1fr 1fr; } .contact-card { padding: 48px; } }
 
 /* Referenzen (nur nach Freigabe sichtbar) */
-.refs { padding: 40px 0 44px; border-bottom: 1px solid var(--line); }
-.refs .logo { height: calc(34px * var(--k, 1)); }
+.refs { padding: 26px 0 28px; border-bottom: 1px solid var(--line); }
+.refs .logo { height: calc(24px * var(--k, 1)); }
 .refs .marquee { margin: 0 calc(50% - 50vw); }
-.marquee.is-running .logos li { padding: 0 36px; }
+.marquee.is-running .logos li { padding: 0 22px; }
 @media (min-width: 900px) { .refs { padding: 56px 0 60px; } .refs .logo { height: calc(46px * var(--k, 1)); } .marquee.is-running .logos li { padding: 0 52px; } }
-.refs-label { text-align: center; font-size: 16px; font-weight: 600; color: var(--gold-ink); margin-bottom: 28px; }
+.refs-label { text-align: center; font-size: 15px; font-weight: 600; color: var(--gold-ink); margin-bottom: 16px; }
 @media (min-width: 900px) { .refs-label { font-size: 17px; margin-bottom: 36px; } }
 .logos { display: grid; grid-template-columns: repeat(3, 1fr); justify-items: center; align-items: center; gap: 24px 16px; max-width: 1040px; margin: 0 auto; }
 @media (min-width: 760px) { .logos { grid-template-columns: repeat(6, 1fr); gap: 32px 24px; } }
