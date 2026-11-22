@@ -212,8 +212,6 @@ def page(path, title, desc, body, current="", schema=None, crumbs=None, extra_he
   {SYMBOLS}
   <a class="skip" href="#inhalt">Zum Inhalt springen</a>
 
-  <div class="strip">Strategische Beratung für den Mittelstand im DACH-Raum. Ausgewählte Mandate.</div>
-
   <header class="header" id="top">
     <div class="wrap header-inner">
       {brand}
