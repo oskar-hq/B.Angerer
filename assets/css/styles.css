@@ -571,57 +571,27 @@ p, li, dd { text-wrap: pretty; }
 }
 picture { display: contents; }
 
-/* Erster Bildschirm am Desktop: Zahlen, Logoleiste und stärkster Fall sollen ohne Scrollen sichtbar sein */
-@media (min-width: 900px) {
+/* Startseite, Entwurf 1: Button plus Textlink, Zahlen mit kleiner Strähne, Logoband auf Beige */
+.hero-actions .hero-note { flex-basis: 100%; order: 3; }
+.stat dt { position: relative; padding-top: 12px; }
+.stat dt::before { content: ""; position: absolute; left: 0; top: 0; width: 34px; height: 8px; background: no-repeat center / 100% 100% url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 40' preserveAspectRatio='none'%3E%3Cpath d='M0 30C70 34 120 8 200 10s140 22 200 6c-58 22-128 6-200 4S70 38 0 30z' fill='%232e66db'/%3E%3C/svg%3E"); }
+.refs { background: var(--paper); border-bottom: 0; }
+.refs-intro { display: block; text-align: center; margin-bottom: 12px; }
+.refs-bridge { font-size: 19px; max-width: none; }
+.refs-label { font-size: 14px; margin-bottom: 14px; }
+@media (min-width: 1000px) {
+  .hero .hero-note { display: none; }
   .hero { padding-top: 32px; }
   .hero-grid { align-items: stretch; gap: 56px; }
-  .hero-copy { padding-bottom: 28px; }
-  .hero .lead { margin-top: 16px; }
-  .hero-actions { margin-top: 22px; }
-  .stats { margin-top: 26px; padding-top: 16px; }
-  .stat dt { font-size: 30px; }
-  .hero-portrait { aspect-ratio: auto; min-height: 0; margin-bottom: 0; }
+  .hero-copy { padding-bottom: 32px; }
+  .hero-portrait { aspect-ratio: auto; }
   .hero-portrait img { position: absolute; inset: 0; }
-  .refs { padding: 24px 0 26px; }
-  .refs .logo { height: calc(40px * var(--k, 1)); }
-  .refs-label { margin-bottom: 16px; }
-    }
-@media (min-width: 1000px) {
-  .header-inner { min-height: 66px; }
-  .hero-grid { grid-template-columns: 1.25fr 0.75fr; }
-  .hero h1 { font-size: clamp(26px, 9.6cqi, 56px); }
-  .hero .lead { font-size: 18px; }
-  .hero { padding-top: 26px; }
-  .stats { margin-top: 20px; padding-top: 14px; }
-  .stat dd { margin-top: 2px; }
-  .refs { padding: 18px 0 20px; }
-  .refs-label { margin-bottom: 12px; }
-  }
-@media (min-width: 1000px) {
-  /* Button und Zahlen in einer Zeile */
-  .hero-copy { display: grid; grid-template-columns: auto 1fr; column-gap: 40px; align-items: end; }
-  .hero-copy > h1, .hero-copy > .lead { grid-column: 1 / -1; }
-  .hero-actions { grid-column: 1; margin-top: 24px; }
-  .hero-actions .hero-note { display: none; }
-  .stats { grid-column: 2; margin-top: 24px; padding-top: 0; border-top: 0; gap: 24px; }
-  .stat dt { font-size: 28px; }
-  .stat dd { font-size: 14px; }
+  .hero-actions { margin-top: 28px; }
+  .stats { display: flex; gap: 64px; margin-top: 32px; padding-top: 0; border-top: 0; }
+  .stat dt { font-size: 34px; }
+  .stat dd { font-size: 15px; }
+  .refs { padding: 26px 0 22px; }
+  .refs-bridge { font-size: 21px; }
 }
 
-/* Über der Logoleiste: Brücke zum Mittelstand und stärkster Fall */
-.refs-intro { display: grid; gap: 14px; margin-bottom: 22px; }
-.refs-bridge { font-family: var(--serif); font-weight: 600; font-size: 19px; line-height: 1.35; color: var(--navy); text-wrap: balance; }
-.refs-case { display: grid; grid-template-columns: 1fr auto; gap: 2px 14px; align-items: center; text-decoration: none; padding: 12px 16px; background: var(--paper); border-radius: 4px; border-left: 3px solid var(--strand); transition: background-color 200ms; }
-.refs-case:hover { background: #efe9dd; }
-.refs-case-tag { grid-column: 1; font-size: 12px; font-weight: 700; letter-spacing: 0.02em; color: var(--gold-ink); }
-.refs-case-who { grid-column: 1; font-weight: 600; font-size: 15px; color: var(--ink); }
-.refs-case-what { grid-column: 1; font-size: 15px; line-height: 1.4; color: var(--ink-soft); }
-.refs-case-flip { grid-column: 2; grid-row: 1 / span 3; display: flex; align-items: center; gap: 6px; font-family: var(--serif); font-weight: 700; font-size: 26px; line-height: 1; }
-.refs-case-flip .neg { color: var(--red); }
-.refs-case-flip .pos { color: var(--black); }
-.refs-case-flip .arrow { width: 18px; height: 18px; color: var(--strand); }
-@media (min-width: 900px) {
-  .refs-intro { grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
-  .refs-bridge { font-size: 22px; }
-  .refs-case-who, .refs-case-what { font-size: 15px; }
-}
+.refs-bridge { font-family: var(--serif); font-weight: 600; line-height: 1.35; color: var(--navy); text-wrap: balance; }

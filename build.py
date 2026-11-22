@@ -419,6 +419,7 @@ home = f'''    <section class="hero" aria-labelledby="hero-title">
           <p class="lead">{hero_sub}</p>
           <div class="hero-actions">
             {cta()}
+            <a class="textlink hero-more" href="#leistungen">Unsere Leistungen {ARROW}</a>
             <span class="hero-note">Sechs kurze Fragen. Wir lesen jede Anfrage persönlich.</span>
           </div>
           <dl class="stats">{stats}</dl>
