@@ -84,7 +84,7 @@ def client_logos(names=None):
       <div class="wrap">
         <p class="refs-label" id="refs-title"><a href="#marvin">{C["logoleiste"]["ueberschrift"]}</a></p>
         <div class="marquee">{logo_list(names)}</div>
-        <p class="refs-bridge">{C["logoleiste"]["bruecke"]}</p>{case_html}
+{f'{chr(10)}        <p class="refs-bridge">{C["logoleiste"]["bruecke"]}</p>' if C["logoleiste"].get("bruecke") else ""}{case_html}
       </div>
     </section>
 '''
