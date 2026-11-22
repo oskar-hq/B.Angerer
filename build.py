@@ -76,15 +76,24 @@ def client_logos(names=None):
     names = CLIENT_LOGOS if names is None else names
     if not (SHOW_CLIENT_LOGOS and names):
         return ""
-    case = C.get("staerkster_fall")
-    case_html = (f'''
-        <p class="refs-case"><a href="#praxis"><strong>{case["wer"]}:</strong> {case["was"]}</a></p>''' if case else "")
+    lg, case = C["logoleiste"], C.get("staerkster_fall")
+    bridge = f'<p class="refs-bridge">{lg["bruecke"]}</p>' if lg.get("bruecke") else ""
+    case_html = (f'''<a class="refs-case" href="#praxis">
+            <span class="refs-case-tag">Aus der Praxis</span>
+            <span class="refs-case-who">{case["wer"]}</span>
+            <span class="refs-case-what">{case["was"]}</span>
+            <span class="refs-case-flip" aria-hidden="true"><span class="neg">−</span>{ARROW}<span class="pos">+</span></span>
+          </a>''' if case else "")
+    intro = f'''
+        <div class="refs-intro">
+          {bridge}
+          {case_html}
+        </div>''' if (bridge or case_html) else ""
     return f'''
     <section class="refs" aria-labelledby="refs-title">
-      <div class="wrap">
-        <p class="refs-label" id="refs-title"><a href="#marvin">{C["logoleiste"]["ueberschrift"]}</a></p>
+      <div class="wrap">{intro}
+        <p class="refs-label" id="refs-title"><a href="#marvin">{lg["ueberschrift"]}</a></p>
         <div class="marquee">{logo_list(names)}</div>
-{f'{chr(10)}        <p class="refs-bridge">{C["logoleiste"]["bruecke"]}</p>' if C["logoleiste"].get("bruecke") else ""}{case_html}
       </div>
     </section>
 '''

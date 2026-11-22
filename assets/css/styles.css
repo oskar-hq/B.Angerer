@@ -432,12 +432,6 @@ p, li, dd { text-wrap: pretty; }
 
 .refs-label a { text-decoration: none; }
 .refs-label a:hover { text-decoration: underline; text-decoration-color: var(--strand); text-underline-offset: 4px; }
-.refs-bridge { text-align: center; max-width: 640px; margin: 18px auto 0; font-family: var(--serif); font-size: 19px; line-height: 1.4; font-weight: 600; color: var(--navy); }
-.refs-case { text-align: center; max-width: 680px; margin: 10px auto 0; font-size: 15px; color: var(--ink-soft); }
-.refs-case a { text-decoration: none; }
-.refs-case a:hover { text-decoration: underline; text-decoration-color: var(--strand); }
-.refs-case strong { color: var(--ink); font-weight: 600; }
-@media (min-width: 900px) { .refs-bridge { font-size: 22px; margin-top: 28px; } .refs-case { font-size: 16px; } }
 
 /* ---------- Footer ---------- */
 .footer { background: var(--navy-deep); color: var(--on-dark-soft); padding: 64px 0 32px; }
@@ -591,9 +585,7 @@ picture { display: contents; }
   .refs { padding: 24px 0 26px; }
   .refs .logo { height: calc(40px * var(--k, 1)); }
   .refs-label { margin-bottom: 16px; }
-  .refs-bridge { margin-top: 16px; font-size: 21px; }
-  .refs-case { margin-top: 4px; }
-}
+    }
 @media (min-width: 1000px) {
   .header-inner { min-height: 66px; }
   .hero-grid { grid-template-columns: 1.25fr 0.75fr; }
@@ -604,8 +596,7 @@ picture { display: contents; }
   .stat dd { margin-top: 2px; }
   .refs { padding: 18px 0 20px; }
   .refs-label { margin-bottom: 12px; }
-  .refs-bridge { margin-top: 12px; font-size: 20px; }
-}
+  }
 @media (min-width: 1000px) {
   /* Button und Zahlen in einer Zeile */
   .hero-copy { display: grid; grid-template-columns: auto 1fr; column-gap: 40px; align-items: end; }
@@ -615,4 +606,22 @@ picture { display: contents; }
   .stats { grid-column: 2; margin-top: 24px; padding-top: 0; border-top: 0; gap: 24px; }
   .stat dt { font-size: 28px; }
   .stat dd { font-size: 14px; }
+}
+
+/* Über der Logoleiste: Brücke zum Mittelstand und stärkster Fall */
+.refs-intro { display: grid; gap: 14px; margin-bottom: 22px; }
+.refs-bridge { font-family: var(--serif); font-weight: 600; font-size: 19px; line-height: 1.35; color: var(--navy); text-wrap: balance; }
+.refs-case { display: grid; grid-template-columns: 1fr auto; gap: 2px 14px; align-items: center; text-decoration: none; padding: 12px 16px; background: var(--paper); border-radius: 4px; border-left: 3px solid var(--strand); transition: background-color 200ms; }
+.refs-case:hover { background: #efe9dd; }
+.refs-case-tag { grid-column: 1; font-size: 12px; font-weight: 700; letter-spacing: 0.02em; color: var(--gold-ink); }
+.refs-case-who { grid-column: 1; font-weight: 600; font-size: 15px; color: var(--ink); }
+.refs-case-what { grid-column: 1; font-size: 15px; line-height: 1.4; color: var(--ink-soft); }
+.refs-case-flip { grid-column: 2; grid-row: 1 / span 3; display: flex; align-items: center; gap: 6px; font-family: var(--serif); font-weight: 700; font-size: 26px; line-height: 1; }
+.refs-case-flip .neg { color: var(--red); }
+.refs-case-flip .pos { color: var(--black); }
+.refs-case-flip .arrow { width: 18px; height: 18px; color: var(--strand); }
+@media (min-width: 900px) {
+  .refs-intro { grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+  .refs-bridge { font-size: 22px; }
+  .refs-case-who, .refs-case-what { font-size: 15px; }
 }
